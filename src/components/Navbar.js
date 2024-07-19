@@ -1,0 +1,227 @@
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
+import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+import img from "../assets/1.png";
+
+const Navbar = ({ toggleTheme }) => {
+  const savedDarkMode = localStorage.getItem("darkMode") === "true";
+  const [darkMode, setDarkMode] = useState(savedDarkMode);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode);
+    document.body.classList.toggle("dark-mode", newDarkMode);
+    toggleTheme();
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = document.querySelector("nav").offsetHeight;
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+      setIsOpen(false);
+    }
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(savedDarkMode);
+    document.body.classList.toggle("dark-mode", savedDarkMode);
+  }, []);
+
+  return (
+    <NavbarContainer darkMode={darkMode}>
+      <NavbarWrapper>
+        <Logo onClick={scrollToTop}>
+          <img src={img} alt="logo" />
+          Wynajem Namiotów
+        </Logo>
+        <MobileIcon onClick={toggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </MobileIcon>
+      </NavbarWrapper>
+      <NavLinksContainer>
+        <NavLinks isOpen={isOpen}>
+          <NavLink
+            href="#start"
+            onClick={(e) => handleSmoothScroll(e, "start")}
+          >
+            Start
+          </NavLink>
+          <NavLink
+            href="#o-firmie"
+            onClick={(e) => handleSmoothScroll(e, "o-firmie")}
+          >
+            O firmie
+          </NavLink>
+          <NavLink
+            href="#galeria"
+            onClick={(e) => handleSmoothScroll(e, "galeria")}
+          >
+            Galeria
+          </NavLink>
+          <NavLink
+            href="#kontakt"
+            onClick={(e) => handleSmoothScroll(e, "kontakt")}
+          >
+            Kontakt
+          </NavLink>
+          <DarkModeToggle onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </DarkModeToggle>
+        </NavLinks>
+      </NavLinksContainer>
+    </NavbarContainer>
+  );
+};
+
+const NavbarContainer = styled(({ darkMode, ...props }) => <nav {...props} />)`
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  ${({ darkMode }) =>
+    darkMode &&
+    css`
+      background: ${({ theme }) => theme.body};
+      color: ${({ theme }) => theme.text};
+    `}
+`;
+
+const NavbarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  padding: 20px; /* Zmniejsz padding, aby dopasować rozmiar */
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: ${({ theme }) => theme.text};
+
+  img {
+    width: 50px; /* Dopasuj rozmiar obrazu */
+    height: auto;
+    margin-right: 10px;
+  }
+`;
+
+const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.text};
+    z-index: 1000;
+  }
+`;
+
+const NavLinksContainer = styled.div`
+  @media screen and (min-width: 961px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: none;
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const NavLinks = styled(({ isOpen, ...props }) => <div {...props} />)`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isOpen }) =>
+    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  width: 100%;
+  z-index: 998;
+
+  @media screen and (min-width: 961px) {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: relative;
+    transform: translateY(0);
+    background: none;
+  }
+`;
+
+const NavLink = styled.a`
+  color: ${({ theme }) => theme.text};
+  text-decoration: none;
+  padding: 1rem 0;
+  text-align: center;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    padding: 0;
+    margin: 0 10px;
+  }
+`;
+
+const DarkModeToggle = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  svg {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.text};
+    transition: color 0.3s;
+  }
+
+  &:hover svg {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    margin-top: 0;
+  }
+`;
+
+export default Navbar;
