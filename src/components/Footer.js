@@ -39,7 +39,7 @@ const SocialIcons = styled.div`
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
-      margin: 0 0.25rem; /* Zmniejsza marginesy w wersji mobilnej */
+      margin: 0 1.25rem; /* Zmniejsza marginesy w wersji mobilnej */
     }
   }
 `;
