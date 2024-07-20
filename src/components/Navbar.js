@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+import { FaTent } from "react-icons/fa6";
+import { motion } from "framer-motion";
 import img from "../assets/1.png";
 
 const Navbar = ({ toggleTheme }) => {
@@ -75,20 +77,34 @@ const Navbar = ({ toggleTheme }) => {
             O firmie
           </NavLink>
           <NavLink
-            href="#galeria"
-            onClick={(e) => handleSmoothScroll(e, "galeria")}
-          >
-            Galeria
-          </NavLink>
-          <NavLink
             href="#kontakt"
             onClick={(e) => handleSmoothScroll(e, "kontakt")}
           >
             Kontakt
           </NavLink>
+          <NavLink
+            href="#galeria"
+            onClick={(e) => handleSmoothScroll(e, "galeria")}
+          >
+            Oferta
+          </NavLink>
           <DarkModeToggle onClick={toggleDarkMode}>
             {darkMode ? <FaSun /> : <FaMoon />}
           </DarkModeToggle>
+          <MobileTentIcon>
+            <span
+              data-tooltip-id="tentTooltip"
+              data-tooltip-content="Namioty Imprezowe"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <FaTent size={40} />
+              </motion.div>
+            </span>
+          </MobileTentIcon>
         </NavLinks>
       </NavLinksContainer>
     </NavbarContainer>
@@ -120,7 +136,7 @@ const NavbarWrapper = styled.div`
   align-items: center;
   width: 100%;
   max-width: 960px;
-  padding: 20px; /* Zmniejsz padding, aby dopasować rozmiar */
+  padding: 20px;
 `;
 
 const Logo = styled.div`
@@ -130,7 +146,7 @@ const Logo = styled.div`
   color: ${({ theme }) => theme.text};
 
   img {
-    width: 50px; /* Dopasuj rozmiar obrazu */
+    width: 50px;
     height: auto;
     margin-right: 10px;
   }
@@ -162,6 +178,7 @@ const NavLinksContainer = styled.div`
 const NavLinks = styled(({ isOpen, ...props }) => <div {...props} />)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
   position: fixed;
   top: 0;
@@ -203,6 +220,16 @@ const NavLink = styled.a`
   }
 `;
 
+const MobileTentIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+`;
+
 const DarkModeToggle = styled.div`
   cursor: pointer;
   display: flex;
@@ -221,6 +248,7 @@ const DarkModeToggle = styled.div`
 
   @media screen and (min-width: 961px) {
     margin-top: 0;
+    margin-left: 10px; /* Dodaj margines lewy */
   }
 `;
 

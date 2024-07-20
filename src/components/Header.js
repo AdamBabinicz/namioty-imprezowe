@@ -75,6 +75,11 @@ const Title = styled(motion.h1)`
   position: relative;
   cursor: pointer;
 
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    text-wrap: balance;
+  }
+
   &:hover {
     color: #ff0; /* Zmiana koloru na żółty po najechaniu */
   }

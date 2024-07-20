@@ -25,8 +25,8 @@ const Contact = () => {
       </ImageContainer>
       <ContactInfo>
         <ContactItem
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          whileTap={{ scale: 0.9, rotate: -5 }}
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          whileTap={{ scale: 0.9, rotate: -2 }}
         >
           <FaPhone />
           <a href="tel:+48531890827">
@@ -34,15 +34,13 @@ const Contact = () => {
           </a>
         </ContactItem>
         <ContactItem
-          whileHover={{ scale: 1.1, rotate: 5 }}
-          whileTap={{ scale: 0.9, rotate: -5 }}
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          whileTap={{ scale: 0.9, rotate: -2 }}
         >
           <FaEnvelope />
-          <span>
-            <a href="mailto:mariusz1989poczta@wp.pl">
-              E-mail: mariusz1989poczta@wp.pl
-            </a>
-          </span>
+          <a href="mailto:mariusz1989poczta@wp.pl">
+            <span>E-mail: mariusz1989poczta@wp.pl</span>
+          </a>
         </ContactItem>
       </ContactInfo>
     </ContactContainer>

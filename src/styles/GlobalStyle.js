@@ -32,6 +32,10 @@ a:hover {
     theme.linkHover}; /* Ustawia kolor linków podczas najechania myszką */
 }
 
+p {
+  line-height: 1.6; /* Ustawia wysokość linii dla tekstu w paragrafach */
+}
+
 .dark-mode {
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
@@ -42,3 +46,5 @@ a:hover {
   color: ${({ theme }) => theme.text};
 }
 `;
+
+export default GlobalStyle;

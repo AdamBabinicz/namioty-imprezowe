@@ -2,8 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Tooltip } from "react-tooltip";
-import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
-import { FaTent } from "react-icons/fa6";
+import { FaFacebook, FaTwitter, FaPinterest } from "react-icons/fa";
 
 const FooterContainer = styled.footer`
   display: flex;
@@ -16,7 +15,9 @@ const FooterContainer = styled.footer`
   position: relative;
 
   @media (max-width: 768px) {
-    margin: 0 1rem 1.5rem;
+    flex-direction: column; /* Zmienia układ na kolumnowy w wersji mobilnej */
+    justify-content: center;
+    align-items: center;
     padding: 1rem;
   }
 `;
@@ -38,6 +39,7 @@ const SocialIcons = styled.div`
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
+      margin: 0 0.25rem; /* Zmniejsza marginesy w wersji mobilnej */
     }
   }
 `;
@@ -51,25 +53,18 @@ const TooltipText = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
+const FooterText = styled.p`
+  @media (max-width: 768px) {
+    margin-top: 1rem; /* Dodaje margines górny w wersji mobilnej */
+  }
+`;
+
 export const Footer = () => {
   return (
     <FooterContainer>
-      <p>Radom, 2024 - {new Date().getFullYear()}.</p>
-      <span
-        data-tooltip-id="tentTooltip"
-        data-tooltip-content="Namioty Imprezowe"
-      >
-        <motion.div
-          whileHover={{ scale: 1.1, rotate: 10 }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <FaTent size={40} />
-        </motion.div>
-      </span>
       <SocialIcons>
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/wata.cukrowa.popcorn"
           target="_blank"
           rel="noopener noreferrer"
           data-tooltip-id="facebookTooltip"
@@ -83,7 +78,7 @@ export const Footer = () => {
           </motion.div>
         </a>
         <a
-          href="https://twitter.com"
+          href="https://twitter.com/popcorn_wata"
           target="_blank"
           rel="noopener noreferrer"
           data-tooltip-id="twitterTooltip"
@@ -97,25 +92,26 @@ export const Footer = () => {
           </motion.div>
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.pinterest.com/watapopcorn"
           target="_blank"
           rel="noopener noreferrer"
-          data-tooltip-id="instagramTooltip"
-          data-tooltip-content="Instagram"
+          data-tooltip-id="pinterestTooltip"
+          data-tooltip-content="Pinterest"
         >
           <motion.div
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.3 }}
           >
-            <FaInstagram />
+            <FaPinterest />
           </motion.div>
         </a>
       </SocialIcons>
+      <FooterText>Radom, 2024 - {new Date().getFullYear()}.</FooterText>
 
       <Tooltip id="tentTooltip" />
       <Tooltip id="facebookTooltip" />
       <Tooltip id="twitterTooltip" />
-      <Tooltip id="instagramTooltip" />
+      <Tooltip id="pinterestTooltip" />
     </FooterContainer>
   );
 };

@@ -32,6 +32,18 @@ const StyledHeading = styled(motion.h2)`
   }
 `;
 
+const StyledParagraph = styled(motion.p)`
+  max-width: 600px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.6; /* Set a line height for better readability */
+  padding: 0 1rem; /* Add some horizontal padding */
+  text-align: left; /* Justify the text for a clean look */
+
+  &:first-of-type {
+    margin-bottom: 1rem;
+  }
+`;
+
 const ImageContainer = styled.div`
   display: flex;
   justify-content: space-around;
@@ -106,14 +118,25 @@ const About = () => {
       >
         O&nbsp;firmie
       </StyledHeading>
-      <motion.p
+      <StyledParagraph
         initial={{ x: 200, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
       >
-        Nasza firma "Słodkolandia wita" specjalizuje się w wynajmie wysokiej
-        jakości namiotów imprezowych, stołów i krzeseł kateringowych.
-      </motion.p>
+        Nasza firma <b>"Słodkolandia wita"</b> specjalizuje się w&nbsp;wynajmie
+        wysokiej jakości namiotów imprezowych w kolorze białym, stołów
+        kateringowych i&nbsp;krzeseł oraz oświetlenia do namiotów.
+      </StyledParagraph>
+      <StyledParagraph
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
+      >
+        Dostarczamy wyżej wymieniony sprzęt na wszelkie uroczyste okazje typu:
+        Komunie Św., wesela, urodziny, spotkania towarzyskie, rocznice i inne
+        imprezy wymagające zabezpieczenia przed deszczem, słońcem i innymi
+        niesprzyjającymi warunkami atmosferycznymi.
+      </StyledParagraph>
       <ImageContainer>
         <motion.img
           src={img}
@@ -185,9 +208,9 @@ const About = () => {
                 <h2>Nasza oferta</h2>
                 <p>
                   Oferujemy szeroki wybór namiotów na różne okazje,
-                  w&nbsp;różnych rozmiarach i&nbsp;stylach na 60 i 30 osób.
-                  Ponadto wynajmujemy stoły na 6 osób, krzesła kateringowe
-                  i&nbsp;oświetlenie (trawę w&nbsp;gratisie!).
+                  w&nbsp;różnych rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób.
+                  Ponadto wynajmujemy stoły kateringowe na 6 osób, krzesła
+                  i&nbsp;oświetlenie do namiotów (trawę w&nbsp;gratisie!).
                 </p>
               </div>
             )

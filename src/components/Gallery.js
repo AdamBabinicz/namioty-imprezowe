@@ -6,8 +6,8 @@ import { motion, useAnimation } from "framer-motion";
 import image1 from "../assets/1.jpg";
 import image2 from "../assets/2.jpg";
 import image3 from "../assets/3.jpg";
-import image4 from "../assets/1.webp";
-import image5 from "../assets/17.jpg";
+import image4 from "../assets/19.jpg";
+import image5 from "../assets/2.jfif";
 import image6 from "../assets/18.jpg";
 import { lightTheme, darkTheme } from "../styles/themes";
 import "slick-carousel/slick/slick.css";
@@ -196,7 +196,7 @@ const Gallery = ({ theme }) => {
           animate={{ x: 0 }}
           transition={{ delay: 0.3 }}
         >
-          Namioty imprezowe
+          Nasza oferta
         </MotionTitle>
         <Slider {...settings}>
           {images.map((image, index) => (
