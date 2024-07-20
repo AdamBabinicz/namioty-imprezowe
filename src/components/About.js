@@ -133,9 +133,9 @@ const About = () => {
         transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
       >
         Dostarczamy wyżej wymieniony sprzęt na wszelkie uroczyste okazje typu:
-        Komunie Św., wesela, urodziny, spotkania towarzyskie, rocznice i inne
-        imprezy wymagające zabezpieczenia przed deszczem, słońcem i innymi
-        niesprzyjającymi warunkami atmosferycznymi.
+        Komunie Św., wesela, urodziny, spotkania towarzyskie, rocznice
+        i&nbsp;inne imprezy wymagające zabezpieczenia przed deszczem, słońcem
+        i&nbsp;innymi niesprzyjającymi warunkami atmosferycznymi.
       </StyledParagraph>
       <ImageContainer>
         <motion.img

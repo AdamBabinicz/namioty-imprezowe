@@ -1,0 +1,995 @@
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
+import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+import img from "../assets/1.png";
+
+const Navbar = ({ toggleTheme }) => {
+  const savedDarkMode = localStorage.getItem("darkMode") === "true";
+  const [darkMode, setDarkMode] = useState(savedDarkMode);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode);
+    document.body.classList.toggle("dark-mode", newDarkMode);
+    toggleTheme();
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = document.querySelector("nav").offsetHeight;
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+      setIsOpen(false);
+    }
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(savedDarkMode);
+    document.body.classList.toggle("dark-mode", savedDarkMode);
+  }, []);
+
+  return (
+    <NavbarContainer darkMode={darkMode}>
+      <NavbarWrapper>
+        <Logo onClick={scrollToTop}>
+          <img src={img} alt="logo" />
+          Wynajem Namiotów
+        </Logo>
+        <MobileIcon onClick={toggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </MobileIcon>
+      </NavbarWrapper>
+      <NavLinksContainer>
+        <NavLinks isOpen={isOpen}>
+          <NavLink
+            href="#start"
+            onClick={(e) => handleSmoothScroll(e, "start")}
+          >
+            Start
+          </NavLink>
+          <NavLink
+            href="#o-firmie"
+            onClick={(e) => handleSmoothScroll(e, "o-firmie")}
+          >
+            O firmie
+          </NavLink>
+          <NavLink
+            href="#kontakt"
+            onClick={(e) => handleSmoothScroll(e, "kontakt")}
+          >
+            Kontakt
+          </NavLink>
+          <NavLink
+            href="#galeria"
+            onClick={(e) => handleSmoothScroll(e, "galeria")}
+          >
+            Galeria
+          </NavLink>
+          <DarkModeToggle onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </DarkModeToggle>
+        </NavLinks>
+      </NavLinksContainer>
+    </NavbarContainer>
+  );
+};
+
+const NavbarContainer = styled(({ darkMode, ...props }) => <nav {...props} />)`
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  ${({ darkMode }) =>
+    darkMode &&
+    css`
+      background: ${({ theme }) => theme.body};
+      color: ${({ theme }) => theme.text};
+    `}
+`;
+
+const NavbarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  padding: 20px; /* Zmniejsz padding, aby dopasować rozmiar */
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: ${({ theme }) => theme.text};
+
+  img {
+    width: 50px; /* Dopasuj rozmiar obrazu */
+    height: auto;
+    margin-right: 10px;
+  }
+`;
+
+const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.text};
+    z-index: 1000;
+  }
+`;
+
+const NavLinksContainer = styled.div`
+  @media screen and (min-width: 961px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: none;
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const NavLinks = styled(({ isOpen, ...props }) => <div {...props} />)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isOpen }) =>
+    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  width: 100%;
+  z-index: 998;
+
+  @media screen and (min-width: 961px) {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: relative;
+    transform: translateY(0);
+    background: none;
+  }
+`;
+
+const NavLink = styled.a`
+  color: ${({ theme }) => theme.text};
+  text-decoration: none;
+  padding: 1rem 0;
+  text-align: center;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    padding: 0;
+    margin: 0 10px;
+  }
+`;
+
+const DarkModeToggle = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  svg {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.text};
+    transition: color 0.3s;
+  }
+
+  &:hover svg {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    margin-top: 0;
+  }
+`;
+
+export default Navbar;
+
+
+
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { Tooltip } from "react-tooltip";
+import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+
+const FooterContainer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  padding: 5rem;
+  position: relative;
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.text};
+    margin: 0 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: ${({ theme }) => theme.linkHover};
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+`;
+
+const TooltipText = styled.div`
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.body};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+`;
+
+export const Footer = () => {
+  return (
+    <FooterContainer>
+      <p>Radom, 2024 - {new Date().getFullYear()}.</p>
+      <SocialIcons>
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="facebookTooltip"
+          data-tooltip-content="Facebook"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaFacebook />
+          </motion.div>
+        </a>
+        <a
+          href="https://twitter.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="twitterTooltip"
+          data-tooltip-content="Twitter"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaTwitter />
+          </motion.div>
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="instagramTooltip"
+          data-tooltip-content="Instagram"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaInstagram />
+          </motion.div>
+        </a>
+      </SocialIcons>
+
+      <Tooltip id="tentTooltip" />
+      <Tooltip id="facebookTooltip" />
+      <Tooltip id="twitterTooltip" />
+      <Tooltip id="instagramTooltip" />
+    </FooterContainer>
+  );
+};
+
+
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
+import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+import { FaTent } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import img from "../assets/1.png";
+
+const Navbar = ({ toggleTheme }) => {
+  const savedDarkMode = localStorage.getItem("darkMode") === "true";
+  const [darkMode, setDarkMode] = useState(savedDarkMode);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode);
+    document.body.classList.toggle("dark-mode", newDarkMode);
+    toggleTheme();
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = document.querySelector("nav").offsetHeight;
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+      setIsOpen(false);
+    }
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(savedDarkMode);
+    document.body.classList.toggle("dark-mode", savedDarkMode);
+  }, []);
+
+  return (
+    <NavbarContainer darkMode={darkMode}>
+      <NavbarWrapper>
+        <Logo onClick={scrollToTop}>
+          <img src={img} alt="logo" />
+          Wynajem Namiotów
+        </Logo>
+        <MobileIcon onClick={toggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </MobileIcon>
+      </NavbarWrapper>
+      <NavLinksContainer>
+        <NavLinks isOpen={isOpen}>
+          <NavLink
+            href="#start"
+            onClick={(e) => handleSmoothScroll(e, "start")}
+          >
+            Start
+          </NavLink>
+          <NavLink
+            href="#o-firmie"
+            onClick={(e) => handleSmoothScroll(e, "o-firmie")}
+          >
+            O firmie
+          </NavLink>
+          <NavLink
+            href="#kontakt"
+            onClick={(e) => handleSmoothScroll(e, "kontakt")}
+          >
+            Kontakt
+          </NavLink>
+          <NavLink
+            href="#galeria"
+            onClick={(e) => handleSmoothScroll(e, "galeria")}
+          >
+            Galeria
+          </NavLink>
+          <DarkModeToggle onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </DarkModeToggle>
+          <MobileTentIcon>
+            <span
+              data-tooltip-id="tentTooltip"
+              data-tooltip-content="Namioty Imprezowe"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <FaTent size={40} />
+              </motion.div>
+            </span>
+          </MobileTentIcon>
+        </NavLinks>
+      </NavLinksContainer>
+    </NavbarContainer>
+  );
+};
+
+const NavbarContainer = styled(({ darkMode, ...props }) => <nav {...props} />)`
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  ${({ darkMode }) =>
+    darkMode &&
+    css`
+      background: ${({ theme }) => theme.body};
+      color: ${({ theme }) => theme.text};
+    `}
+`;
+
+const NavbarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  padding: 20px;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: ${({ theme }) => theme.text};
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+`;
+
+const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.text};
+    z-index: 1000;
+  }
+`;
+
+const NavLinksContainer = styled.div`
+  @media screen and (min-width: 961px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: none;
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const NavLinks = styled(({ isOpen, ...props }) => <div {...props} />)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isOpen }) =>
+    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  width: 100%;
+  z-index: 998;
+
+  @media screen and (min-width: 961px) {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: relative;
+    transform: translateY(0);
+    background: none;
+  }
+`;
+
+const NavLink = styled.a`
+  color: ${({ theme }) => theme.text};
+  text-decoration: none;
+  padding: 1rem 0;
+  text-align: center;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    padding: 0;
+    margin: 0 10px;
+  }
+`;
+
+const MobileTentIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+`;
+
+const DarkModeToggle = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  svg {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.text};
+    transition: color 0.3s;
+  }
+
+  &:hover svg {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    margin-top: 0;
+  }
+`;
+
+export default Navbar;
+
+
+
+// src/styles/GlobalStyle.js
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.50s linear;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none; /* Usuwa podkreślenie z linków */
+  color: ${({ theme }) => theme.linkColor}; /* Ustawia kolor linków */
+  transition: color 0.3s ease; /* Dodaje płynne przejście koloru z opóźnieniem */
+}
+
+a:hover {
+  color: ${({ theme }) =>
+    theme.linkHover}; /* Ustawia kolor linków podczas najechania myszką */
+}
+
+.dark-mode {
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+}
+
+.light-mode {
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+}
+`;
+
+
+
+import React, { useState } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import Modal from "../hooks/Modal";
+import img from "../assets/10.jpg";
+import img1 from "../assets/12.jpg";
+import img2 from "../assets/13.jpg";
+
+const AboutSection = styled.section`
+  padding: 2rem;
+  margin: 0 5rem 2rem;
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
+  border-radius: 15px;
+  box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const StyledHeading = styled(motion.h2)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+
+  img {
+    width: 30%;
+    max-width: 200px;
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+    }
+
+    @media (max-width: 768px) {
+      width: 90%; /* Ustaw szerokość na 90% w wersji mobilnej */
+      max-width: none; /* Usuń maksymalną szerokość */
+      margin: 5px 0; /* Ustaw mniejszy margines */
+    }
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    background: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.body};
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: ${({ theme }) => theme.hoverBackground};
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const About = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+
+  const handleButtonClick = (content) => {
+    setModalContent(content);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalContent(null);
+  };
+
+  return (
+    <AboutSection id="o-firmie">
+      <StyledHeading
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 50 }}
+      >
+        O&nbsp;firmie
+      </StyledHeading>
+      <motion.p
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
+      >
+        Nasza firma <b>"Słodkolandia wita"</b> specjalizuje się w&nbsp;wynajmie
+        wysokiej jakości namiotów imprezowych w kolorze białym, stołów
+        kateringowych i&nbsp;krzeseł oraz oświetlenia do namiotów. Dostarczamy
+        wyżej wymieniony sprzęt na wszelkie uroczyste okazje typu: Komunie Św.,
+        wesela, urodziny, spotkania towarzyskie, rocznice i inne imprezy
+        wymagające zabezpieczenia przed deszczem, słońcem i innymi
+        niesprzyjającymi warunkami atmosferycznymi.
+      </motion.p>
+      <ImageContainer>
+        <motion.img
+          src={img}
+          alt="Przykład 1"
+          onClick={() =>
+            handleButtonClick(<img src={img} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        />
+        <motion.img
+          src={img1}
+          alt="Przykład 2"
+          onClick={() =>
+            handleButtonClick(<img src={img1} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.2 }}
+        />
+        <motion.img
+          src={img2}
+          alt="Przykład 3"
+          onClick={() =>
+            handleButtonClick(<img src={img2} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        />
+      </ImageContainer>
+      <ButtonContainer>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza misja</h2>
+                <p>
+                  Nasza misja to dostarczanie najlepszych namiotów imprezowych,
+                  aby Twoje wydarzenie było niezapomniane.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza misja
+        </button>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza historia</h2>
+                <p>
+                  Nasza firma została założona w&nbsp;2014 roku i&nbsp;od tego
+                  czasu dostarczamy namioty oraz pozostałe wyposażenie
+                  najwyższej jakości.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza historia
+        </button>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza oferta</h2>
+                <p>
+                  Oferujemy szeroki wybór namiotów na różne okazje,
+                  w&nbsp;różnych rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób.
+                  Ponadto wynajmujemy stoły kateringowe na 6 osób, krzesła
+                  i&nbsp;oświetlenie do namiotów (trawę w&nbsp;gratisie!).
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza Oferta
+        </button>
+      </ButtonContainer>
+      {modalOpen && <Modal closeModal={closeModal}>{modalContent}</Modal>}
+    </AboutSection>
+  );
+};
+
+export default About;
+
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/1.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Firma wynajmująca namioty imprezowe, krzesła i stoły kateringowe oraz oświetlenie do namiotów. Oferujemy szeroki wybór namiotów na różne okazje oraz profesjonalną obsługę."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="wynajem namiotów, Radom, stoły kateringowe, krzesła kateringowe, namioty imprezowe, wynajem sprzętu eventowego, wynajem oświetlenia do namiotów"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Firma wynajmuje namioty imprezowe w różnych rozmiarach, krzesła, stoły kateringowe oraz oświetlenie do namiotów."
+    />
+    <meta property="og:url" content="https://wynajem-namiotow.netlify.app" />
+    <meta
+      property="og:image"
+      content="https://wynajem-namiotow.netlify.app/assets/1.jpg"
+    />
+    <meta property="fb:app_id" content="1234567890" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="600" />
+    <meta property="business:contact_data:street_address" content="Radom" />
+    <meta property="business:contact_data:locality" content="Radom" />
+    <meta property="business:contact_data:region" content="Mazowieckie" />
+    <meta property="business:contact_data:postal_code" content="26-600" />
+    <meta property="business:contact_data:country_name" content="Polska" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://twitter.com/przykladowa_firma" />
+    <meta
+      name="twitter:title"
+      content="Wynajem namiotów imprezowych, krzeseł i stołów kateringowych oraz oświetlenia do namiotów."
+    />
+    <meta
+      name="twitter:description"
+      content="Profesjonalna firma oferująca wynajem namiotów na imprezy, krzeseł i stołów kateringowych oraz oświetlenia do namiotów."
+    />
+    <meta
+      name="twitter:image"
+      content="https://wynajem-namiotow.netlify.app/assets/2.jpg"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Namioty imprezowe wynajmowane przez naszą firmę"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="canonical" href="https://wynajem-namiotow.netlify.app" />
+
+    <title>Wynajem Namiotów Imprezowych, Stołów i Krzeseł</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    { "@context": "https://schema.org", "@type": "Product", "name": "Namiot
+    Imprezowy", "image":
+    "https://wynajem-namiotow.netlify.app/static/media/1.ec2058c66e5ce6e3a14b.jpg",
+    "description": "Wysokiej jakości namiot imprezowy, idealny na różne
+    okazje.", "offers": { "@type": "Offer", "url":
+    "https://wynajem-namiotow.netlify.app/static/media/1.ec2058c66e5ce6e3a14b.jpg",
+    "priceCurrency": "PLN", "price": "1000.00", "itemCondition":
+    "https://schema.org/NewCondition", "availability":
+    "https://schema.org/InStock", "seller": { "@type": "Organization", "name":
+    "Wynajem Namiotów Radom" } } }
+  </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Stół kateringowy",
+        "description": "Wynajem stołów kateringowych na imprezy i wydarzenia.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/17.a4df48e5b1e8af74aa22.jpg",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Stołów Kateringowych Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/17.a4df48e5b1e8af74aa22.jpg",
+          "priceCurrency": "PLN",
+          "price": "25.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Krzesło imprezowe",
+        "description": "Wynajem krzeseł na różne okazje, wygodne i estetyczne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Krzeseł Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+          "priceCurrency": "PLN",
+          "price": "20.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Oświetlenie do namiotów",
+        "description": "Oferujemy oświetlenie do namiotów, które zapewnia odpowiednią atmosferę na Twoim wydarzeniu.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/18.cac0abb042929869c4b8.jpg",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Oświetlenia do Namiotów Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/18.cac0abb042929869c4b8.jpg",
+          "priceCurrency": "PLN",
+          "price": "150.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+  </body>
+</html>
