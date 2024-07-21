@@ -1,0 +1,730 @@
+import React, { useState, useEffect } from "react";
+import styled, { css } from "styled-components";
+import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
+import { FaTent } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import img from "../assets/1.png";
+
+const Navbar = ({ toggleTheme }) => {
+  const savedDarkMode = localStorage.getItem("darkMode") === "true";
+  const [darkMode, setDarkMode] = useState(savedDarkMode);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem("darkMode", newDarkMode);
+    document.body.classList.toggle("dark-mode", newDarkMode);
+    toggleTheme();
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSmoothScroll = (e, targetId) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      const navbarHeight = document.querySelector("nav").offsetHeight;
+      const targetPosition = targetElement.offsetTop - navbarHeight;
+      window.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+      setIsOpen(false);
+    }
+  };
+
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const savedDarkMode = localStorage.getItem("darkMode") === "true";
+    setDarkMode(savedDarkMode);
+    document.body.classList.toggle("dark-mode", savedDarkMode);
+  }, []);
+
+  return (
+    <NavbarContainer darkMode={darkMode}>
+      <NavbarWrapper>
+        <Logo onClick={scrollToTop}>
+          <img src={img} alt="logo" />
+          Wynajem Namiotów
+        </Logo>
+        <MobileIcon onClick={toggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </MobileIcon>
+      </NavbarWrapper>
+      <NavLinksContainer>
+        <NavLinks isOpen={isOpen}>
+          <NavLink
+            href="#start"
+            onClick={(e) => handleSmoothScroll(e, "start")}
+          >
+            Start
+          </NavLink>
+          <NavLink
+            href="#o-firmie"
+            onClick={(e) => handleSmoothScroll(e, "o-firmie")}
+          >
+            O firmie
+          </NavLink>
+          <NavLink
+            href="#kontakt"
+            onClick={(e) => handleSmoothScroll(e, "kontakt")}
+          >
+            Kontakt
+          </NavLink>
+          <NavLink
+            href="#galeria"
+            onClick={(e) => handleSmoothScroll(e, "galeria")}
+          >
+            Oferta
+          </NavLink>
+          <DarkModeToggle onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </DarkModeToggle>
+          <MobileTentIcon>
+            <span
+              data-tooltip-id="tentTooltip"
+              data-tooltip-content="Namioty Imprezowe"
+            >
+              <motion.div
+                whileHover={{ scale: 1.1, rotate: 10 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
+                <FaTent size={40} />
+              </motion.div>
+            </span>
+          </MobileTentIcon>
+        </NavLinks>
+      </NavLinksContainer>
+    </NavbarContainer>
+  );
+};
+
+const NavbarContainer = styled(({ darkMode, ...props }) => <nav {...props} />)`
+  position: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  ${({ darkMode }) =>
+    darkMode &&
+    css`
+      background: ${({ theme }) => theme.body};
+      color: ${({ theme }) => theme.text};
+    `}
+`;
+
+const NavbarWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 960px;
+  padding: 20px;
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: ${({ theme }) => theme.text};
+
+  img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+`;
+
+const MobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.text};
+    z-index: 1000;
+  }
+`;
+
+const NavLinksContainer = styled.div`
+  @media screen and (min-width: 961px) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    background: none;
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const NavLinks = styled(({ isOpen, ...props }) => <div {...props} />)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ isOpen }) =>
+    isOpen ? "translateY(0)" : "translateY(-100%)"};
+  width: 100%;
+  z-index: 998;
+
+  @media screen and (min-width: 961px) {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: relative;
+    transform: translateY(0);
+    background: none;
+  }
+`;
+
+const NavLink = styled.a`
+  color: ${({ theme }) => theme.text};
+  text-decoration: none;
+  padding: 1rem 0;
+  text-align: center;
+  transition: color 0.3s;
+
+  &:hover {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    padding: 0;
+    margin: 0 10px;
+  }
+`;
+
+const MobileTentIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 960px) {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+`;
+
+const DarkModeToggle = styled.div`
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+
+  svg {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.text};
+    transition: color 0.3s;
+  }
+
+  &:hover svg {
+    color: ${({ theme }) => theme.linkHover};
+  }
+
+  @media screen and (min-width: 961px) {
+    margin-top: 0;
+    margin-left: 10px; /* Dodaj margines lewy */
+  }
+`;
+
+export default Navbar;
+
+
+
+import React, { useState, useEffect } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./styles/themes";
+import Navbar from "./components/Navbar";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import Gallery from "./components/Gallery";
+import About from "./components/About";
+import Contact from "./components/Contact";
+// import { EquipmentSlider } from "./components/EquipmentSlider";
+import { CookieConsent } from "react-cookie-consent";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import ScrollToTopButton from "./ScrollToTopButton";
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+function App() {
+  // Przechowywanie motywu w stanie komponentu
+  const [theme, setTheme] = useState(() => {
+    // Odczyt motywu z localStorage lub ustawienie domyślnego
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme : "light";
+  });
+
+  // Funkcja do zmiany motywu
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme); // Zapisanie nowego motywu w localStorage
+    updateBodyClass(newTheme);
+  };
+
+  // Funkcja do aktualizacji klasy na body w zależności od motywu
+  const updateBodyClass = (theme) => {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    document.body.classList.toggle("light-mode", theme === "light");
+  };
+
+  // Ustawienie klasy body po załadowaniu komponentu
+  useEffect(() => {
+    updateBodyClass(theme);
+  }, [theme]);
+
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <AppContainer id="start">
+        <Navbar toggleTheme={toggleTheme} />
+        <Header />
+        <About />
+        {/* <EquipmentSlider theme={theme} /> */}
+        <Contact />
+        <Gallery theme={theme} />
+        {/* Przekazanie aktualnego motywu do Gallery */}
+        <Footer />
+        <CookieConsent
+          debug={true}
+          location="bottom"
+          style={{
+            background: "#333",
+            textAlign: "left",
+            paddingBottom: "1rem",
+            fontSize: "16px",
+            fontFamily: "Gideon Roman",
+          }}
+          buttonStyle={{
+            color: "#333",
+            background: "#fff",
+            fontSize: "18px",
+            fontFamily: "Gideon Roman",
+            marginRight: "1rem",
+          }}
+          buttonText="OK, rozumiem"
+          expires={365}
+        >
+          "W ramach naszej witryny stosujemy pliki cookies w celu świadczenia
+          Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do
+          indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień
+          dotyczących cookies oznacza, że będą one zamieszczane w Państwa
+          urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
+          ustawień dotyczących cookies."
+        </CookieConsent>
+        <ScrollToTopButton />
+      </AppContainer>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+
+
+
+export const lightTheme = {
+  body: "#fff",
+  text: "#333",
+  background: "#f0f0f0",
+  hoverBackground: "#ddd",
+  linkHover: "#007bff",
+  cardBackground: "#fff",
+  cardShadow: "rgba(0, 0, 0, 0.1)",
+  closeButtonColor: "#000", // Dodane
+};
+
+export const darkTheme = {
+  body: "#333",
+  text: "#f0f0f0",
+  background: "#444",
+  hoverBackground: "#898989",
+  linkHover: "#007bff",
+  cardBackground: "#898989",
+  cardShadow: "rgba(0, 0, 0, 0.3)",
+  closeButtonColor: "#fff", // Dodane
+};
+
+
+
+
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { Tooltip } from "react-tooltip";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaPinterest,
+  FaExternalLinkAlt,
+} from "react-icons/fa";
+
+const FooterContainer = styled.footer`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  padding: 5rem;
+  position: relative;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Zmienia układ na kolumnowy w wersji mobilnej */
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+`;
+
+const SocialIcons = styled.div`
+  display: flex;
+  align-items: center;
+
+  a {
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.text};
+    margin: 0 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: ${({ theme }) => theme.linkHover};
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+      margin: 0 1.25rem; /* Zmniejsza marginesy w wersji mobilnej */
+    }
+  }
+`;
+
+const ExternalLinks = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: ${({ theme }) => theme.text};
+    margin: 0 1rem; /* Dodałem margines po bokach */
+    transition: color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      color: ${({ theme }) => theme.linkHover};
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 0.9rem;
+      margin: 0.5rem 0; /* Marginesy góra-dół w wersji mobilnej */
+    }
+  }
+
+  span {
+    margin-left: 0.5rem;
+  }
+`;
+
+const TooltipText = styled.div`
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.body};
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+`;
+
+const FooterText = styled.p`
+  @media (max-width: 768px) {
+    margin-top: 1rem; /* Dodaje margines górny w wersji mobilnej */
+  }
+`;
+
+export const Footer = () => {
+  return (
+    <FooterContainer>
+      <SocialIcons>
+        <a
+          href="https://www.facebook.com/wata.cukrowa.popcorn"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="facebookTooltip"
+          data-tooltip-content="Facebook"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaFacebook />
+          </motion.div>
+        </a>
+        <a
+          href="https://twitter.com/popcorn_wata"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="twitterTooltip"
+          data-tooltip-content="Twitter"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaTwitter />
+          </motion.div>
+        </a>
+        <a
+          href="https://www.pinterest.com/watapopcorn"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="pinterestTooltip"
+          data-tooltip-content="Pinterest"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaPinterest />
+          </motion.div>
+        </a>
+      </SocialIcons>
+      <ExternalLinks>
+        <a
+          href="https://www.slodkolandia.cba.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="slodkolandiaTooltip"
+          data-tooltip-content="Słodkolandia wita"
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaExternalLinkAlt />
+            <span>Słodkolandia wita</span>
+          </motion.div>
+        </a>
+        <a
+          href="https://zamki.netlify.app"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="zamkiTooltip"
+          data-tooltip-content="Zamki"
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaExternalLinkAlt />
+            <span>Zamki</span>
+          </motion.div>
+        </a>
+        <a
+          href="https://www.fontanny.slodkolandia.cba.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="fontannyTooltip"
+          data-tooltip-content="Fontanny"
+        >
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaExternalLinkAlt />
+            <span>Fontanny</span>
+          </motion.div>
+        </a>
+      </ExternalLinks>
+      <FooterText>Radom, 2024 - {new Date().getFullYear()}.</FooterText>
+
+      <Tooltip id="facebookTooltip" />
+      <Tooltip id="twitterTooltip" />
+      <Tooltip id="pinterestTooltip" />
+      <Tooltip id="slodkolandiaTooltip" />
+      <Tooltip id="zamkiTooltip" />
+      <Tooltip id="fontannyTooltip" />
+    </FooterContainer>
+  );
+};
+
+
+import React from "react";
+import styled from "styled-components";
+import { FaPhone, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
+import img from "../assets/2.gif";
+
+const Contact = () => {
+  return (
+    <ContactContainer id="kontakt">
+      <Title
+        initial={{ y: -200, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 50 }}
+      >
+        Kontakt
+      </Title>
+      <ImageContainer>
+        <motion.img
+          src={img}
+          alt="..."
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        />
+      </ImageContainer>
+      <ContactInfo>
+        <ContactItem
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          whileTap={{ scale: 0.9, rotate: -2 }}
+        >
+          <FaPhone />
+          <a href="tel:+48531890827">
+            <span>Telefon: 531 890 827</span>
+          </a>
+        </ContactItem>
+        <ContactItem
+          whileHover={{ scale: 1.1, rotate: 2 }}
+          whileTap={{ scale: 0.9, rotate: -2 }}
+        >
+          <FaEnvelope />
+          <a href="mailto:mariusz1989poczta@wp.pl">
+            <span>E-mail: mariusz1989poczta@wp.pl</span>
+          </a>
+        </ContactItem>
+      </ContactInfo>
+    </ContactContainer>
+  );
+};
+
+const ContactContainer = styled.div`
+  margin: 0 5rem 2rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: ${({ theme }) => theme.background};
+  border-radius: 15px;
+  box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const Title = styled(motion.h2)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const ImageContainer = styled.div`
+  margin-bottom: 2rem;
+
+  img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+`;
+
+const ContactInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  @media (max-width: 768px) {
+    gap: 15px;
+  }
+`;
+
+const ContactItem = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: ${({ theme }) => theme.cardBackground};
+  border-radius: 10px;
+  box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+  cursor: pointer;
+  transition: all 0.2s;
+
+  svg {
+    margin-right: 15px;
+    color: ${({ theme }) => theme.linkHover};
+    @media (max-width: 768px) {
+      margin-right: 10px;
+    }
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.text};
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.hoverBackground};
+  }
+`;
+
+export default Contact;
+
+
+
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer-when-downgrade
+  X-XSS-Protection: 1; mode=block
+  Content-Security-Policy: default-src 'self'; img-src 'self' https://trusted.cdn.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://region1.google-analytics.com
+  
