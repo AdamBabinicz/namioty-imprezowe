@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaPhone, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
-import img from "../assets/2.gif";
+import img from "../assets/6.webp";
 
 const Contact = () => {
   return (
@@ -14,35 +14,39 @@ const Contact = () => {
       >
         Kontakt
       </Title>
-      <ImageContainer>
-        <motion.img
-          src={img}
-          alt="..."
-          initial={{ scale: 0.5, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        />
-      </ImageContainer>
-      <ContactInfo>
-        <ContactItem
-          whileHover={{ scale: 1.1, rotate: 2 }}
-          whileTap={{ scale: 0.9, rotate: -2 }}
-        >
-          <FaPhone />
-          <a href="tel:+48531890827">
-            <span>Telefon: 531 890 827</span>
-          </a>
-        </ContactItem>
-        <ContactItem
-          whileHover={{ scale: 1.1, rotate: 2 }}
-          whileTap={{ scale: 0.9, rotate: -2 }}
-        >
-          <FaEnvelope />
-          <a href="mailto:mariusz1989poczta@wp.pl">
-            <span>E-mail: mariusz1989poczta@wp.pl</span>
-          </a>
-        </ContactItem>
-      </ContactInfo>
+      <CenteredContent>
+        <ContentWrapper>
+          <ImageContainer>
+            <motion.img
+              src={img}
+              alt="Contact"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          </ImageContainer>
+          <ContactInfo>
+            <ContactItem
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              whileTap={{ scale: 0.9, rotate: -2 }}
+            >
+              <FaPhone />
+              <a href="tel:+48531890827">
+                <span>Telefon: 531 890 827</span>
+              </a>
+            </ContactItem>
+            <ContactItem
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              whileTap={{ scale: 0.9, rotate: -2 }}
+            >
+              <FaEnvelope />
+              <a href="mailto:mariusz1989poczta@wp.pl">
+                <span>E-mail: mariusz1989poczta@wp.pl</span>
+              </a>
+            </ContactItem>
+          </ContactInfo>
+        </ContentWrapper>
+      </CenteredContent>
     </ContactContainer>
   );
 };
@@ -50,9 +54,6 @@ const Contact = () => {
 const ContactContainer = styled.div`
   margin: 0 5rem 2rem;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background: ${({ theme }) => theme.background};
   border-radius: 15px;
   box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
@@ -68,22 +69,55 @@ const Title = styled(motion.h2)`
   font-size: 2rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: 2rem;
+  margin-left: 0;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
     font-size: 1.7rem;
     margin-bottom: 1.5rem;
+    text-align: center;
+  }
+`;
+
+const CenteredContent = styled.div`
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie w poziomie */
+  align-items: center; /* Wyśrodkowanie w pionie */
+  height: 100%; /* Wysokość 100% kontenera rodzica */
+  width: 100%;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1000px; /* Maksymalna szerokość kontenera */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Wyśrodkowanie treści na mniejszych ekranach */
   }
 `;
 
 const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie zdjęcia */
   margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
 
   img {
     width: 100%;
     max-width: 400px;
     border-radius: 15px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
     @media (max-width: 768px) {
       max-width: 100%;
     }
@@ -91,11 +125,12 @@ const ImageContainer = styled.div`
 `;
 
 const ContactInfo = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
   max-width: 400px;
+
   @media (max-width: 768px) {
     gap: 15px;
   }
@@ -114,6 +149,7 @@ const ContactItem = styled(motion.div)`
   svg {
     margin-right: 15px;
     color: ${({ theme }) => theme.linkHover};
+
     @media (max-width: 768px) {
       margin-right: 10px;
     }

@@ -1,7 +1,8 @@
+// Footer.js
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { Tooltip } from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import {
   FaFacebook,
   FaTwitter,
@@ -20,7 +21,7 @@ const FooterContainer = styled.footer`
   position: relative;
 
   @media (max-width: 768px) {
-    flex-direction: column; /* Zmienia układ na kolumnowy w wersji mobilnej */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1rem;
@@ -44,7 +45,7 @@ const SocialIcons = styled.div`
 
     @media (max-width: 768px) {
       font-size: 1.2rem;
-      margin: 0 1.25rem; /* Zmniejsza marginesy w wersji mobilnej */
+      margin: 0 1.25rem;
     }
   }
 `;
@@ -62,7 +63,7 @@ const ExternalLinks = styled.div`
     align-items: center;
     font-size: 1rem;
     color: ${({ theme }) => theme.text};
-    margin: 0 1rem; /* Dodałem margines po bokach */
+    margin: 0 1rem;
     transition: color 0.3s ease, transform 0.3s ease;
 
     &:hover {
@@ -72,7 +73,7 @@ const ExternalLinks = styled.div`
 
     @media (max-width: 768px) {
       font-size: 0.9rem;
-      margin: 0.5rem 0; /* Marginesy góra-dół w wersji mobilnej */
+      margin: 0.5rem 0;
     }
   }
 
@@ -85,14 +86,14 @@ const TooltipText = styled.div`
   font-size: 0.9rem;
   padding: 0.5rem;
   border-radius: 4px;
-  background-color: ${({ theme }) => theme.text};
-  color: ${({ theme }) => theme.body};
+  background-color: ${({ theme }) => theme.tooltipBackground};
+  color: ${({ theme }) => theme.tooltipText};
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 `;
 
 const FooterText = styled.p`
   @media (max-width: 768px) {
-    margin-top: 1rem; /* Dodaje margines górny w wersji mobilnej */
+    margin-top: 1rem;
   }
 `;
 
@@ -192,12 +193,54 @@ export const Footer = () => {
       </ExternalLinks>
       <FooterText>Radom, 2024 - {new Date().getFullYear()}.</FooterText>
 
-      <Tooltip id="facebookTooltip" />
-      <Tooltip id="twitterTooltip" />
-      <Tooltip id="pinterestTooltip" />
-      <Tooltip id="slodkolandiaTooltip" />
-      <Tooltip id="zamkiTooltip" />
-      <Tooltip id="fontannyTooltip" />
+      <ReactTooltip
+        id="facebookTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
+      <ReactTooltip
+        id="twitterTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
+      <ReactTooltip
+        id="pinterestTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
+      <ReactTooltip
+        id="slodkolandiaTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
+      <ReactTooltip
+        id="zamkiTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
+      <ReactTooltip
+        id="fontannyTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
     </FooterContainer>
   );
 };

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import Modal from "../hooks/Modal";
-import img from "../assets/10.jpg";
-import img1 from "../assets/12.jpg";
-import img2 from "../assets/13.jpg";
+import img from "../assets/13.webp";
+import img1 from "../assets/14.webp";
+import img2 from "../assets/15.webp";
 
 const AboutSection = styled.section`
   padding: 2rem;
@@ -24,6 +24,7 @@ const StyledHeading = styled(motion.h2)`
   font-size: 2rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: 2rem;
+  margin-left: 5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
@@ -52,7 +53,7 @@ const ImageContainer = styled.div`
 
   img {
     width: 30%;
-    max-width: 200px;
+    /* max-width: 200px; */
     margin: 10px;
     object-fit: cover;
     border-radius: 10px;

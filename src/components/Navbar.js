@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { FaSun, FaMoon, FaBars, FaTimes } from "react-icons/fa";
 import { FaTent } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import img from "../assets/1.png";
+import img from "../assets/19.webp";
 
 const Navbar = ({ toggleTheme }) => {
   const savedDarkMode = localStorage.getItem("darkMode") === "true";
