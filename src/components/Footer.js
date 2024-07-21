@@ -165,14 +165,14 @@ export const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           data-tooltip-id="zamkiTooltip"
-          data-tooltip-content="Zamki"
+          data-tooltip-content="Zamki dmuchane"
         >
           <motion.div
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.3 }}
           >
             <FaExternalLinkAlt />
-            <span>Zamki</span>
+            <span>Zamki dmuchane</span>
           </motion.div>
         </a>
         <a
