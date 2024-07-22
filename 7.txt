@@ -1,0 +1,375 @@
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import image from "../assets/4.webp";
+
+// Stylizacja nagłówka z efektem parallax
+const HeaderContainer = styled.header`
+  height: 100vh;
+  background: url(${image}) center center/cover no-repeat;
+  background-attachment: fixed; /* Efekt parallax */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 5rem;
+  margin: 1rem 5rem 2rem;
+  border-radius: 15px;
+  overflow: hidden; /* Aby elementy nie wychodziły poza obszar nagłówka */
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+// Stylizacja kontentu nagłówka z animacjami
+const HeaderContent = styled(motion.div)`
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: visible; /* Umożliwienie widoczności tooltipa */
+  z-index: 1; /* Upewnij się, że kontent jest na wierzchu */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translate(-50%, -50%);
+    animation: pulse 4s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0.5;
+    }
+  }
+`;
+
+// Stylizacja tytułu z animacjami
+const Title = styled.div`
+  display: flex;
+  font-size: 3rem;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    text-wrap: balance;
+  }
+
+  &:hover {
+    color: #ff0; /* Zmiana koloru na żółty po najechaniu */
+  }
+`;
+
+// Stylizacja tooltipów z ogonkami
+const Tooltip = styled.div`
+  position: absolute;
+  top: -80px; /* Dalsze oddalenie tooltipa od napisu */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 1000; /* Upewnij się, że tooltip jest na wierzchu */
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20px; /* Dostosowany ogonek tooltipa */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+  }
+`;
+
+// Stylizacja kontentu z tooltipem
+const TooltipWrapper = styled.div`
+  position: relative;
+
+  &:hover ${Tooltip} {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+// Animowany napis z literkami
+const AnimatedLetter = styled(motion.span)`
+  display: inline-block;
+`;
+
+// Stylizacja hasła reklamowego na szklanym tle
+const Promo = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  color: ${({ theme }) => theme.text};
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 4rem;
+  width: fit-content; /* Dostosowanie szerokości do rodzica */
+`;
+
+const sentence = "Namioty imprezowe";
+const letterVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0 },
+};
+
+export const Header = ({ theme }) => {
+  return (
+    <HeaderContainer>
+      <HeaderContent
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <TooltipWrapper>
+          <Title>
+            {sentence.split("").map((letter, index) => (
+              <AnimatedLetter
+                key={index}
+                variants={letterVariants}
+                initial="initial"
+                animate="animate"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </AnimatedLetter>
+            ))}
+          </Title>
+          <Tooltip>Najlepsze namioty na każdą okazję!</Tooltip>
+        </TooltipWrapper>
+      </HeaderContent>
+      <Promo
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
+        Wynajem namiotów imprezowych -<br /> Komfort i styl na Twojej imprezie!
+      </Promo>
+    </HeaderContainer>
+  );
+};
+
+
+
+import React, { useState, useEffect } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./styles/themes";
+import Navbar from "./components/Navbar";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import Gallery from "./components/Gallery";
+import About from "./components/About";
+import Contact from "./components/Contact";
+// import { EquipmentSlider } from "./components/EquipmentSlider";
+import { CookieConsent } from "react-cookie-consent";
+import { GlobalStyle } from "./styles/GlobalStyle";
+import ScrollToTopButton from "./ScrollToTopButton";
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+function App() {
+  // Przechowywanie motywu w stanie komponentu
+  const [theme, setTheme] = useState(() => {
+    // Odczyt motywu z localStorage lub ustawienie domyślnego
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme : "light";
+  });
+
+  // Funkcja do zmiany motywu
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme); // Zapisanie nowego motywu w localStorage
+    updateBodyClass(newTheme);
+  };
+
+  // Funkcja do aktualizacji klasy na body w zależności od motywu
+  const updateBodyClass = (theme) => {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    document.body.classList.toggle("light-mode", theme === "light");
+  };
+
+  // Ustawienie klasy body po załadowaniu komponentu
+  useEffect(() => {
+    updateBodyClass(theme);
+  }, [theme]);
+
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <AppContainer id="start">
+        <Navbar toggleTheme={toggleTheme} />
+        <Header />
+        <About />
+        {/* <EquipmentSlider theme={theme} /> */}
+        <Contact />
+        <Gallery theme={theme} />
+        {/* Przekazanie aktualnego motywu do Gallery */}
+        <Footer />
+        <CookieConsent
+          debug={true}
+          location="bottom"
+          style={{
+            background: "#333",
+            textAlign: "left",
+            paddingBottom: "1rem",
+            fontSize: "16px",
+            fontFamily: "Gideon Roman",
+          }}
+          buttonStyle={{
+            color: "#333",
+            background: "#fff",
+            fontSize: "18px",
+            fontFamily: "Gideon Roman",
+            marginRight: "1rem",
+          }}
+          buttonText="OK, rozumiem"
+          expires={365}
+        >
+          "W ramach naszej witryny stosujemy pliki cookies w celu świadczenia
+          Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do
+          indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień
+          dotyczących cookies oznacza, że będą one zamieszczane w Państwa
+          urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
+          ustawień dotyczących cookies."
+        </CookieConsent>
+        <ScrollToTopButton />
+      </AppContainer>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+
+
+
+import React, { useState, useEffect, lazy, Suspense } from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./styles/themes";
+import { Header } from "./components/Header";
+import GlobalStyle from "./styles/GlobalStyle";
+import ScrollToTopButton from "./ScrollToTopButton";
+import { Footer } from "./components/Footer";
+
+const Navbar = lazy(() => import("./components/Navbar"));
+const Gallery = lazy(() => import("./components/Gallery"));
+const About = lazy(() => import("./components/About"));
+const Contact = lazy(() => import("./components/Contact"));
+const CookieConsent = lazy(() => import("react-cookie-consent"));
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+function App() {
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme : "light";
+  });
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateBodyClass(newTheme);
+  };
+
+  const updateBodyClass = (theme) => {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    document.body.classList.toggle("light-mode", theme === "light");
+  };
+
+  useEffect(() => {
+    updateBodyClass(theme);
+  }, [theme]);
+
+  return (
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+      <GlobalStyle />
+      <AppContainer id="start">
+        <Suspense fallback={<div>Loading...</div>}>
+          <Navbar toggleTheme={toggleTheme} />
+          <Header />
+          <About />
+          {/* <EquipmentSlider theme={theme} /> */}
+          <Contact />
+          <Gallery theme={theme} />
+          <Footer />
+          <CookieConsent
+            debug={true}
+            location="bottom"
+            style={{
+              background: "#333",
+              textAlign: "left",
+              paddingBottom: "1rem",
+              fontSize: "16px",
+              fontFamily: "Gideon Roman",
+            }}
+            buttonStyle={{
+              color: "#333",
+              background: "#fff",
+              fontSize: "18px",
+              fontFamily: "Gideon Roman",
+              marginRight: "1rem",
+            }}
+            buttonText="OK, rozumiem"
+            expires={365}
+          >
+            "W ramach naszej witryny stosujemy pliki cookies w celu świadczenia
+            Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do
+            indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień
+            dotyczących cookies oznacza, że będą one zamieszczane w Państwa
+            urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
+            ustawień dotyczących cookies."
+          </CookieConsent>
+        </Suspense>
+        <ScrollToTopButton />
+      </AppContainer>
+    </ThemeProvider>
+  );
+}
+
+export default App;
