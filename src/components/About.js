@@ -348,9 +348,9 @@ const About = () => {
               <div>
                 <h2>Nasza oferta</h2>
                 <StyledParagraph>
-                  Oferujemy szeroki wybór namiotów na różne okazje, w różnych
-                  rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób. Ponadto
-                  wynajmujemy stoły kateringowe na 6 osób, krzesła
+                  Oferujemy szeroki wybór namiotów na różne okazje,
+                  w&nbsp;różnych rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób.
+                  Ponadto wynajmujemy stoły kateringowe na 6 osób, krzesła
                   i&nbsp;oświetlenie do namiotów (montaż, demontaż, transport
                   i&nbsp;trawa w&nbsp;gratisie!). Nasza oferta jest elastyczna
                   i&nbsp;dopasowana do indywidualnych potrzeb każdego Klienta,

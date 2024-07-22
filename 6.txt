@@ -1,0 +1,1085 @@
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import image from "../assets/4.webp";
+
+// Stylizacja nagłówka z efektem parallax
+const HeaderContainer = styled.header`
+  height: 100vh;
+  background: url(${image}) center center/cover no-repeat;
+  background-attachment: fixed; /* Efekt parallax */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 5rem;
+  margin: 1rem 5rem 2rem;
+  border-radius: 15px;
+  overflow: hidden; /* Aby elementy nie wychodziły poza obszar nagłówka */
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+// Stylizacja kontentu nagłówka z animacjami
+const HeaderContent = styled(motion.div)`
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: visible; /* Umożliwienie widoczności tooltipa */
+  z-index: 1; /* Upewnij się, że kontent jest na wierzchu */
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translate(-50%, -50%);
+    animation: pulse 4s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.2);
+      opacity: 0.3;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(0.5);
+      opacity: 0.5;
+    }
+  }
+`;
+
+// Stylizacja tytułu z animacjami
+const Title = styled(motion.h1)`
+  font-size: 3rem;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    text-wrap: balance;
+  }
+
+  &:hover {
+    color: #ff0; /* Zmiana koloru na żółty po najechaniu */
+  }
+`;
+
+// Stylizacja tooltipów z ogonkami
+const Tooltip = styled.div`
+  position: absolute;
+  top: -80px; /* Dalsze oddalenie tooltipa od napisu */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 1000; /* Upewnij się, że tooltip jest na wierzchu */
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -20px; /* Dostosowany ogonek tooltipa */
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 10px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.7) transparent transparent transparent;
+  }
+`;
+
+// Stylizacja kontentu z tooltipem
+const TooltipWrapper = styled.div`
+  position: relative;
+
+  &:hover ${Tooltip} {
+    visibility: visible;
+    opacity: 1;
+  }
+`;
+
+export const Header = () => {
+  return (
+    <HeaderContainer>
+      <HeaderContent
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <TooltipWrapper>
+          <Title
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+          >
+            Namioty imprezowe
+          </Title>
+          <Tooltip>Najlepsze namioty na każdą okazję!</Tooltip>
+        </TooltipWrapper>
+      </HeaderContent>
+    </HeaderContainer>
+  );
+};
+
+
+Stawiamy na innowacyjność i ciągły rozwój, aby sprostać oczekiwaniom nawet najbardziej wymagających klientów. Nasz zespół specjalistów jest gotowy do pomocy na każdym etapie organizacji – od wyboru odpowiedniego namiotu, przez jego montaż, aż po wsparcie techniczne w trakcie wydarzenia.
+
+Wierzymy, że każdy detal ma znaczenie, dlatego dbamy o to, aby nasze namioty były nie tylko funkcjonalne, ale także estetycznie wykonane. Współpracujemy z najlepszymi dostawcami materiałów i korzystamy z nowoczesnych technologii, aby zapewnić trwałość i bezpieczeństwo naszych produktów.
+
+Wybierając nasze namioty, wybierasz profesjonalizm, zaangażowanie i niezawodność. Dziękujemy za zaufanie i cieszymy się, że możemy być częścią Twoich wyjątkowych chwil.
+
+Początki były skromne – zaczynaliśmy jako mała firma rodzinna, ale dzięki determinacji i ciężkiej pracy stopniowo rozwinęliśmy się, zyskując zaufanie coraz większej liczby klientów. Nasza właścicielka, zainspirowana potrzebami rynku i pragnieniem dostarczania wyjątkowych doświadczeń, nieustannie dąży do doskonałości.
+
+Podążając za potrzebami naszych klientów, stale poszerzamy naszą ofertę i wprowadzamy nowe, innowacyjne rozwiązania. Dbałość o szczegóły i indywidualne podejście do każdego zlecenia sprawiają, że nasze namioty są idealnym wyborem na wszelkiego rodzaju imprezy – od małych, kameralnych spotkań po duże, spektakularne wydarzenia.
+
+Nasza historia to opowieść o pasji, poświęceniu i nieustannym dążeniu do rozwoju. Dzięki temu możemy oferować naszym klientom nie tylko produkty najwyższej jakości, ale także profesjonalne wsparcie na każdym etapie współpracy. Jesteśmy dumni z naszych osiągnięć i z niecierpliwością czekamy na kolejne wyzwania, które przyniesie przyszłość.
+
+Nasze namioty charakteryzują się solidną konstrukcją i eleganckim wyglądem, co czyni je idealnym wyborem na wszelkiego rodzaju wydarzenia – od uroczystych przyjęć weselnych, przez imprezy firmowe, aż po rodzinne spotkania na świeżym powietrzu. Każdy namiot jest starannie przygotowany i sprawdzany, aby zapewnić maksymalny komfort i bezpieczeństwo uczestników.
+
+Oprócz namiotów oferujemy również pełne wyposażenie eventowe, takie jak stoły kateringowe i wygodne krzesła, które dopełniają całości aranżacji. Dbamy o to, aby każdy detal był na najwyższym poziomie, dlatego nasze stoły i krzesła są nie tylko funkcjonalne, ale także estetycznie wykonane.
+
+Oświetlenie to kluczowy element każdej imprezy, dlatego w naszej ofercie znajdują się nowoczesne systemy oświetleniowe, które tworzą niepowtarzalną atmosferę i podkreślają wyjątkowy charakter wydarzenia. Nasz zespół profesjonalistów zajmie się montażem i demontażem całego sprzętu, a także zapewni transport, abyś Ty mógł cieszyć się swoim dniem bez zbędnych zmartwień.
+
+Dodatkowo, jako wyraz naszego zaangażowania i chęci zadowolenia klientów, oferujemy trawę jako gratis, co dodatkowo podnosi komfort korzystania z naszych namiotów. Wybierając naszą firmę, otrzymujesz kompleksową obsługę na najwyższym poziomie, która sprawi, że Twoje wydarzenie będzie niezapomniane.
+
+
+
+
+import React, { useState } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import Modal from "../hooks/Modal";
+import img from "../assets/13.webp";
+import img1 from "../assets/14.webp";
+import img2 from "../assets/15.webp";
+
+const AboutSection = styled.section`
+  padding: 2rem;
+  margin: 0 5rem 2rem;
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
+  border-radius: 15px;
+  box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const StyledHeading = styled(motion.h2)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: 2rem;
+  margin-left: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const StyledParagraph = styled(motion.p)`
+  max-width: 600px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.6; /* Set a line height for better readability */
+  padding: 0 1rem; /* Add some horizontal padding */
+  text-align: left; /* Justify the text for a clean look */
+
+  &:first-of-type {
+    margin-bottom: 1rem;
+  }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+
+  img {
+    width: 30%;
+    /* max-width: 200px; */
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+    }
+
+    @media (max-width: 768px) {
+      width: 90%; /* Ustaw szerokość na 90% w wersji mobilnej */
+      max-width: none; /* Usuń maksymalną szerokość */
+      margin: 5px 0; /* Ustaw mniejszy margines */
+    }
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    background: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.body};
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: ${({ theme }) => theme.hoverBackground};
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const About = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+
+  const handleButtonClick = (content) => {
+    setModalContent(content);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalContent(null);
+  };
+
+  return (
+    <AboutSection id="o-firmie">
+      <StyledHeading
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 50 }}
+      >
+        O&nbsp;firmie
+      </StyledHeading>
+      <StyledParagraph
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
+      >
+        Nasza firma <b>"Słodkolandia wita"</b> specjalizuje się w&nbsp;wynajmie
+        wysokiej jakości namiotów imprezowych w kolorze białym, stołów
+        kateringowych i&nbsp;krzeseł oraz oświetlenia do namiotów.
+      </StyledParagraph>
+      <StyledParagraph
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
+      >
+        Dostarczamy wyżej wymieniony sprzęt na wszelkie uroczyste okazje typu:
+        Komunie Św., wesela, urodziny, spotkania towarzyskie, rocznice
+        i&nbsp;inne imprezy wymagające zabezpieczenia przed deszczem, słońcem
+        i&nbsp;innymi niesprzyjającymi warunkami atmosferycznymi.
+      </StyledParagraph>
+      <ImageContainer>
+        <motion.img
+          src={img}
+          alt="Przykład 1"
+          onClick={() =>
+            handleButtonClick(<img src={img} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        />
+        <motion.img
+          src={img1}
+          alt="Przykład 2"
+          onClick={() =>
+            handleButtonClick(<img src={img1} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.2 }}
+        />
+        <motion.img
+          src={img2}
+          alt="Przykład 3"
+          onClick={() =>
+            handleButtonClick(<img src={img2} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        />
+      </ImageContainer>
+      <ButtonContainer>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza misja</h2>
+                <p>
+                  Nasza misja to dostarczanie najlepszych namiotów imprezowych,
+                  aby Twoje wydarzenie było niezapomniane. Dokładamy wszelkich
+                  starań, aby zapewnić najwyższą jakość i komfort naszym
+                  Klientom, oferując szeroki wybór namiotów dostosowanych do
+                  każdej okazji. Niezależnie od tego, czy organizujesz kameralne
+                  przyjęcie, firmowy event, czy wielką uroczystość, nasze
+                  namioty są idealnym rozwiązaniem.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza misja
+        </button>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza historia</h2>
+                <p>
+                  Nasza firma została założona w 2014 roku i od tego czasu
+                  dostarczamy namioty oraz pozostałe wyposażenie najwyższej
+                  jakości. Firma jest prowadzona przez kobietę, która z pasją i
+                  zaangażowaniem dba o każdy aspekt działalności. Nasze
+                  przedsiębiorstwo opiera się na wieloletniej tradycji, która
+                  łączy rodzinne wartości z nowoczesnym podejściem do biznesu.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza historia
+        </button>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza oferta</h2>
+                <p>
+                  Oferujemy szeroki wybór namiotów na różne okazje, w różnych
+                  rozmiarach i stylach na 60 i 30 osób. Ponadto wynajmujemy
+                  stoły kateringowe na 6 osób, krzesła i oświetlenie do namiotów
+                  (montaż, demontaż, transport i trawa w gratisie!). Nasza
+                  oferta jest elastyczna i dopasowana do indywidualnych potrzeb
+                  każdego klienta, co sprawia, że jesteśmy w stanie zrealizować
+                  nawet najbardziej wymagające zlecenia.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza Oferta
+        </button>
+      </ButtonContainer>
+      {modalOpen && <Modal closeModal={closeModal}>{modalContent}</Modal>}
+    </AboutSection>
+  );
+};
+
+export default About;
+
+
+
+
+import React, { useState } from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { FaExpand, FaCompress } from "react-icons/fa";
+import Modal from "../hooks/Modal";
+import img from "../assets/13.webp";
+import img1 from "../assets/14.webp";
+import img2 from "../assets/15.webp";
+import { Tooltip } from "react-tooltip"; // Import Tooltip z react-tooltip
+import { BsArrowsExpand, BsArrowsCollapse } from "react-icons/bs";
+
+const AboutSection = styled.section`
+  padding: 2rem;
+  margin: 0 5rem 2rem;
+  background: ${({ theme }) => theme.background};
+  color: ${({ theme }) => theme.text};
+  border-radius: 15px;
+  box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const StyledHeading = styled(motion.h2)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: 2rem;
+  margin-left: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+  }
+`;
+
+const StyledParagraph = styled(motion.p)`
+  max-width: 600px; /* Limit the width for better readability */
+  margin: 0 auto; /* Center the paragraph */
+  line-height: 1.6; /* Set a line height for better readability */
+  padding: 0 1rem; /* Add some horizontal padding */
+  text-align: left; /* Justify the text for a clean look */
+
+  &:first-of-type {
+    margin-bottom: 1rem;
+  }
+`;
+
+const AdditionalContent = styled(motion.div)`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-top: 1px solid ${({ theme }) => theme.border};
+  background: ${({ theme }) => theme.background};
+  border-radius: 5px;
+  box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+`;
+
+const IconContainer = styled.span`
+  margin-top: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 1.5em; /* Zwiększ rozmiar ikon, aby były widoczne */
+    height: 1.5em;
+    color: ${({ theme }) => theme.text};
+  }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+
+  img {
+    width: 30%;
+    /* max-width: 200px; */
+    margin: 10px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+    }
+
+    @media (max-width: 768px) {
+      width: 90%; /* Ustaw szerokość na 90% w wersji mobilnej */
+      max-width: none; /* Usuń maksymalną szerokość */
+      margin: 5px 0; /* Ustaw mniejszy margines */
+    }
+  }
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+
+  button {
+    background: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.body};
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: ${({ theme }) => theme.hoverBackground};
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const About = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+  const [expanded, setExpanded] = useState(false);
+
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+
+  const handleButtonClick = (content) => {
+    setModalContent(content);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalContent(null);
+  };
+
+  return (
+    <AboutSection id="o-firmie">
+      <StyledHeading
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 50 }}
+      >
+        O&nbsp;firmie
+      </StyledHeading>
+      <StyledParagraph
+        initial={{ x: 200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
+      >
+        Nasza firma <b>"Słodkolandia wita"</b> specjalizuje się w&nbsp;wynajmie
+        wysokiej jakości namiotów imprezowych w kolorze białym, stołów
+        kateringowych i&nbsp;krzeseł oraz oświetlenia do namiotów. Dostarczamy
+        wyżej wymieniony sprzęt na wszelkie uroczyste okazje typu: Komunie Św.,
+        wesela, urodziny, spotkania towarzyskie, rocznice i&nbsp;inne imprezy
+        wymagające zabezpieczenia przed deszczem, słońcem i&nbsp;innymi
+        niesprzyjającymi warunkami atmosferycznymi.
+        {!expanded && (
+          <IconContainer
+            onClick={handleExpandClick}
+            data-tooltip-id="expand-tooltip" // Tooltip ID dla ikony rozwiń
+          >
+            <BsArrowsExpand />
+          </IconContainer>
+        )}
+      </StyledParagraph>
+      {expanded && (
+        <AdditionalContent
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <p>
+            Nasza firma stawia na najwyższą jakość obsługi i dostosowuje ofertę
+            do indywidualnych potrzeb klienta. Jesteśmy elastyczni i gotowi na
+            wszelkie wyzwania, jakie mogą się pojawić podczas organizacji
+            wydarzeń. Nasze namioty i sprzęt są regularnie serwisowane i
+            sprawdzane, aby zapewnić ich pełną funkcjonalność i bezpieczeństwo
+            podczas użytkowania.
+          </p>
+          <p>
+            Wierzymy, że każdy detal ma znaczenie, dlatego dbamy o to, aby nasze
+            namioty były nie tylko funkcjonalne, ale także estetycznie wykonane.
+            Współpracujemy z najlepszymi dostawcami materiałów i korzystamy z
+            nowoczesnych technologii, aby zapewnić trwałość i bezpieczeństwo
+            naszych produktów. Wybierając nasze namioty, wybierasz
+            profesjonalizm, zaangażowanie i niezawodność. Dziękujemy za zaufanie
+            i cieszymy się, że możemy być częścią Twoich wyjątkowych chwil.
+          </p>
+          <p>
+            Początki były skromne – zaczynaliśmy jako mała firma rodzinna, ale
+            dzięki determinacji i ciężkiej pracy stopniowo rozwinęliśmy się,
+            zyskując zaufanie coraz większej liczby klientów. Nasza
+            właścicielka, zainspirowana potrzebami rynku i pragnieniem
+            dostarczania wyjątkowych doświadczeń, nieustannie dąży do
+            doskonałości. Podążając za potrzebami naszych klientów, stale
+            poszerzamy naszą ofertę i wprowadzamy nowe, innowacyjne rozwiązania.
+            Dbałość o szczegóły i indywidualne podejście do każdego zlecenia
+            sprawiają, że nasze namioty są idealnym wyborem na wszelkiego
+            rodzaju imprezy – od małych, kameralnych spotkań po duże,
+            spektakularne wydarzenia.
+          </p>
+          <p>
+            Nasza historia to opowieść o pasji, poświęceniu i nieustannym
+            dążeniu do rozwoju. Dzięki temu możemy oferować naszym klientom nie
+            tylko produkty najwyższej jakości, ale także profesjonalne wsparcie
+            na każdym etapie współpracy. Jesteśmy dumni z naszych osiągnięć i z
+            niecierpliwością czekamy na kolejne wyzwania, które przyniesie
+            przyszłość. Nasze namioty charakteryzują się solidną konstrukcją i
+            eleganckim wyglądem, co czyni je idealnym wyborem na wszelkiego
+            rodzaju wydarzenia – od uroczystych przyjęć weselnych, przez imprezy
+            firmowe, aż po rodzinne spotkania na świeżym powietrzu. Każdy namiot
+            jest starannie przygotowany i sprawdzany, aby zapewnić maksymalny
+            komfort i bezpieczeństwo uczestników.
+          </p>
+          <p>
+            Oprócz namiotów oferujemy również pełne wyposażenie eventowe, takie
+            jak stoły kateringowe i wygodne krzesła, które dopełniają całości
+            aranżacji. Dbamy o to, aby każdy detal był na najwyższym poziomie,
+            dlatego nasze stoły i krzesła są nie tylko funkcjonalne, ale także
+            estetycznie wykonane. Oświetlenie to kluczowy element każdej
+            imprezy, dlatego w naszej ofercie znajdują się nowoczesne systemy
+            oświetleniowe, które tworzą niepowtarzalną atmosferę i podkreślają
+            wyjątkowy charakter wydarzenia. Nasz zespół profesjonalistów zajmie
+            się montażem i demontażem całego sprzętu, a także zapewni transport,
+            abyś Ty mógł cieszyć się swoim dniem bez zbędnych zmartwień.
+          </p>
+          <p>
+            Dodatkowo, jako wyraz naszego zaangażowania i chęci zadowolenia
+            klientów, oferujemy trawę jako gratis, co dodatkowo podnosi komfort
+            korzystania z naszych namiotów. Wybierając naszą firmę, otrzymujesz
+            kompleksową obsługę na najwyższym poziomie, która sprawi, że Twoje
+            wydarzenie będzie niezapomniane.
+          </p>
+          <IconContainer
+            onClick={handleExpandClick}
+            data-tooltip-id="collapse-tooltip" // Tooltip ID dla ikony zwijania
+          >
+            <BsArrowsCollapse />
+          </IconContainer>
+        </AdditionalContent>
+      )}
+      <Tooltip id="expand-tooltip" place="top" effect="solid">
+        Rozwiń
+      </Tooltip>{" "}
+      {/* Tooltip dla ikony rozwiń */}
+      <Tooltip id="collapse-tooltip" place="top" effect="solid">
+        Zwiń
+      </Tooltip>{" "}
+      {/* Tooltip dla ikony zwijania */}
+      <ImageContainer>
+        <motion.img
+          src={img}
+          alt="Przykład 1"
+          onClick={() =>
+            handleButtonClick(<img src={img} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.9 }}
+        />
+        <motion.img
+          src={img1}
+          alt="Przykład 2"
+          onClick={() =>
+            handleButtonClick(<img src={img1} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.2 }}
+        />
+        <motion.img
+          src={img2}
+          alt="Przykład 3"
+          onClick={() =>
+            handleButtonClick(<img src={img2} alt="Modal content" />)
+          }
+          initial={{ scale: 0.5, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 1.5 }}
+        />
+      </ImageContainer>
+      <ButtonContainer>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza misja</h2>
+                <p>
+                  Nasza misja to dostarczanie najlepszych namiotów imprezowych,
+                  aby Twoje wydarzenie było niezapomniane. Dokładamy wszelkich
+                  starań, aby zapewnić najwyższą jakość i komfort naszym
+                  Klientom, oferując szeroki wybór namiotów dostosowanych do
+                  każdej okazji. Niezależnie od tego, czy organizujesz kameralne
+                  przyjęcie, firmowy event, czy wielką uroczystość, nasze
+                  namioty są idealnym rozwiązaniem.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza misja
+        </button>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza historia</h2>
+                <p>
+                  Nasza firma została założona w 2014 roku i od tego czasu
+                  dostarczamy namioty oraz pozostałe wyposażenie najwyższej
+                  jakości. Firma jest prowadzona przez kobietę, która z pasją i
+                  zaangażowaniem dba o każdy aspekt działalności. Nasze
+                  przedsiębiorstwo opiera się na wieloletniej tradycji, która
+                  łączy rodzinne wartości z nowoczesnym podejściem do biznesu.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza historia
+        </button>
+        <button
+          onClick={() =>
+            handleButtonClick(
+              <div>
+                <h2>Nasza oferta</h2>
+                <p>
+                  Oferujemy szeroki wybór namiotów na różne okazje, w różnych
+                  rozmiarach i stylach na 60 i 30 osób. Ponadto wynajmujemy
+                  stoły kateringowe na 6 osób, krzesła i oświetlenie do namiotów
+                  (montaż, demontaż, transport i trawa w gratisie!). Nasza
+                  oferta jest elastyczna i dopasowana do indywidualnych potrzeb
+                  każdego klienta, co sprawia, że jesteśmy w stanie zrealizować
+                  nawet najbardziej wymagające zlecenia.
+                </p>
+              </div>
+            )
+          }
+        >
+          Nasza Oferta
+        </button>
+      </ButtonContainer>
+      {modalOpen && <Modal closeModal={closeModal}>{modalContent}</Modal>}
+    </AboutSection>
+  );
+};
+
+export default About;
+
+
+
+
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/5.webp" type="image/webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="
+    default-src 'self';
+    script-src 'self' https://apis.google.com https://cdn.jsdelivr.net;
+    style-src 'self' https://fonts.googleapis.com;
+    img-src 'self' data: https://www.example.com;
+    connect-src 'self' https://api.example.com;
+    font-src 'self' https://fonts.gstatic.com;
+    frame-ancestors 'none';
+    base-uri 'self';
+    form-action 'self';
+    frame-src 'none';
+    object-src 'none';
+    upgrade-insecure-requests;
+"
+    /> -->
+
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Profesjonalna firma z Radomia oferująca wynajem namiotów imprezowych, krzeseł, stołów kateringowych oraz oświetlenia do namiotów. Sprawdź naszą szeroką ofertę na różne okazje oraz skorzystaj z fachowej obsługi."
+    />
+    <meta name="robots" content="index, follow" />
+    <meta
+      name="keywords"
+      content="wynajem namiotów, Radom, stoły kateringowe, krzesła kateringowe, namioty imprezowe, wynajem sprzętu eventowego, wynajem oświetlenia do namiotów"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Firma wynajmuje namioty imprezowe w różnych rozmiarach, krzesła, stoły kateringowe oraz oświetlenie do namiotów."
+    />
+    <meta property="og:url" content="https://wynajem-namiotow.netlify.app" />
+    <meta
+      property="og:image"
+      content="https://wynajem-namiotow.netlify.app/assets/4.webp"
+    />
+    <meta property="fb:app_id" content="1234567890" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="600" />
+    <meta property="business:contact_data:street_address" content="Radom" />
+    <meta property="business:contact_data:locality" content="Radom" />
+    <meta property="business:contact_data:region" content="Mazowieckie" />
+    <meta property="business:contact_data:postal_code" content="26-600" />
+    <meta property="business:contact_data:country_name" content="Polska" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="https://twitter.com/popcorn_wata" />
+    <meta
+      name="twitter:title"
+      content="Wynajem namiotów imprezowych, krzeseł i stołów kateringowych oraz oświetlenia do namiotów."
+    />
+    <meta
+      name="twitter:description"
+      content="Profesjonalna firma oferująca wynajem namiotów na imprezy, krzeseł i stołów kateringowych oraz oświetlenia do namiotów."
+    />
+    <meta
+      name="twitter:image"
+      content="https://wynajem-namiotow.netlify.app/assets/7.webp"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Namioty imprezowe wynajmowane przez naszą firmę"
+    />
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/apple-touch-icon.png" />
+    <link rel="canonical" href="https://wynajem-namiotow.netlify.app" />
+
+    <title>Wynajem Namiotów Imprezowych, Stołów i Krzeseł, Radom</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Wynajem Namiotów Radom",
+        "url": "https://wynajem-namiotow.netlify.app",
+        "logo": "https://wynajem-namiotow.netlify.app/5.webp",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+48531890827",
+          "email": "mariusz1989poczta@wp.pl",
+          "areaServed": "PL",
+          "availableLanguage": "Polish"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Żeromskiego 95/97",
+          "addressLocality": "Radom",
+          "postalCode": "26-600",
+          "addressCountry": "PL"
+        },
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "description": "Wynajem namiotów na różne okazje.",
+        "sameAs": [
+          "https://www.facebook.com/wata.cukrowa.popcorn",
+          "https://twitter.com/popcorn_wata"
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Namiot Imprezowy",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/4.0629ba5af65146f7b1c3.webp",
+        "description": "Wysokiej jakości namiot imprezowy, idealny na różne okazje.",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/4.0629ba5af65146f7b1c3.webp",
+          "priceCurrency": "PLN",
+          "price": "800.00",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Wynajem Namiotów Radom"
+          }
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Stół kateringowy",
+        "description": "Wynajem stołów kateringowych na imprezy i wydarzenia.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/3.5f106524bd14060748e8.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Stołów Kateringowych Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/3.5f106524bd14060748e8.webp",
+          "priceCurrency": "PLN",
+          "price": "25.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Krzesło imprezowe",
+        "description": "Wynajem krzeseł na różne okazje, wygodne i estetyczne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Krzeseł Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+          "priceCurrency": "PLN",
+          "price": "10.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+                  {
+                    "@context": "https://schema.org",
+                    "@type": "Product",
+                    "name": "Oświetlenie do namiotów",
+                    "description": "Oferujemy oświetlenie do namiotów, które zapewnia odpowiednią atmosferę na Twoim wydarzeniu.",
+                    "image": "
+            https://wynajem-namiotow.netlify.app/static/media/17.d865292d3a880f982c55.webp",
+                    "brand": {
+                      "@type": "Brand",
+                      "name": "Wynajem Oświetlenia do Namiotów Radom"
+                    },
+                    "offers": {
+                      "@type": "Offer",
+                      "url": "
+      https://wynajem-namiotow.netlify.app/static/media/17.d865292d3a880f982c55.webp",
+                      "priceCurrency": "PLN",
+                      "price": "150.00",
+                      "itemCondition": "https://schema.org/NewCondition"
+                    }
+                  }
+    </script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-57ZKC08FGD"
+      async
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-57ZKC08FGD");
+    </script>
+  </body>
+</html>
+
+
+
+
+<script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Namiot Imprezowy",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/4.0629ba5af65146f7b1c3.webp",
+        "description": "Wysokiej jakości namiot imprezowy, idealny na różne okazje.",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/4.0629ba5af65146f7b1c3.webp",
+          "priceCurrency": "PLN",
+          "price": "800.00",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Wynajem Namiotów Radom"
+          }
+        }
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Stół kateringowy",
+        "description": "Wynajem stołów kateringowych na imprezy i wydarzenia.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/3.5f106524bd14060748e8.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Stołów Kateringowych Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/3.5f106524bd14060748e8.webp",
+          "priceCurrency": "PLN",
+          "price": "25.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Krzesło imprezowe",
+        "description": "Wynajem krzeseł na różne okazje, wygodne i estetyczne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Krzeseł Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+          "priceCurrency": "PLN",
+          "price": "10.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Oświetlenie do namiotów",
+        "description": "Oferujemy oświetlenie do namiotów, które zapewnia odpowiednią atmosferę na Twoim wydarzeniu.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/17.d865292d3a880f982c55.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Oświetlenia do Namiotów Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/17.d865292d3a880f982c55.webp",
+          "priceCurrency": "PLN",
+          "price": "150.00",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      }
+    </script>
