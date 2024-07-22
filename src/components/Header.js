@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import image from "../assets/4.webp";
-// import { lightTheme, darkTheme } from "../styles/themes";
 
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
@@ -69,7 +68,7 @@ const HeaderContent = styled(motion.div)`
 `;
 
 // Stylizacja tytułu z animacjami
-const Title = styled.div`
+const Title = styled.h1`
   display: flex;
   font-size: 3rem;
   margin: 0;
