@@ -1,0 +1,17 @@
+/* 
+  Cache-Control: max-age=86400
+
+/static/css/*
+  Cache-Control: max-age=2592000
+
+/static/js/*
+  Cache-Control: max-age=2592000
+
+/static/media/*
+  Cache-Control: max-age=2592000
+
+/images/*
+  Cache-Control: max-age=31536000
+
+/favicon.ico
+  Cache-Control: max-age=31536000
