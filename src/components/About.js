@@ -310,7 +310,7 @@ const About = () => {
                 <StyledParagraph>
                   Nasza misja to dostarczanie najlepszych namiotów imprezowych,
                   aby Twoje wydarzenie było niezapomniane. Dokładamy wszelkich
-                  starań, aby zapewnić najwyższą jakość i komfort naszym
+                  starań, aby zapewnić najwyższą jakość i&nbsp;komfort naszym
                   Klientom, oferując szeroki wybór namiotów dostosowanych do
                   każdej okazji. Niezależnie od tego, czy organizujesz kameralne
                   przyjęcie, firmowy event, czy wielką uroczystość, nasze
@@ -328,12 +328,13 @@ const About = () => {
               <div>
                 <h2>Nasza historia</h2>
                 <StyledParagraph>
-                  Nasza firma została założona w 2014 roku i od tego czasu
+                  Nasza firma została założona w 2014 roku i&nbsp;od tego czasu
                   dostarczamy namioty oraz pozostałe wyposażenie najwyższej
-                  jakości. Firma jest prowadzona przez kobietę, która z pasją i
-                  zaangażowaniem dba o każdy aspekt działalności. Nasze
-                  przedsiębiorstwo opiera się na wieloletniej tradycji, która
-                  łączy rodzinne wartości z nowoczesnym podejściem do biznesu.
+                  jakości. Firma jest prowadzona przez kobietę, która
+                  z&nbsp;pasją i&nbsp;zaangażowaniem dba o&nbsp;każdy aspekt
+                  działalności. Nasze przedsiębiorstwo opiera się na
+                  wieloletniej tradycji, która łączy rodzinne wartości
+                  z&nbsp;nowoczesnym podejściem do biznesu.
                 </StyledParagraph>
               </div>
             )
@@ -348,12 +349,13 @@ const About = () => {
                 <h2>Nasza oferta</h2>
                 <StyledParagraph>
                   Oferujemy szeroki wybór namiotów na różne okazje, w różnych
-                  rozmiarach i stylach na 60 i 30 osób. Ponadto wynajmujemy
-                  stoły kateringowe na 6 osób, krzesła i oświetlenie do namiotów
-                  (montaż, demontaż, transport i trawa w gratisie!). Nasza
-                  oferta jest elastyczna i dopasowana do indywidualnych potrzeb
-                  każdego klienta, co sprawia, że jesteśmy w stanie zrealizować
-                  nawet najbardziej wymagające zlecenia.
+                  rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób. Ponadto
+                  wynajmujemy stoły kateringowe na 6 osób, krzesła
+                  i&nbsp;oświetlenie do namiotów (montaż, demontaż, transport
+                  i&nbsp;trawa w&nbsp;gratisie!). Nasza oferta jest elastyczna
+                  i&nbsp;dopasowana do indywidualnych potrzeb każdego Klienta,
+                  co sprawia, że&nbsp;jesteśmy w&nbsp;stanie zrealizować nawet
+                  najbardziej wymagające zlecenia.
                 </StyledParagraph>
               </div>
             )
