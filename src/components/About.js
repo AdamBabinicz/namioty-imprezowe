@@ -263,9 +263,12 @@ const About = () => {
       <ImageContainer>
         <motion.img
           src={img}
+          loading="lazy"
           alt="Przykład 1"
           onClick={() =>
-            handleButtonClick(<img src={img} alt="Modal content" />)
+            handleButtonClick(
+              <img src={img} loading="lazy" alt="Modal content" />
+            )
           }
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -273,9 +276,12 @@ const About = () => {
         />
         <motion.img
           src={img1}
+          loading="lazy"
           alt="Przykład 2"
           onClick={() =>
-            handleButtonClick(<img src={img1} alt="Modal content" />)
+            handleButtonClick(
+              <img src={img1} loading="lazy" alt="Modal content" />
+            )
           }
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -283,9 +289,12 @@ const About = () => {
         />
         <motion.img
           src={img2}
+          loading="lazy"
           alt="Przykład 3"
           onClick={() =>
-            handleButtonClick(<img src={img2} alt="Modal content" />)
+            handleButtonClick(
+              <img src={img2} loading="lazy" alt="Modal content" />
+            )
           }
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

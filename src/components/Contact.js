@@ -19,6 +19,7 @@ const Contact = () => {
           <ImageContainer>
             <motion.img
               src={img}
+              loading="lazy"
               alt="Contact"
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
