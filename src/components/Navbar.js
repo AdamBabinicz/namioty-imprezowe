@@ -74,7 +74,7 @@ const Navbar = ({ toggleTheme }) => {
             href="#o-firmie"
             onClick={(e) => handleSmoothScroll(e, "o-firmie")}
           >
-            O firmie
+            O&nbsp;firmie
           </NavLink>
           <NavLink
             href="#kontakt"

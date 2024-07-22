@@ -208,6 +208,7 @@ const Gallery = ({ theme }) => {
               <Image
                 src={image.src}
                 alt={`Artwork ${index + 1}`}
+                loading="lazy"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={
                   isVisible && isHovered
