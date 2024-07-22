@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import image from "../assets/4.webp";
+// import { lightTheme, darkTheme } from "../styles/themes";
 
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
@@ -9,6 +10,7 @@ const HeaderContainer = styled.header`
   background: url(${image}) center center/cover no-repeat;
   background-attachment: fixed; /* Efekt parallax */
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -67,7 +69,8 @@ const HeaderContent = styled(motion.div)`
 `;
 
 // Stylizacja tytułu z animacjami
-const Title = styled(motion.h1)`
+const Title = styled.div`
+  display: flex;
   font-size: 3rem;
   margin: 0;
   font-family: "Arial", sans-serif;
@@ -123,7 +126,32 @@ const TooltipWrapper = styled.div`
   }
 `;
 
-export const Header = () => {
+// Animowany napis z literkami
+const AnimatedLetter = styled(motion.span)`
+  display: inline-block;
+`;
+
+// Stylizacja hasła reklamowego na szklanym tle
+const Promo = styled(motion.div)`
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  color: ${({ theme }) => theme.text};
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 4rem;
+  width: fit-content; /* Dostosowanie szerokości do rodzica */
+`;
+
+const sentence = "Namioty imprezowe";
+const letterVariants = {
+  initial: { opacity: 0, y: 50 },
+  animate: { opacity: 1, y: 0 },
+};
+
+export const Header = ({ theme }) => {
   return (
     <HeaderContainer>
       <HeaderContent
@@ -132,16 +160,29 @@ export const Header = () => {
         transition={{ duration: 0.5 }}
       >
         <TooltipWrapper>
-          <Title
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
-          >
-            Namioty imprezowe
+          <Title>
+            {sentence.split("").map((letter, index) => (
+              <AnimatedLetter
+                key={index}
+                variants={letterVariants}
+                initial="initial"
+                animate="animate"
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </AnimatedLetter>
+            ))}
           </Title>
           <Tooltip>Najlepsze namioty na każdą okazję!</Tooltip>
         </TooltipWrapper>
       </HeaderContent>
+      <Promo
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+      >
+        Wynajem namiotów imprezowych -<br /> Komfort i styl na Twojej imprezie!
+      </Promo>
     </HeaderContainer>
   );
 };
