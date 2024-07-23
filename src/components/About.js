@@ -43,7 +43,6 @@ const StyledParagraph = styled(motion.p)`
   padding: 0 1rem; /* Add some horizontal padding */
   text-align: left; /* Justify the text for a clean look */
   margin-bottom: 1.5rem;
-  height: auto;
 
   &:first-of-type {
     margin-top: 0; /* Ensure no top margin for the first paragraph */
