@@ -13,6 +13,7 @@ import { lightTheme, darkTheme } from "../styles/themes";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+// Styled components
 const GalleryContainer = styled.section`
   margin: 0 5rem;
   padding: 2rem;
@@ -42,32 +43,47 @@ const MotionTitle = styled(motion.h2)`
   }
 `;
 
+const SliderWrapper = styled.div`
+  .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center; // Wyśrodkowanie zdjęć
+  }
+
+  .slick-list {
+    margin: 0;
+  }
+
+  .slick-track {
+    display: flex;
+    align-items: center; // Wyśrodkowanie zdjęć
+  }
+`;
+
 const ImageWrapper = styled.div`
   position: relative;
+  overflow: hidden; // Ukrywa wszelkie niechciane paski
+  width: 100%; // Szerokość obrazka na 100%
 `;
 
 const Image = styled.img`
   width: 100%;
-  height: 400px;
-  object-fit: cover;
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  height: auto; // Utrzymuje proporcje obrazka
+  max-height: 600px; // Maksymalna wysokość obrazka
+  object-fit: cover; // Dopasowuje obraz do kontenera
+  display: block; // Usuwa marginesy dolne
 
   @media (min-width: 768px) {
-    height: 600px;
-    margin: 0 auto;
+    height: 600px; // Ustawia stałą wysokość na większych ekranach
     object-fit: contain;
   }
 `;
 
 const ImageOverlay = styled(motion.div)`
   position: absolute;
-  top: 90%;
+  bottom: 10%;
   left: 50%;
-  transform: translate(-50%, -90%);
+  transform: translate(-50%, 50%);
   padding: 10px;
   background: rgba(0, 0, 0, 0.5);
   color: ${(props) => props.color};
@@ -77,7 +93,6 @@ const ImageOverlay = styled(motion.div)`
 
   @media (min-width: 768px) {
     font-size: 0.8rem;
-    max-width: 100%;
   }
 `;
 
@@ -130,6 +145,7 @@ const CustomPrevArrow = ({ onClick }) => (
   </NavigationButton>
 );
 
+// Gallery component
 const Gallery = ({ theme }) => {
   const images = [
     { src: image1, title: "Namiot na 30 osób, biały", year: "" },
@@ -179,28 +195,7 @@ const Gallery = ({ theme }) => {
         },
       },
       {
-        breakpoint: 1366,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 960,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -219,36 +214,31 @@ const Gallery = ({ theme }) => {
         >
           Nasza oferta
         </MotionTitle>
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <ImageWrapperHover
-              key={index}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              <Image
-                src={image.src}
-                alt={`Artwork ${index + 1}`}
-                loading="lazy"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={
-                  isVisible && isHovered
-                    ? { opacity: 1, scale: 1 }
-                    : { opacity: 0, scale: 0.9 }
-                }
-                transition={{ duration: 0.6, delay: 0.2 }}
-              />
-              <ImageOverlay
-                initial={{ opacity: 0 }}
-                animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                color={theme === "light" ? "#fff" : theme.text}
+        <SliderWrapper>
+          <Slider {...settings}>
+            {images.map((image, index) => (
+              <ImageWrapperHover
+                key={index}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
               >
-                {image.title} - {image.year}
-              </ImageOverlay>
-            </ImageWrapperHover>
-          ))}
-        </Slider>
+                <Image
+                  src={image.src}
+                  alt={`Artwork ${index + 1}`}
+                  loading="lazy"
+                />
+                <ImageOverlay
+                  initial={{ opacity: 0 }}
+                  animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  color={theme === "light" ? "#fff" : theme.text}
+                >
+                  {image.title} - {image.year}
+                </ImageOverlay>
+              </ImageWrapperHover>
+            ))}
+          </Slider>
+        </SliderWrapper>
       </GalleryContainer>
     </ThemeProvider>
   );

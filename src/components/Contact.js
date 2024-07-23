@@ -70,13 +70,12 @@ const Title = styled(motion.h2)`
   font-size: 2rem;
   color: ${({ theme }) => theme.text};
   margin-bottom: 2rem;
-  margin-left: 0;
+  margin-left: 5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
     font-size: 1.7rem;
     margin-bottom: 1.5rem;
-    text-align: center;
   }
 `;
 

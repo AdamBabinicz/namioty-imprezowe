@@ -6,6 +6,7 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 }
 
 html {
@@ -19,6 +20,7 @@ body {
   font-family: 'Roboto', sans-serif;
   transition: all 0.50s linear;
   overflow-x: hidden;
+  
 }
 
 a {
@@ -35,6 +37,7 @@ a:hover {
 p {
   line-height: 1.6; /* Ustawia wysokość linii dla tekstu w paragrafach */
 }
+
 
 .dark-mode {
   background: ${({ theme }) => theme.body};
