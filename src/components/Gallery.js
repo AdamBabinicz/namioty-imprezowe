@@ -71,7 +71,8 @@ const Image = styled.img`
   height: auto; // Utrzymuje proporcje obrazka
   max-height: 600px; // Maksymalna wysokość obrazka
   object-fit: cover; // Dopasowuje obraz do kontenera
-  display: block; // Usuwa marginesy dolne
+  display: block; // Usuwa marginesy
+  padding: 0 0.1rem;
 
   @media (min-width: 768px) {
     height: 600px; // Ustawia stałą wysokość na większych ekranach
