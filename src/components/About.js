@@ -42,7 +42,8 @@ const StyledParagraph = styled(motion.p)`
   line-height: 1.6; /* Set a line height for better readability */
   padding: 0 1rem; /* Add some horizontal padding */
   text-align: left; /* Justify the text for a clean look */
-  margin-bottom: 1.5rem; /* Add bottom margin to separate paragraphs */
+  margin-bottom: 1.5rem;
+  height: fit-content;
 
   &:first-of-type {
     margin-top: 0; /* Ensure no top margin for the first paragraph */
