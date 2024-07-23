@@ -68,11 +68,16 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: auto; // Utrzymuje proporcje obrazka
+  /* height: auto; // Utrzymuje proporcje obrazka */
   max-height: 600px; // Maksymalna wysokość obrazka
   object-fit: cover; // Dopasowuje obraz do kontenera
   display: block; // Usuwa marginesy
   padding: 0 0.1rem;
+  transition: transform 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 
   @media (min-width: 768px) {
     height: 600px; // Ustawia stałą wysokość na większych ekranach
@@ -82,9 +87,9 @@ const Image = styled.img`
 
 const ImageOverlay = styled(motion.div)`
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, 0);
   padding: 10px;
   background: rgba(0, 0, 0, 0.5);
   color: ${(props) => props.color};
