@@ -26,7 +26,7 @@ const LoadingContainer = styled.div`
   background: url(${image}) center center/contain no-repeat;
 
   @media (min-width: 460px) {
-    background: url(${image}) center center/10% no-repeat;
+    background: url(${image}) center center/20% no-repeat;
   }
 `;
 
