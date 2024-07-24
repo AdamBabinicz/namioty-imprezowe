@@ -1,17 +1,23 @@
 /* 
   Cache-Control: max-age=86400
+  Vary: Accept-Encoding
 
 /static/css/*
   Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
 
 /static/js/*
   Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
 
 /static/media/*
   Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
 
 /images/*
   Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
 
 /favicon.ico
   Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
