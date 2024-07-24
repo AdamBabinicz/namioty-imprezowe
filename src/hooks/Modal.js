@@ -60,6 +60,7 @@ const CloseButton = styled.button`
   color: ${({ theme }) => theme.text};
   font-size: 1.5rem;
   transition: color 0.3s ease;
+  z-index: 1000;
 
   &:hover {
     color: ${({ theme }) => theme.linkHover};

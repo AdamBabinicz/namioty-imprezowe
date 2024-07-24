@@ -139,9 +139,14 @@ const Promo = styled(motion.div)`
   color: ${({ theme }) => theme.text};
   text-align: center;
   font-size: 1.5rem;
+  line-height: 3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: 4rem;
   width: fit-content; /* Dostosowanie szerokości do rodzica */
+
+  @media (max-width: 768px) {
+    line-height: 2.3rem;
+  }
 `;
 
 const sentence = "Namioty imprezowe";
