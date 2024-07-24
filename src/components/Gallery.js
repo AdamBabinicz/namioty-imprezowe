@@ -140,13 +140,13 @@ const NavigationButton = styled.button`
 `;
 
 const CustomNextArrow = ({ onClick }) => (
-  <NavigationButton $right onClick={onClick}>
+  <NavigationButton $right onClick={onClick} aria-label="Next Slide">
     <FaArrowRight />
   </NavigationButton>
 );
 
 const CustomPrevArrow = ({ onClick }) => (
-  <NavigationButton $left onClick={onClick}>
+  <NavigationButton $left onClick={onClick} aria-label="Previous Slide">
     <FaArrowLeft />
   </NavigationButton>
 );
