@@ -107,6 +107,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           data-tooltip-id="facebookTooltip"
           data-tooltip-content="Facebook"
+          aria-label="Visit our Facebook page"
         >
           <motion.div
             whileHover={{ scale: 1.2 }}
@@ -121,6 +122,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           data-tooltip-id="twitterTooltip"
           data-tooltip-content="Twitter"
+          aria-label="Follow us on Twitter"
         >
           <motion.div
             whileHover={{ scale: 1.2 }}
@@ -135,6 +137,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           data-tooltip-id="pinterestTooltip"
           data-tooltip-content="Pinterest"
+          aria-label="See our pins on Pinterest"
         >
           <motion.div
             whileHover={{ scale: 1.2 }}
@@ -151,6 +154,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           data-tooltip-id="slodkolandiaTooltip"
           data-tooltip-content="Słodkolandia wita"
+          aria-label="Visit Słodkolandia website"
         >
           <motion.div
             whileHover={{ scale: 1.1 }}
@@ -166,6 +170,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           data-tooltip-id="zamkiTooltip"
           data-tooltip-content="Zamki dmuchane"
+          aria-label="Visit Zamki Dmuchane website"
         >
           <motion.div
             whileHover={{ scale: 1.1 }}
@@ -181,6 +186,7 @@ export const Footer = () => {
           rel="noopener noreferrer"
           data-tooltip-id="fontannyTooltip"
           data-tooltip-content="Fontanny"
+          aria-label="Visit Fontanny website"
         >
           <motion.div
             whileHover={{ scale: 1.1 }}
