@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import styled, { ThemeProvider, withTheme } from "styled-components";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
-import image1 from "../assets/4.webp";
+import image1 from "../assets/21.webp";
 import image2 from "../assets/7.webp";
 import image3 from "../assets/8.webp";
 import image4 from "../assets/20.webp";
