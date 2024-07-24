@@ -21,3 +21,8 @@
 /favicon.ico
   Cache-Control: max-age=31536000
   Vary: Accept-Encoding
+
+/* Google Tag Manager */
+https://www.googletagmanager.com/gtag/js*
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
