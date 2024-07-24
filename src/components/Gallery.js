@@ -5,7 +5,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import image1 from "../assets/21.webp";
 import image2 from "../assets/7.webp";
-import image3 from "../assets/8.webp";
+import image3 from "../assets/23.webp";
 import image4 from "../assets/20.webp";
 import image5 from "../assets/3.webp";
 import image6 from "../assets/17.webp";
