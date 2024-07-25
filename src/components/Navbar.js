@@ -55,7 +55,7 @@ const Navbar = ({ toggleTheme }) => {
     <NavbarContainer darkMode={darkMode}>
       <NavbarWrapper>
         <Logo onClick={scrollToTop}>
-          <img src={img} alt="logo" />
+          <img src={img} alt="fotografia namiotu białego" />
           Wynajem Namiotów
         </Logo>
         <MobileIcon onClick={toggleMenu}>
