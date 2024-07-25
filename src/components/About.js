@@ -163,7 +163,7 @@ const About = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
       >
-        Nasza firma <b>"Słodkolandia&nbsp;wita"</b> specjalizuje się
+        Nasza firma <b>"Słodkolandia&nbsp;wita:"</b> specjalizuje się
         w&nbsp;wynajmie wysokiej jakości namiotów imprezowych w&nbsp;kolorze
         białym, stołów kateringowych i&nbsp;krzeseł oraz oświetlenia do
         namiotów. Dostarczamy wyżej wymieniony sprzęt na wszelkie uroczyste
@@ -245,10 +245,11 @@ const About = () => {
           </StyledParagraph>
           <StyledParagraph>
             Dodatkowo, jako wyraz naszego zaangażowania i&nbsp;chęci zadowolenia
-            Klientów, oferujemy trawę jako gratis, co dodatkowo podnosi komfort
-            korzystania z&nbsp;naszych namiotów. Wybierając naszą firmę,
-            otrzymujesz kompleksową obsługę na&nbsp;najwyższym poziomie, która
-            sprawi, że&nbsp;Twoje wydarzenie będzie niezapomniane.
+            Klientów, oferujemy <b>trawę</b> oraz <b>oświetlenie</b> jako
+            gratis, co dodatkowo podnosi komfort korzystania z&nbsp;naszych
+            namiotów. Wybierając naszą firmę, otrzymujesz kompleksową obsługę
+            na&nbsp;najwyższym poziomie, która sprawi, że&nbsp;Twoje wydarzenie
+            będzie niezapomniane.
           </StyledParagraph>
           <IconContainer
             onClick={handleExpandClick}
