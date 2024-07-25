@@ -46,9 +46,9 @@ const StyledParagraph = styled(motion.p)`
   hyphens: auto;
   text-wrap: balance;
 
-  /* @media (min-width: 768px) {
-    text-align: justify;
-  } */
+  @media (min-width: 768px) {
+    text-align: start;
+  }
 
   &:first-of-type {
     margin-top: 0; /* Ensure no top margin for the first paragraph */
@@ -164,12 +164,12 @@ const About = () => {
         transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
       >
         Nasza firma <b>"Słodkolandia&nbsp;wita"</b> specjalizuje się
-        w&nbsp;wynajmie wysokiej jakości namiotów imprezowych w kolorze białym,
-        stołów kateringowych i&nbsp;krzeseł oraz oświetlenia do namiotów.
-        Dostarczamy wyżej wymieniony sprzęt na wszelkie uroczyste okazje typu:
-        Komunie Św., wesela, urodziny, spotkania towarzyskie, rocznice
-        i&nbsp;inne imprezy wymagające zabezpieczenia przed deszczem, słońcem
-        i&nbsp;innymi niesprzyjającymi warunkami atmosferycznymi.
+        w&nbsp;wynajmie wysokiej jakości namiotów imprezowych w&nbsp;kolorze
+        białym, stołów kateringowych i&nbsp;krzeseł oraz oświetlenia do
+        namiotów. Dostarczamy wyżej wymieniony sprzęt na wszelkie uroczyste
+        okazje typu: Komunie Św., wesela, urodziny, spotkania towarzyskie,
+        rocznice i&nbsp;inne imprezy wymagające zabezpieczenia przed deszczem,
+        słońcem i&nbsp;innymi niesprzyjającymi warunkami atmosferycznymi.
         {!expanded && (
           <IconContainer
             onClick={handleExpandClick}
