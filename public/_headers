@@ -22,7 +22,12 @@
   Cache-Control: max-age=31536000
   Vary: Accept-Encoding
 
-/* Google Tag Manager */
+/* Google Tag Manager - krótki czas cache ze względu na częste aktualizacje */
 https://www.googletagmanager.com/gtag/js*
+  Cache-Control: no-cache
+  Vary: Accept-Encoding
+
+/* Czcionki Google - można zwiększyć czas cache */
+https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap
   Cache-Control: max-age=31536000
   Vary: Accept-Encoding
