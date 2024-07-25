@@ -46,9 +46,9 @@ const StyledParagraph = styled(motion.p)`
   hyphens: auto;
   text-wrap: balance;
 
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     text-align: justify;
-  }
+  } */
 
   &:first-of-type {
     margin-top: 0; /* Ensure no top margin for the first paragraph */
