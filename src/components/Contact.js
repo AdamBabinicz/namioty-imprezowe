@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaPhone, FaEnvelope } from "react-icons/fa";
 import { motion } from "framer-motion";
-import img from "../assets/.avif";
+import img from "../assets/4.avif";
 
 const Contact = () => {
   return (
