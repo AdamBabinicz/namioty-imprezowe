@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import { FaExpand, FaCompress } from "react-icons/fa";
 import Modal from "../hooks/Modal";
-import img from "../assets/13.webp";
+import img from "../assets/5.avif";
 import img1 from "../assets/14.webp";
 import img2 from "../assets/15.webp";
 import { Tooltip } from "react-tooltip"; // Import Tooltip z react-tooltip

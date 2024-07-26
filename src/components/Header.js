@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import image from "../assets/3.jfif";
+import image from "../assets/1.avif";
 
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
