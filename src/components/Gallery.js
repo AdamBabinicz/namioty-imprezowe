@@ -9,6 +9,7 @@ import image3 from "../assets/3.avif";
 import image4 from "../assets/6.avif";
 import image5 from "../assets/7.avif";
 import image6 from "../assets/17.webp";
+import image7 from "../assets/9.avif";
 import { lightTheme, darkTheme } from "../styles/themes";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -160,6 +161,7 @@ const Gallery = ({ theme }) => {
     { src: image4, title: "Krzesło białe, składane", year: "" },
     { src: image5, title: "Stół biały dla 6 osób, składany", year: "" },
     { src: image6, title: "Girlanda świetlna LED Ogrodowa 15m 30x", year: "" },
+    { src: image7, title: "Wykorzystanie oświetlenia w namiocie", year: "" },
   ];
 
   const [isHovered, setIsHovered] = useState(false);
