@@ -149,6 +149,30 @@ const Promo = styled(motion.div)`
   }
 `;
 
+// Stylizacja przycisku
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  z-index: 1; /* Upewnij się, że przycisk jest na wierzchu */
+
+  button {
+    background: ${({ theme }) => theme.text};
+    color: ${({ theme }) => theme.body};
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: ${({ theme }) => theme.hoverBackground};
+      transform: scale(1.05);
+    }
+  }
+`;
+
 const sentence = "Namioty imprezowe";
 const letterVariants = {
   initial: { opacity: 0, y: 50 },
@@ -187,6 +211,11 @@ export const Header = ({ theme }) => {
       >
         Wynajem namiotów imprezowych -<br /> Komfort i styl na Twojej imprezie!
       </Promo>
+      <ButtonContainer>
+        <a href="tel:+48531890827">
+          <button>Zadzwoń!</button>
+        </a>
+      </ButtonContainer>
     </HeaderContainer>
   );
 };
