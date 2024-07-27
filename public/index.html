@@ -184,10 +184,7 @@
             },
             "deliveryTime": {
               "@type": "ShippingDeliveryTime",
-              "businessDays": {
-                "minValue": 1,
-                "maxValue": 3
-              }
+              "businessDays": "P1D"
             }
           }
         },
@@ -266,10 +263,7 @@
             },
             "deliveryTime": {
               "@type": "ShippingDeliveryTime",
-              "businessDays": {
-                "minValue": 1,
-                "maxValue": 3
-              }
+              "businessDays": "P1D"
             }
           }
         },
@@ -348,42 +342,118 @@
             },
             "deliveryTime": {
               "@type": "ShippingDeliveryTime",
-              "businessDays": {
-                "minValue": 1,
-                "maxValue": 3
-              }
+              "businessDays": "P1D"
             }
           }
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.2",
-          "reviewCount": "5"
+          "ratingValue": "4.7",
+          "reviewCount": "15"
         },
         "review": [
           {
             "@type": "Review",
             "author": {
               "@type": "Person",
-              "name": "Adam Wiśniewski"
-            },
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "4"
-            },
-            "reviewBody": "Wygodne krzesła, polecam."
-          },
-          {
-            "@type": "Review",
-            "author": {
-              "@type": "Person",
-              "name": "Joanna Nowak"
+              "name": "Katarzyna Nowak"
             },
             "reviewRating": {
               "@type": "Rating",
               "ratingValue": "5"
             },
-            "reviewBody": "Krzesła bardzo dobrze wykonane, idealne na różne imprezy."
+            "reviewBody": "Bardzo wygodne krzesła, polecam."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Paweł Wiśniewski"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre krzesła na każdą okazję."
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Oświetlenie do namiotów",
+        "description": "Wynajem oświetlenia do namiotów na różne okazje, estetyczne i funkcjonalne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/17.4db3556bb65e01b14836.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Oświetlenia Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/17.4db3556bb65e01b14836.webp",
+          "priceCurrency": "PLN",
+          "price": "50.00",
+          "priceValidUntil": "2025-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/ReturnShippingFees",
+            "returnPolicyCountry": "PL",
+            "merchantReturnDays": 30,
+            "applicableCountry": "PL",
+            "returnFees": "https://schema.org/FreeReturn",
+            "returnMethod": "https://schema.org/InStoreDropOff"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "currency": "PLN",
+              "value": "0.00"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "PL"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": "P1D"
+            }
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.2",
+          "reviewCount": "9"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Piotr Mazur"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre oświetlenie, spełnia swoje zadanie."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Magdalena Wiśniewska"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Świetne oświetlenie na imprezy."
           }
         ]
       }
