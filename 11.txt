@@ -1,117 +1,4 @@
-<!DOCTYPE html>
-<html lang="pl">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/1.ico" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <!-- Fonty z Google Fonts -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /> -->
-    <!-- Inne tagi meta i linki -->
-    <link
-      rel="preload"
-      as="image"
-      href="https://wynajem-namiotow.netlify.app/static/media/1.56965234df9bc15a8ce2.avif"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      />
-    </noscript>
-
-    <!-- Prefetching i Preloading dla zasobów -->
-    <link
-      rel="preload"
-      href="https://www.googletagmanager.com/gtag/js?id=G-57ZKC08FGD"
-      as="script"
-    />
-
-    <!-- Zabezpieczenia i SEO -->
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Firma z Radomia oferuje wynajem namiotów, krzeseł, stołów kateringowych i oświetlenia. Sprawdź naszą ofertę i skorzystaj z profesjonalnej obsługi już dziś!"
-    />
-    <meta name="robots" content="index, follow" />
-    <meta
-      name="keywords"
-      content="wynajem namiotów, Radom, stoły kateringowe, krzesła kateringowe, namioty imprezowe, wynajem sprzętu eventowego, wynajem oświetlenia do namiotów"
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Firma wynajmuje namioty imprezowe w różnych rozmiarach, krzesła, stoły kateringowe oraz oświetlenie do namiotów."
-    />
-    <meta property="og:url" content="https://wynajem-namiotow.netlify.app" />
-    <meta
-      property="og:image"
-      content="https://wynajem-namiotow.netlify.app/assets/3.jfif"
-    />
-    <meta
-      property="og:description"
-      content="Firma z Radomia oferuje wynajem namiotów, krzeseł, stołów kateringowych i oświetlenia. Sprawdź naszą ofertę i skorzystaj z profesjonalnej obsługi już dziś!"
-    />
-    <meta property="fb:app_id" content="1234567890" />
-    <meta property="og:image:width" content="800" />
-    <meta property="og:image:height" content="600" />
-    <meta property="business:contact_data:street_address" content="Radom" />
-    <meta property="business:contact_data:locality" content="Radom" />
-    <meta property="business:contact_data:region" content="Mazowieckie" />
-    <meta property="business:contact_data:postal_code" content="26-600" />
-    <meta property="business:contact_data:country_name" content="Polska" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="https://twitter.com/popcorn_wata" />
-    <meta
-      name="twitter:title"
-      content="Wynajem namiotów imprezowych, krzeseł i stołów kateringowych oraz oświetlenia do namiotów."
-    />
-    <meta
-      name="twitter:description"
-      content="Profesjonalna firma oferująca wynajem namiotów na imprezy, krzeseł i stołów kateringowych oraz oświetlenia do namiotów."
-    />
-    <meta
-      name="twitter:image"
-      content="https://wynajem-namiotow.netlify.app/assets/7.webp"
-    />
-    <meta
-      name="twitter:image:alt"
-      content="Namioty imprezowe wynajmowane przez naszą firmę"
-    />
-
-    <!-- Ikony dla Androida i IOS-->
-    <link
-      rel="icon"
-      sizes="192x192"
-      href="https://wynajem-namiotow.netlify.app/assets/7.webp"
-    />
-    <link
-      rel="icon"
-      sizes="128x128"
-      href="https://wynajem-namiotow.netlify.app/assets/8.webp"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="https://wynajem-namiotow.netlify.app/assets/9.webp"
-    />
-
-    <link rel="canonical" href="https://wynajem-namiotow.netlify.app" />
-
-    <title>Wynajem Namiotów Imprezowych, Stołów i Krzeseł, Radom</title>
-  </head>
-
-  <body>
-    <div id="root"></div>
-
-    <!-- JSON-LD Structured Data -->
+<!-- JSON-LD Structured Data -->
     <script type="application/ld+json" defer>
       {
         "@context": "https://schema.org",
@@ -167,9 +54,7 @@
             "returnPolicyCategory": "https://schema.org/ReturnShippingFees",
             "returnPolicyCountry": "PL",
             "merchantReturnDays": 30,
-            "applicableCountry": "PL",
-            "returnFees": "https://schema.org/FreeReturn",
-            "returnMethod": "https://schema.org/InStoreDropOff"
+            "applicableCountry": "PL"
           },
           "shippingDetails": {
             "@type": "OfferShippingDetails",
@@ -181,13 +66,6 @@
             "shippingDestination": {
               "@type": "DefinedRegion",
               "addressCountry": "PL"
-            },
-            "deliveryTime": {
-              "@type": "ShippingDeliveryTime",
-              "businessDays": {
-                "minValue": 1,
-                "maxValue": 3
-              }
             }
           }
         },
@@ -249,9 +127,7 @@
             "returnPolicyCategory": "https://schema.org/ReturnShippingFees",
             "returnPolicyCountry": "PL",
             "merchantReturnDays": 30,
-            "applicableCountry": "PL",
-            "returnFees": "https://schema.org/FreeReturn",
-            "returnMethod": "https://schema.org/InStoreDropOff"
+            "applicableCountry": "PL"
           },
           "shippingDetails": {
             "@type": "OfferShippingDetails",
@@ -263,13 +139,6 @@
             "shippingDestination": {
               "@type": "DefinedRegion",
               "addressCountry": "PL"
-            },
-            "deliveryTime": {
-              "@type": "ShippingDeliveryTime",
-              "businessDays": {
-                "minValue": 1,
-                "maxValue": 3
-              }
             }
           }
         },
@@ -331,9 +200,7 @@
             "returnPolicyCategory": "https://schema.org/ReturnShippingFees",
             "returnPolicyCountry": "PL",
             "merchantReturnDays": 30,
-            "applicableCountry": "PL",
-            "returnFees": "https://schema.org/FreeReturn",
-            "returnMethod": "https://schema.org/InStoreDropOff"
+            "applicableCountry": "PL"
           },
           "shippingDetails": {
             "@type": "OfferShippingDetails",
@@ -345,62 +212,148 @@
             "shippingDestination": {
               "@type": "DefinedRegion",
               "addressCountry": "PL"
-            },
-            "deliveryTime": {
-              "@type": "ShippingDeliveryTime",
-              "businessDays": {
-                "minValue": 1,
-                "maxValue": 3
-              }
             }
           }
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "4.2",
-          "reviewCount": "5"
+          "ratingValue": "4.7",
+          "reviewCount": "15"
         },
         "review": [
           {
             "@type": "Review",
             "author": {
               "@type": "Person",
-              "name": "Adam Wiśniewski"
-            },
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "4"
-            },
-            "reviewBody": "Wygodne krzesła, polecam."
-          },
-          {
-            "@type": "Review",
-            "author": {
-              "@type": "Person",
-              "name": "Joanna Nowak"
+              "name": "Katarzyna Nowak"
             },
             "reviewRating": {
               "@type": "Rating",
               "ratingValue": "5"
             },
-            "reviewBody": "Krzesła bardzo dobrze wykonane, idealne na różne imprezy."
+            "reviewBody": "Bardzo wygodne krzesła, polecam."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Paweł Wiśniewski"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre krzesła na każdą okazję."
           }
         ]
       }
     </script>
 
-    <!-- Google Tag Manager -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-57ZKC08FGD"
-    ></script>
-    <script defer>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Oświetlenie do namiotów",
+        "description": "Wynajem oświetlenia do namiotów na różne okazje, estetyczne i funkcjonalne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/17.4db3556bb65e01b14836.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Oświetlenia Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/17.4db3556bb65e01b14836.webp",
+          "priceCurrency": "PLN",
+          "price": "50.00",
+          "priceValidUntil": "2025-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "returnPolicyCategory": "https://schema.org/ReturnShippingFees",
+            "returnPolicyCountry": "PL",
+            "merchantReturnDays": 30,
+            "applicableCountry": "PL"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "currency": "PLN",
+              "value": "0.00"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "PL"
+            }
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.2",
+          "reviewCount": "9"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Piotr Mazur"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre oświetlenie, spełnia swoje zadanie."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Magdalena Wiśniewska"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Świetne oświetlenie na imprezy."
+          }
+        ]
       }
-      gtag("js", new Date());
-      gtag("config", "G-57ZKC08FGD");
     </script>
-  </body>
-</html>
+
+
+
+/* 
+  Cache-Control: max-age=86400
+  Vary: Accept-Encoding
+
+/static/css/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
+
+/static/js/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
+
+/static/media/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
+
+/images/*
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
+
+/favicon.ico
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
+
+/* Google Tag Manager - krótki czas cache ze względu na częste aktualizacje */
+https://www.googletagmanager.com/gtag/js*
+  Cache-Control: no-cache
+  Vary: Accept-Encoding
+
+/* Czcionki Google - można zwiększyć czas cache */
+https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
