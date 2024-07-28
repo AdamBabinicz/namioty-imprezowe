@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
 
   @media (max-width: 768px) {
     margin: 0 1rem 1.5rem;
-    padding: 1rem;
+    padding: 2rem 1rem 0;
   }
 `;
 
