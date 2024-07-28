@@ -11,16 +11,16 @@ const HeaderContainer = styled.header`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end; /* Ustawienie elementów na dole */
   position: relative;
-  padding: 0 5rem;
+  padding: 0 5rem 10rem; /* Dodanie dolnego paddingu */
   margin: 1rem 5rem 2rem;
   border-radius: 15px;
   overflow: hidden; /* Aby elementy nie wychodziły poza obszar nagłówka */
 
   @media (max-width: 768px) {
     margin: 0 1rem 1.5rem;
-    padding: 1rem;
+    padding: 1rem 1rem 8rem; /* Dodanie dolnego paddingu */
   }
 `;
 
@@ -34,9 +34,10 @@ const HeaderContent = styled(motion.div)`
   position: relative;
   overflow: visible; /* Umożliwienie widoczności tooltipa */
   z-index: 1; /* Upewnij się, że kontent jest na wierzchu */
+  margin-bottom: 2rem; /* Dodanie dolnego marginesu */
 
   @media (max-width: 768px) {
-    margin-top: 2rem;
+    margin-bottom: 1rem; /* Dodanie dolnego marginesu */
   }
 
   &::before {
@@ -107,6 +108,10 @@ const Tooltip = styled.div`
   white-space: nowrap;
   z-index: 1000; /* Upewnij się, że tooltip jest na wierzchu */
 
+  @media (max-width: 768px) {
+    top: -60px; /* Zmniejszenie odległości tooltipa na mniejszych ekranach */
+  }
+
   &::after {
     content: "";
     position: absolute;
@@ -122,10 +127,6 @@ const Tooltip = styled.div`
 // Stylizacja kontentu z tooltipem
 const TooltipWrapper = styled.div`
   position: relative;
-
-  @media (max-width: 768px) {
-    margin-top: 2rem;
-  }
 
   &:hover ${Tooltip} {
     visibility: visible;
@@ -154,6 +155,7 @@ const Promo = styled(motion.div)`
 
   @media (max-width: 768px) {
     line-height: 2.3rem;
+    margin-top: 2rem; /* Zmniejszenie górnego marginesu */
   }
 `;
 
