@@ -36,7 +36,7 @@ const HeaderContent = styled(motion.div)`
   z-index: 1; /* Upewnij się, że kontent jest na wierzchu */
 
   @media (max-width: 768px) {
-    color: red;
+    margin-top: 2rem;
   }
 
   &::before {
