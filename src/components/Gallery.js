@@ -155,11 +155,31 @@ const CustomPrevArrow = ({ onClick }) => (
 // Gallery component
 const Gallery = ({ theme }) => {
   const images = [
-    { src: image1, title: "Namiot na 30 osób, biały", year: "" },
-    { src: image2, title: "Namiot na 30 osób, biały", year: "" },
-    { src: image3, title: "Namiot na 60 osób, biały", year: "" },
-    { src: image4, title: "Krzesło białe, składane", year: "" },
-    { src: image5, title: "Stół biały dla 6 osób, składany", year: "" },
+    {
+      src: image1,
+      title: "Namiot na 30 osób, biały",
+      year: "Możliwośc dowolniej konfiguracji ścianek.",
+    },
+    {
+      src: image2,
+      title: "Namiot na 30 osób, biały",
+      year: "Możliwośc dowolniej konfiguracji ścianek.",
+    },
+    {
+      src: image3,
+      title: "Namiot na 60 osób, biały",
+      year: "Możliwośc dowolniej konfiguracji ścianek.",
+    },
+    {
+      src: image4,
+      title: "Krzesło białe, składane",
+      year: "Solidna konstrukcja.",
+    },
+    {
+      src: image5,
+      title: "Stół biały dla 6 osób, składany",
+      year: "Solidna konstrukcja.",
+    },
     { src: image6, title: "Girlanda świetlna LED Ogrodowa 15m 30x", year: "" },
     { src: image7, title: "Wykorzystanie oświetlenia w namiocie", year: "" },
   ];

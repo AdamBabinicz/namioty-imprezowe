@@ -1,0 +1,328 @@
+<script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Wynajem Namiotów Radom",
+        "url": "https://wynajem-namiotow.netlify.app",
+        "logo": "https://wynajem-namiotow.netlify.app/5.webp",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+48531890827",
+          "email": "mariusz1989poczta@wp.pl",
+          "areaServed": "PL",
+          "availableLanguage": "Polish"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Żeromskiego 95/97",
+          "addressLocality": "Radom",
+          "postalCode": "26-600",
+          "addressCountry": "PL"
+        },
+        "openingHours": "Mo-Fr 09:00-17:00",
+        "description": "Wynajem namiotów na różne okazje.",
+        "sameAs": [
+          "https://www.facebook.com/wata.cukrowa.popcorn",
+          "https://twitter.com/popcorn_wata"
+        ],
+        "telephone": "+48531890827",
+        "priceRange": "PLN 100 - PLN 1000",
+        "image": [
+          "https://wynajem-namiotow.netlify.app/5.webp",
+          "https://wynajem-namiotow.netlify.app/6.webp"
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Namiot Imprezowy",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/4.0629ba5af65146f7b1c3.webp",
+        "description": "Wysokiej jakości namiot imprezowy, idealny na różne okazje.",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/4.0629ba5af65146f7b1c3.webp",
+          "priceCurrency": "PLN",
+          "price": "800.00",
+          "priceValidUntil": "2025-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Wynajem Namiotów Radom"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "currency": "PLN",
+              "value": "0.00"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "PL"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": "1"
+            }
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.5",
+          "reviewCount": "11"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Jan Kowalski"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Świetny namiot, doskonała jakość!"
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Anna Nowak"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Bardzo dobry namiot, polecam."
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Stół kateringowy",
+        "description": "Wynajem stołów kateringowych na imprezy i wydarzenia.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/3.5f106524bd14060748e8.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Stołów Kateringowych Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/3.5f106524bd14060748e8.webp",
+          "priceCurrency": "PLN",
+          "price": "25.00",
+          "priceValidUntil": "2025-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Wynajem Namiotów Radom"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "currency": "PLN",
+              "value": "0.00"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "PL"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": "1"
+            }
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.0",
+          "reviewCount": "8"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Tomasz Zieliński"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre stoły, polecam na większe imprezy."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Maria Kowalska"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Bardzo solidne stoły, idealne na eventy."
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Krzesło imprezowe",
+        "description": "Wynajem krzeseł na różne okazje, wygodne i estetyczne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Krzeseł Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/1.1c781cd50c0b540ffac5.webp",
+          "priceCurrency": "PLN",
+          "price": "10.00",
+          "priceValidUntil": "2025-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Wynajem Namiotów Radom"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "currency": "PLN",
+              "value": "0.00"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "PL"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": "1"
+            }
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "reviewCount": "15"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Katarzyna Nowak"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Bardzo wygodne krzesła, polecam."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Paweł Wiśniewski"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre krzesła na każdą okazję."
+          }
+        ]
+      }
+    </script>
+
+    <script type="application/ld+json" defer>
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Oświetlenie do namiotów",
+        "description": "Wynajem oświetlenia do namiotów na różne okazje, estetyczne i funkcjonalne.",
+        "image": "https://wynajem-namiotow.netlify.app/static/media/17.4db3556bb65e01b14836.webp",
+        "brand": {
+          "@type": "Brand",
+          "name": "Wynajem Oświetlenia Radom"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://wynajem-namiotow.netlify.app/static/media/17.4db3556bb65e01b14836.webp",
+          "priceCurrency": "PLN",
+          "price": "50.00",
+          "priceValidUntil": "2025-12-31",
+          "itemCondition": "https://schema.org/NewCondition",
+          "availability": "https://schema.org/InStock",
+          "seller": {
+            "@type": "Organization",
+            "name": "Wynajem Namiotów Radom"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "currency": "PLN",
+              "value": "0.00"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "PL"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "businessDays": "1"
+            }
+          }
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.2",
+          "reviewCount": "9"
+        },
+        "review": [
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Piotr Mazur"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4"
+            },
+            "reviewBody": "Dobre oświetlenie, spełnia swoje zadanie."
+          },
+          {
+            "@type": "Review",
+            "author": {
+              "@type": "Person",
+              "name": "Magdalena Wiśniewska"
+            },
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "5"
+            },
+            "reviewBody": "Świetne oświetlenie na imprezy."
+          }
+        ]
+      }
+    </script>
