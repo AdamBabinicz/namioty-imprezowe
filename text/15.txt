@@ -20,7 +20,7 @@ const HeaderContainer = styled.header`
 
   @media (max-width: 768px) {
     margin: 0 1rem 1.5rem;
-    padding: 3.5rem 1rem 0;
+    padding: 1rem;
   }
 `;
 
@@ -159,26 +159,15 @@ const ButtonContainer = styled.div`
   margin-top: 2rem;
   z-index: 1; /* Upewnij się, że przycisk jest na wierzchu */
 
-  a {
-    display: inline-block;
-    margin: 0 10px; /* Dodanie marginesu do linków */
-  }
-
   button {
     background: ${({ theme }) => theme.text};
     color: ${({ theme }) => theme.body};
     border: none;
-    padding: 15px 25px;
+    padding: 10px 20px;
     margin: 0 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1rem;
-
-    @media (max-width: 768px) {
-      padding: 10px 20px; /* Dostosowanie paddingu dla mniejszych ekranów */
-      font-size: 0.9rem; /* Dostosowanie rozmiaru tekstu dla mniejszych ekranów */
-    }
 
     &:hover {
       background: ${({ theme }) => theme.hoverBackground};
