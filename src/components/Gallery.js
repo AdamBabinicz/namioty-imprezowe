@@ -69,7 +69,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  max-height: auto; // Utrzymuje proporcje obrazka
+  /* max-height: auto; // Utrzymuje proporcje obrazka */
   height: 400px; // Maksymalna wysokość obrazka
   object-fit: cover; // Dopasowuje obraz do kontenera
   display: block; // Usuwa marginesy
@@ -87,19 +87,27 @@ const Image = styled.img`
 `;
 
 const ImageOverlay = styled(motion.div)`
-  position: absolute;
-  bottom: 7%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  padding: 10px;
   background: rgba(0, 0, 0, 0.5);
   color: ${(props) => props.color};
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
+  position: absolute;
+  bottom: 7%;
+  padding: 7px;
+  width: fit-content;
+  margin: 0 1rem;
 
   @media (min-width: 768px) {
     font-size: 0.8rem;
+    position: absolute;
+    bottom: 7%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: ${(props) => props.color};
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
 `;
 
