@@ -6,7 +6,7 @@ import image from "../assets/1.avif";
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
   height: 100vh;
-  background: url(${image}) center center/cover no-repeat;
+  background: url(${image}) center center/contain no-repeat;
   background-attachment: fixed; /* Efekt parallax */
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@ const HeaderContainer = styled.header`
   overflow: hidden; /* Aby elementy nie wychodziły poza obszar nagłówka */
 
   @media (max-width: 768px) {
+    background: url(${image}) center center/cover no-repeat;
     margin: 0 1rem 1.5rem;
     padding: 3.5rem 1rem 0;
   }
