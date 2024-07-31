@@ -142,7 +142,7 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.7 }}
         >
-          Transport, montaż i demontaż - gratis
+          Transport, montaż i&nbsp;demontaż - gratis
         </PricingItem>
       </PricingList>
     </PricingContainer>
