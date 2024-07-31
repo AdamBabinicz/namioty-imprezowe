@@ -83,8 +83,8 @@ const Navbar = ({ toggleTheme }) => {
             Kontakt
           </NavLink>
           <NavLink
-            href="#galeria"
-            onClick={(e) => handleSmoothScroll(e, "galeria")}
+            href="#oferta"
+            onClick={(e) => handleSmoothScroll(e, "oferta")}
           >
             Oferta
           </NavLink>

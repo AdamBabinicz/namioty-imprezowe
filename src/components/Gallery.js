@@ -8,7 +8,7 @@ import image2 from "../assets/2.avif";
 import image3 from "../assets/3.avif";
 import image4 from "../assets/6.avif";
 import image5 from "../assets/7.avif";
-import image6 from "../assets/17.webp";
+import image6 from "../assets/17.avif";
 import image7 from "../assets/9.avif";
 import { lightTheme, darkTheme } from "../styles/themes";
 import "slick-carousel/slick/slick.css";
@@ -108,6 +108,8 @@ const ImageOverlay = styled(motion.div)`
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
+    margin: auto;
+    width: 100%;
   }
 `;
 

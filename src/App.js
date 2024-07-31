@@ -5,15 +5,15 @@ import { Header } from "./components/Header";
 import GlobalStyle from "./styles/GlobalStyle";
 import ScrollToTopButton from "./ScrollToTopButton";
 import { Footer } from "./components/Footer";
-import image from "./assets/19.webp";
+import image from "./assets/11.avif";
+import Oferta from "./components/Oferta";
+import Gallery from "./components/Gallery";
 
 const Navbar = lazy(() => import("./components/Navbar"));
-const Gallery = lazy(() => import("./components/Gallery"));
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
 const CookieConsent = lazy(() => import("react-cookie-consent"));
 
-// Stylizowany komponent dla napisu "Loading components..."
 const LoadingContainer = styled.div`
   display: flex;
   align-items: center;
@@ -72,8 +72,8 @@ function App() {
           <Navbar toggleTheme={toggleTheme} />
           <Header />
           <About />
+          <Oferta theme={theme} /> {/* Dodaj nowy komponent tutaj */}
           <Contact />
-          <Gallery theme={theme} />
           <Footer />
           <CookieConsent
             debug={true}

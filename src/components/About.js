@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import { FaExpand, FaCompress } from "react-icons/fa";
 import Modal from "../hooks/Modal";
 import img from "../assets/5.avif";
-import img1 from "../assets/14.webp";
-import img2 from "../assets/15.webp";
+import img1 from "../assets/14.avif";
+import img2 from "../assets/15.avif";
 import { Tooltip } from "react-tooltip"; // Import Tooltip z react-tooltip
 import { BsArrowsExpand, BsArrowsCollapse } from "react-icons/bs";
 
