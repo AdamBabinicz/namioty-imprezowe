@@ -1,1 +1,63 @@
-node_modules
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Build output
+build/
+dist/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*.DS_Store
+*.log
+
+# Editor directories and files
+.idea/
+.vscode/
+*.code-workspace
+
+# OS generated files
+Thumbs.db
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs/
+*.log
+
+# Coverage directory used by testing tools
+coverage/
+
+# MacOS specific files
+.DS_Store
+
+# Jest
+/jest.config.js
+/jest.setup.js
+
+# TypeScript
+*.tsbuildinfo
+
+# Miscellaneous
+*.class
+*.pyc
+*.pyo
+*.swp
+*.swo
+
+# Specific files
+config.js
+
