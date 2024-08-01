@@ -7,10 +7,11 @@ import highResImage from "../assets/1.avif"; // Wysoka jakość
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
   height: 100vh;
-  background-position: center center;
+  /* background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Efekt parallax */
+  background-attachment: fixed;  */
+  background: center center / contain no-repeat fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
