@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Gallery from "./Gallery";
 import Cennik from "./Cennik";
@@ -26,11 +26,11 @@ const Tab = styled.button`
   }
 `;
 
-// Użyj `aria-pressed` dla atrybutu aktywności
 const TabButton = ({ isActive, onClick, children }) => (
   <Tab
-    aria-pressed={isActive} // użyj aria-pressed dla dostępności
+    aria-pressed={isActive}
     onClick={onClick}
+    active={isActive.toString()} // konwertujemy isActive do stringa
   >
     {children}
   </Tab>
@@ -40,29 +40,8 @@ const ContentContainer = styled.div`
   padding: 2rem 0;
 `;
 
-const Oferta = () => {
+const Oferta = ({ theme }) => {
   const [activeTab, setActiveTab] = useState("Wizualna");
-
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem("theme");
-    return savedTheme ? savedTheme : "light";
-  });
-
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-    updateBodyClass(newTheme);
-  };
-
-  const updateBodyClass = (theme) => {
-    document.body.classList.toggle("dark-mode", theme === "dark");
-    document.body.classList.toggle("light-mode", theme === "light");
-  };
-
-  useEffect(() => {
-    updateBodyClass(theme);
-  }, [theme]);
 
   return (
     <div id="oferta">

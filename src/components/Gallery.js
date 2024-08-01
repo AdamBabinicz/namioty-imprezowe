@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import styled, { ThemeProvider, withTheme } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import image1 from "../assets/1.avif";
@@ -88,7 +88,7 @@ const Image = styled.img`
 
 const ImageOverlay = styled(motion.div)`
   background: rgba(0, 0, 0, 0.5);
-  color: ${(props) => props.color};
+  color: ${(props) => props.theme.text};
   text-align: center;
   position: absolute;
   bottom: 7%;
@@ -104,7 +104,7 @@ const ImageOverlay = styled(motion.div)`
     transform: translate(-50%, 0);
     padding: 10px;
     background: rgba(0, 0, 0, 0.5);
-    color: ${(props) => props.color};
+    color: ${(props) => props.theme.text};
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
@@ -226,13 +226,6 @@ const Gallery = ({ theme }) => {
     prevArrow: <CustomPrevArrow />,
     responsive: [
       {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
@@ -241,6 +234,11 @@ const Gallery = ({ theme }) => {
       },
     ],
   };
+
+  // Użyj useEffect do wymuszenia aktualizacji komponentu po zmianie tematu
+  useEffect(() => {
+    // Można również dodać jakieś akcje do wykonania po zmianie tematu, jeśli to potrzebne
+  }, [theme]);
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -282,4 +280,4 @@ const Gallery = ({ theme }) => {
   );
 };
 
-export default withTheme(Gallery);
+export default Gallery;

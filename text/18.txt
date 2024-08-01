@@ -1,0 +1,22 @@
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import lowResImage from "../assets/low-res-image.webp";
+import highResImage from "../assets/high-res-image.webp";
+
+// Pozostała część kodu jak wcześniej
+
+export const Header = ({ theme }) => {
+  const [bgImage, setBgImage] = React.useState(lowResImage);
+
+  React.useEffect(() => {
+    const img = new Image();
+    img.src = highResImage;
+    img.onload = () => setBgImage(highResImage);
+  }, []);
+
+  return (
+    <HeaderContainer bgImage={bgImage}>
+      {/* Pozostała część kodu jak wcześniej */}
+    </HeaderContainer>
+  );
+};

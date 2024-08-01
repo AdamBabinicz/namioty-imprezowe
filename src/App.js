@@ -5,7 +5,7 @@ import { Header } from "./components/Header";
 import GlobalStyle from "./styles/GlobalStyle";
 import ScrollToTopButton from "./ScrollToTopButton";
 import { Footer } from "./components/Footer";
-import image from "./assets/11.avif";
+import image from "./assets/8.avif";
 import Oferta from "./components/Oferta";
 import Gallery from "./components/Gallery";
 
