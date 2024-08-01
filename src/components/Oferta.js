@@ -11,7 +11,7 @@ const TabsContainer = styled.div`
 
 const Tab = styled.button`
   background: ${({ active, theme }) =>
-    active ? theme.linkHover : theme.background};
+    active ? theme.text : theme.background};
   color: ${({ active, theme }) => (active ? theme.background : theme.text)};
   border: none;
   padding: 1rem 2rem;
