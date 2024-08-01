@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import image from "../assets/1.avif";
+import lowResImage from "../assets/1.jfif"; // Niska jakość
+import highResImage from "../assets/1.avif"; // Wysoka jakość
 
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
   height: 100vh;
-  background: url(${image}) center center/contain no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-attachment: fixed; /* Efekt parallax */
   display: flex;
   flex-direction: column;
@@ -19,13 +22,12 @@ const HeaderContainer = styled.header`
   overflow: hidden; /* Aby elementy nie wychodziły poza obszar nagłówka */
 
   @media (max-width: 768px) {
-    background: url(${image}) center center/cover no-repeat;
+    background-size: cover;
     margin: 0 1rem 1.5rem;
     padding: 3.5rem 1rem 0;
   }
 `;
 
-// Stylizacja kontentu nagłówka z animacjami
 const HeaderContent = styled(motion.div)`
   background: rgba(0, 0, 0, 0.7);
   padding: 2rem;
@@ -71,7 +73,6 @@ const HeaderContent = styled(motion.div)`
   }
 `;
 
-// Stylizacja tytułu z animacjami
 const Title = styled.h1`
   display: flex;
   font-size: 3rem;
@@ -91,7 +92,6 @@ const Title = styled.h1`
   }
 `;
 
-// Stylizacja tooltipów z ogonkami
 const Tooltip = styled.div`
   position: absolute;
   top: -80px; /* Dalsze oddalenie tooltipa od napisu */
@@ -119,7 +119,6 @@ const Tooltip = styled.div`
   }
 `;
 
-// Stylizacja kontentu z tooltipem
 const TooltipWrapper = styled.div`
   position: relative;
 
@@ -129,12 +128,10 @@ const TooltipWrapper = styled.div`
   }
 `;
 
-// Animowany napis z literkami
 const AnimatedLetter = styled(motion.span)`
   display: inline-block;
 `;
 
-// Stylizacja hasła reklamowego na szklanym tle
 const Promo = styled(motion.div)`
   background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -153,7 +150,6 @@ const Promo = styled(motion.div)`
   }
 `;
 
-// Stylizacja przycisku
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -195,8 +191,16 @@ const letterVariants = {
 };
 
 export const Header = ({ theme }) => {
+  const [bgImage, setBgImage] = useState(lowResImage);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = highResImage;
+    img.onload = () => setBgImage(highResImage);
+  }, []);
+
   return (
-    <HeaderContainer>
+    <HeaderContainer style={{ backgroundImage: `url(${bgImage})` }}>
       <HeaderContent
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
