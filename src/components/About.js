@@ -33,6 +33,8 @@ const StyledHeading = styled(motion.h2)`
   @media (max-width: 768px) {
     font-size: 1.7rem;
     margin-bottom: 1.5rem;
+    margin-left: 0;
+    text-align: center;
   }
 `;
 
