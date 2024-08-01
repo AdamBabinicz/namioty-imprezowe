@@ -6,7 +6,10 @@ import Cennik from "./Cennik";
 const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: -0.7rem;
+  }
 `;
 
 const Tab = styled.button`
@@ -20,6 +23,7 @@ const Tab = styled.button`
   border-radius: 5px;
   transition: background 0.3s, color 0.3s;
   margin: 0 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   &:hover {
     background: ${({ theme }) => theme.hoverBackground};
