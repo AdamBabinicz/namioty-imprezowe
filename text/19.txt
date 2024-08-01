@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import styled, { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider, withTheme } from "styled-components";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, useAnimation } from "framer-motion";
 import image1 from "../assets/1.avif";
@@ -69,6 +69,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
+  /* max-height: auto; // Utrzymuje proporcje obrazka */
   height: 400px; // Maksymalna wysokość obrazka
   object-fit: cover; // Dopasowuje obraz do kontenera
   display: block; // Usuwa marginesy
@@ -87,7 +88,7 @@ const Image = styled.img`
 
 const ImageOverlay = styled(motion.div)`
   background: rgba(0, 0, 0, 0.5);
-  color: ${(props) => (props.theme === "light" ? "#fff" : props.theme.text)};
+  color: ${(props) => props.color};
   text-align: center;
   position: absolute;
   bottom: 7%;
@@ -103,7 +104,7 @@ const ImageOverlay = styled(motion.div)`
     transform: translate(-50%, 0);
     padding: 10px;
     background: rgba(0, 0, 0, 0.5);
-    color: ${(props) => (props.theme === "light" ? "#fff" : props.theme.text)};
+    color: ${(props) => props.color};
     text-align: center;
     opacity: 0;
     transition: opacity 0.3s;
@@ -167,17 +168,17 @@ const Gallery = ({ theme }) => {
     {
       src: image1,
       title: "Namiot na 30 osób, biały",
-      year: "możliwość dowolnej konfiguracji ścianek.",
+      year: "możliwośc dowolniej konfiguracji ścianek.",
     },
     {
       src: image2,
       title: "Namiot na 30 osób, biały",
-      year: "możliwość dowolnej konfiguracji ścianek.",
+      year: "możliwośc dowolniej konfiguracji ścianek.",
     },
     {
       src: image3,
       title: "Namiot na 60 osób, biały",
-      year: "możliwość dowolnej konfiguracji ścianek.",
+      year: "możliwośc dowolniej konfiguracji ścianek.",
     },
     {
       src: image4,
@@ -225,6 +226,13 @@ const Gallery = ({ theme }) => {
     prevArrow: <CustomPrevArrow />,
     responsive: [
       {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+      {
         breakpoint: 768,
         settings: {
           slidesToShow: 1,
@@ -233,11 +241,6 @@ const Gallery = ({ theme }) => {
       },
     ],
   };
-
-  // Użyj useEffect do wymuszenia aktualizacji komponentu po zmianie tematu
-  useEffect(() => {
-    // Można również dodać jakieś akcje do wykonania po zmianie tematu, jeśli to potrzebne
-  }, [theme]);
 
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -266,7 +269,7 @@ const Gallery = ({ theme }) => {
                   initial={{ opacity: 0 }}
                   animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  theme={theme} // Dodano przekazywanie tematu
+                  color={theme === "light" ? "#fff" : theme.text}
                 >
                   {image.title} - {image.year}
                 </ImageOverlay>
@@ -279,4 +282,171 @@ const Gallery = ({ theme }) => {
   );
 };
 
-export default Gallery;
+export default withTheme(Gallery);
+
+
+
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import Gallery from "./Gallery";
+import Cennik from "./Cennik";
+
+const TabsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+`;
+
+const Tab = styled.button`
+  background: ${({ active, theme }) =>
+    active ? theme.linkHover : theme.background};
+  color: ${({ active, theme }) => (active ? theme.background : theme.text)};
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  margin: 0 1rem;
+
+  &:hover {
+    background: ${({ theme }) => theme.hoverBackground};
+  }
+`;
+
+// Użyj `aria-pressed` dla atrybutu aktywności
+const TabButton = ({ isActive, onClick, children }) => (
+  <Tab
+    aria-pressed={isActive} // użyj aria-pressed dla dostępności
+    onClick={onClick}
+  >
+    {children}
+  </Tab>
+);
+
+const ContentContainer = styled.div`
+  padding: 2rem 0;
+`;
+
+const Oferta = () => {
+  const [activeTab, setActiveTab] = useState("Wizualna");
+
+  const [theme, setTheme] = useState(() => {
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme ? savedTheme : "light";
+  });
+
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    updateBodyClass(newTheme);
+  };
+
+  const updateBodyClass = (theme) => {
+    document.body.classList.toggle("dark-mode", theme === "dark");
+    document.body.classList.toggle("light-mode", theme === "light");
+  };
+
+  useEffect(() => {
+    updateBodyClass(theme);
+  }, [theme]);
+
+  return (
+    <div id="oferta">
+      <TabsContainer>
+        <TabButton
+          isActive={activeTab === "Wizualna"}
+          onClick={() => setActiveTab("Wizualna")}
+        >
+          Wizualna
+        </TabButton>
+        <TabButton
+          isActive={activeTab === "Cenowa"}
+          onClick={() => setActiveTab("Cenowa")}
+        >
+          Cenowa
+        </TabButton>
+      </TabsContainer>
+      <ContentContainer>
+        {activeTab === "Wizualna" && <Gallery theme={theme} />}
+        {activeTab === "Cenowa" && <Cennik theme={theme} />}
+      </ContentContainer>
+    </div>
+  );
+};
+
+export default Oferta;
+
+
+
+import React, { useState } from "react";
+import styled from "styled-components";
+import Gallery from "./Gallery";
+import Cennik from "./Cennik";
+
+const TabsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+`;
+
+const Tab = styled.button`
+  background: ${({ active, theme }) =>
+    active ? theme.linkHover : theme.background};
+  color: ${({ active, theme }) => (active ? theme.background : theme.text)};
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+  margin: 0 1rem;
+
+  &:hover {
+    background: ${({ theme }) => theme.hoverBackground};
+  }
+`;
+
+const TabButton = ({ isActive, onClick, children }) => (
+  <Tab
+    aria-pressed={isActive}
+    onClick={onClick}
+    active={isActive.toString()} // konwertujemy isActive do stringa
+  >
+    {children}
+  </Tab>
+);
+
+const ContentContainer = styled.div`
+  padding: 2rem 0;
+`;
+
+const Oferta = ({ theme }) => {
+  const [activeTab, setActiveTab] = useState("Wizualna");
+
+  return (
+    <div id="oferta">
+      <TabsContainer>
+        <TabButton
+          isActive={activeTab === "Wizualna"}
+          onClick={() => setActiveTab("Wizualna")}
+        >
+          Wizualna
+        </TabButton>
+        <TabButton
+          isActive={activeTab === "Cenowa"}
+          onClick={() => setActiveTab("Cenowa")}
+        >
+          Cenowa
+        </TabButton>
+      </TabsContainer>
+      <ContentContainer>
+        {activeTab === "Wizualna" && <Gallery theme={theme} />}
+        {activeTab === "Cenowa" && <Cennik theme={theme} />}
+      </ContentContainer>
+    </div>
+  );
+};
+
+export default Oferta;
