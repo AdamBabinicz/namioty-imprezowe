@@ -26,10 +26,12 @@ const PricingContainer = styled.div`
 const TitleContainer = styled.div`
   width: 100%;
   text-align: left;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 
   @media (max-width: 768px) {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -65,9 +67,11 @@ const MotionTitle = styled(motion.h2)`
 
   @media (max-width: 768px) {
     font-size: 1.7rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     margin-left: 0;
     text-align: center;
+    display: flex;
+    align-items: center;
   }
 `;
 
