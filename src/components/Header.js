@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import lowResImage from "../assets/1.jfif"; // Niska jakość
+import lowResImage from "../assets/18.jfif"; // Niska jakość
 import highResImage from "../assets/1.avif"; // Wysoka jakość
 
 // Stylizacja nagłówka z efektem parallax
