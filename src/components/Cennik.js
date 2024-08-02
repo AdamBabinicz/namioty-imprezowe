@@ -61,6 +61,7 @@ const PricingItem = styled(motion.li)`
 
   @media (max-width: 768px) {
     flex-direction: column;
+    align-items: flex-start;
     text-align: left;
   }
 `;
@@ -68,14 +69,17 @@ const PricingItem = styled(motion.li)`
 const ProductDescription = styled.span`
   flex: 1;
   text-align: left;
+  overflow-wrap: break-word; // Umożliwia łamanie długich słów
 `;
 
 const ProductPrice = styled.span`
   font-weight: bold;
   color: ${(props) => props.theme.priceColor};
+  white-space: nowrap; // Zapobiega łamaniu tekstu w cenie
 
   @media (max-width: 768px) {
     margin-top: 0.5rem;
+    align-self: flex-end; // Wyrównuje cenę do końca w widoku mobilnym
   }
 `;
 
