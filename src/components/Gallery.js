@@ -234,7 +234,6 @@ const Gallery = ({ theme }) => {
     ],
   };
 
-  // Użyj useEffect do wymuszenia aktualizacji komponentu po zmianie tematu
   useEffect(() => {
     // Można również dodać jakieś akcje do wykonania po zmianie tematu, jeśli to potrzebne
   }, [theme]);
@@ -266,7 +265,7 @@ const Gallery = ({ theme }) => {
                   initial={{ opacity: 0 }}
                   animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  theme={theme} // Dodano przekazywanie tematu
+                  theme={theme}
                 >
                   {image.title} - {image.year}
                 </ImageOverlay>

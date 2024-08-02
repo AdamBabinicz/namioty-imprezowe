@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const PricingContainer = styled.div`
   padding: 2rem;
   background: ${(props) => props.theme.background};
-  color: ${({ theme }) => theme.text};
+  color: ${(props) => props.theme.text};
   text-align: center;
   min-height: 100vh;
   display: flex;
@@ -22,11 +22,9 @@ const PricingContainer = styled.div`
   }
 `;
 
-// Kontener dla tytułu, aby przesunąć go na lewo
 const TitleContainer = styled.div`
   width: 100%;
   text-align: left;
-  /* margin-bottom: 2rem; */
 
   @media (max-width: 768px) {
     display: flex;
@@ -40,21 +38,44 @@ const PricingList = styled(motion.ul)`
   padding: 0;
   margin: 0;
   width: 100%;
-  max-width: 600px;
+  max-width: 800px;
 `;
 
 const PricingItem = styled(motion.li)`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.25rem;
   margin: 1rem 0;
   padding: 1rem;
-  background: ${({ theme }) => theme.cardBackground};
-  box-shadow: 0 4px 8px ${({ theme }) => theme.cardShadow};
+  background: ${(props) => props.theme.cardBackground};
+  box-shadow: 0 4px 8px ${(props) => props.theme.cardShadow};
   border-radius: 8px;
   transition: transform 0.3s, background 0.3s;
 
   &:hover {
     transform: translateY(-5px);
-    background: ${({ theme }) => theme.hoverBackground};
+    background: ${(props) => props.theme.hoverBackground};
+    color: ${(props) => props.theme.tooltipText};
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    text-align: left;
+  }
+`;
+
+const ProductDescription = styled.span`
+  flex: 1;
+  text-align: left;
+`;
+
+const ProductPrice = styled.span`
+  font-weight: bold;
+  color: ${(props) => props.theme.priceColor};
+
+  @media (max-width: 768px) {
+    margin-top: 0.5rem;
   }
 `;
 
@@ -97,56 +118,66 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
-          Wynajem namiotu na 60 osób - 900 PLN
+          <ProductDescription>Wynajem namiotu na 60 osób</ProductDescription>
+          <ProductPrice>900 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
         >
-          Wynajem namiotu na 30 osób - 800 PLN
+          <ProductDescription>Wynajem namiotu na 30 osób</ProductDescription>
+          <ProductPrice>800 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.3 }}
         >
-          Wynajem stołu dla 6 osób - 25 PLN
+          <ProductDescription>Wynajem stołu dla 6 osób</ProductDescription>
+          <ProductPrice>25 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.4 }}
         >
-          Wynajem krzesła - 10 PLN
+          <ProductDescription>Wynajem krzesła</ProductDescription>
+          <ProductPrice>10 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.5 }}
         >
-          Wynajem trawy - gratis
+          <ProductDescription>Wynajem trawy</ProductDescription>
+          <ProductPrice>gratis</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.6 }}
         >
-          Wynajem oświetlenia nocnego - gratis
+          <ProductDescription>Wynajem oświetlenia nocnego</ProductDescription>
+          <ProductPrice>gratis</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.7 }}
         >
-          Wynajem obrusów - gratis
+          <ProductDescription>Wynajem obrusów</ProductDescription>
+          <ProductPrice>gratis</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.7 }}
+          transition={{ duration: 0.3, delay: 0.8 }}
         >
-          Transport, montaż i&nbsp;demontaż - gratis
+          <ProductDescription>
+            Transport, montaż i&nbsp;demontaż
+          </ProductDescription>
+          <ProductPrice>gratis</ProductPrice>
         </PricingItem>
       </PricingList>
     </PricingContainer>

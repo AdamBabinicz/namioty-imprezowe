@@ -3,7 +3,7 @@ export const lightTheme = {
   body: "#fff",
   text: "#333",
   background: "#f0f0f0",
-  hoverBackground: "#ddd",
+  hoverBackground: "#737272",
   linkHover: "#007bff",
   cardBackground: "#fff",
   cardShadow: "rgba(0, 0, 0, 0.1)",
