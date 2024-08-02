@@ -51,12 +51,12 @@ const PricingItem = styled(motion.li)`
   background: ${(props) => props.theme.cardBackground};
   box-shadow: 0 4px 8px ${(props) => props.theme.cardShadow};
   border-radius: 8px;
-  transition: transform 0.3s, background 0.3s;
+  transition: transform 0.3s, background 0.3s, color 0.3s; // Dodaj transition dla koloru
 
   &:hover {
     transform: translateY(-5px);
     background: ${(props) => props.theme.hoverBackground};
-    color: ${(props) => props.theme.tooltipText};
+    color: ${(props) => props.theme.tooltipText}; // Dodaj transition dla koloru
   }
 
   @media (max-width: 768px) {
@@ -70,12 +70,14 @@ const ProductDescription = styled.span`
   flex: 1;
   text-align: left;
   overflow-wrap: break-word; // Umożliwia łamanie długich słów
+  transition: color 0.3s; // Dodaj transition dla koloru
 `;
 
 const ProductPrice = styled.span`
   font-weight: bold;
   color: ${(props) => props.theme.priceColor};
   white-space: nowrap; // Zapobiega łamaniu tekstu w cenie
+  transition: color 0.3s; // Dodaj transition dla koloru
 
   @media (max-width: 768px) {
     margin-top: 0.5rem;
