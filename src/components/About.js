@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { FaExpand, FaCompress } from "react-icons/fa";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import Modal from "../hooks/Modal";
 import img from "../assets/5.avif";
 import img1 from "../assets/14.avif";
 import img2 from "../assets/15.avif";
 import { Tooltip } from "react-tooltip"; // Import Tooltip z react-tooltip
-import { BsArrowsExpand, BsArrowsCollapse } from "react-icons/bs";
 
 const AboutSection = styled.section`
   padding: 2rem;
@@ -172,13 +171,13 @@ const About = () => {
         okazje typu: Komunie Św., wesela, chrzciny, urodziny, spotkania
         towarzyskie, imprezy firmowe, rocznice i&nbsp;inne imprezy wymagające
         zabezpieczenia przed deszczem, słońcem i&nbsp;innymi niesprzyjającymi
-        warunkami atmosferycznymi.
+        warunkami atmosferycznymi. (...)
         {!expanded && (
           <IconContainer
             onClick={handleExpandClick}
             data-tooltip-id="expand-tooltip" // Tooltip ID dla ikony rozwiń
           >
-            <BsArrowsExpand />
+            <IoMdArrowDropdown />
           </IconContainer>
         )}
       </StyledParagraph>
@@ -258,7 +257,7 @@ const About = () => {
             onClick={handleExpandClick}
             data-tooltip-id="collapse-tooltip" // Tooltip ID dla ikony zwijania
           >
-            <BsArrowsCollapse />
+            <IoMdArrowDropup />
           </IconContainer>
         </AdditionalContent>
       )}
