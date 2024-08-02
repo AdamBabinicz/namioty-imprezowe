@@ -21,13 +21,13 @@ const Tab = styled.button`
   cursor: pointer;
   font-size: 1rem;
   border-radius: 5px;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
   margin: 0 1rem;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); */
   text-shadow: 0.05rem 0.05rem 0.05rem rgba(0, 0, 0, 0.21);
 
   &:hover {
     background: ${({ theme }) => theme.hoverBackground};
+    transform: scale(1.05);
   }
 `;
 
