@@ -19,25 +19,24 @@ const ModalOverlay = styled(motion.div)`
 
 const ModalContent = styled(motion.div)`
   background: ${({ theme }) => lighten(0.2, theme.body)};
-  padding: 0.3rem; /* Padding ogólny, może być nadpisany przez klasy */
+  padding: 0.3rem;
   border-radius: 10px;
   box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
   width: 90vw;
   max-width: 37.5rem;
   height: auto;
-  /* max-height: 80vh; */
   max-height: fit-content;
   position: relative;
   overflow: hidden;
 
   .modal-text {
-    padding: 2rem; /* Padding dla tekstu */
+    padding: 2rem;
     font-size: 1rem;
     line-height: 1.5;
   }
 
   .modal-image {
-    padding: 0.3rem; /* Padding dla obrazów */
+    padding: 0.3rem;
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -54,11 +53,16 @@ const CloseButton = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  background: transparent;
+  width: 40px; /* Ustawienia rozmiaru przycisku */
+  height: 40px; /* Ustawienia rozmiaru przycisku */
+  background: ${({ theme }) => theme.body};
   border: none;
+  border-radius: 50%; /* Ustawia przycisk jako okrągły */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  /* color: ${({ theme }) => theme.closeButtonColor}; */
-  color: #fff;
+  color: ${({ theme }) => theme.closeButtonColor};
   font-size: 1.5rem;
   transition: color 0.3s ease;
   z-index: 1000;
@@ -66,33 +70,38 @@ const CloseButton = styled.button`
   &:hover {
     color: ${({ theme }) => theme.linkHover};
   }
+
+  /* Możesz dodać cień, aby poprawić widoczność */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 `;
 
-const Modal = ({ closeModal, children }) => (
-  <ModalOverlay
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    onClick={closeModal}
-  >
-    <ModalContent
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      exit={{ y: -100, opacity: 0 }}
-      onClick={(e) => e.stopPropagation()}
+const Modal = ({ closeModal, children }) => {
+  return (
+    <ModalOverlay
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={closeModal}
     >
-      <CloseButton onClick={closeModal}>
-        <FaTimes />
-      </CloseButton>
-      {React.isValidElement(children) ? (
-        React.cloneElement(children, {
-          className: children.props.src ? "modal-image" : "modal-text",
-        })
-      ) : (
-        <div className="modal-text">{children}</div>
-      )}
-    </ModalContent>
-  </ModalOverlay>
-);
+      <ModalContent
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: -100, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <CloseButton onClick={closeModal}>
+          <FaTimes />
+        </CloseButton>
+        {React.isValidElement(children) ? (
+          React.cloneElement(children, {
+            className: children.props.src ? "modal-image" : "modal-text",
+          })
+        ) : (
+          <div className="modal-text">{children}</div>
+        )}
+      </ModalContent>
+    </ModalOverlay>
+  );
+};
 
 export default Modal;

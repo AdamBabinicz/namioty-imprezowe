@@ -7,9 +7,9 @@ export const lightTheme = {
   linkHover: "#007bff",
   cardBackground: "#fff",
   cardShadow: "rgba(0, 0, 0, 0.1)",
-  closeButtonColor: "#000",
-  tooltipBackground: "#333", // Dodano
-  tooltipText: "#fff", // Dodano
+  closeButtonColor: "#000", // Kolor ciemny w wersji light
+  tooltipBackground: "#333",
+  tooltipText: "#fff",
 };
 
 export const darkTheme = {
@@ -20,7 +20,7 @@ export const darkTheme = {
   linkHover: "#007bff",
   cardBackground: "#898989",
   cardShadow: "rgba(0, 0, 0, 0.3)",
-  closeButtonColor: "#fff",
-  tooltipBackground: "#fff", // Dodano
-  tooltipText: "#333", // Dodano
+  closeButtonColor: "#fff", // Kolor jasny w wersji dark
+  tooltipBackground: "#fff",
+  tooltipText: "#333",
 };
