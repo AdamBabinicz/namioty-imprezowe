@@ -74,7 +74,8 @@ const IconContainer = styled.span`
   align-items: center;
 
   svg {
-    width: 1.5em; /* Zwiększ rozmiar ikon, aby były widoczne */
+    font-size: 2rem;
+    width: 1.5em;
     height: 1.5em;
     color: ${({ theme }) => theme.text};
   }
