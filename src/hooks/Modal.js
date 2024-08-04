@@ -57,7 +57,8 @@ const CloseButton = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  color: ${({ theme }) => theme.text};
+  /* color: ${({ theme }) => theme.closeButtonColor}; */
+  color: #fff;
   font-size: 1.5rem;
   transition: color 0.3s ease;
   z-index: 1000;
