@@ -13,7 +13,7 @@ const AboutSection = styled.section`
   margin: 0 5rem 2rem;
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
 
   @media (max-width: 768px) {
@@ -38,7 +38,7 @@ const StyledHeading = styled(motion.h2)`
 `;
 
 const StyledParagraph = styled(motion.p)`
-  max-width: 600px; /* Limit the width for better readability */
+  max-width: 37.5rem; /* Limit the width for better readability */
   margin: 0 auto; /* Center the paragraph */
   line-height: 1.6; /* Set a line height for better readability */
   padding: 0 1rem; /* Add some horizontal padding */
@@ -57,17 +57,17 @@ const StyledParagraph = styled(motion.p)`
 `;
 
 const AdditionalContent = styled(motion.div)`
-  max-width: 600px;
+  max-width: 37.5rem;
   margin: 0 auto;
   padding: 1rem;
   border-top: 1px solid ${({ theme }) => theme.border};
   background: ${({ theme }) => theme.background};
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
 `;
 
 const IconContainer = styled.span`
-  margin-top: 10px;
+  margin-top: 0.625rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -90,9 +90,9 @@ const ImageContainer = styled.div`
   img {
     width: 30%;
     /* max-width: 200px; */
-    margin: 10px;
+    margin: 0.625rem;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;

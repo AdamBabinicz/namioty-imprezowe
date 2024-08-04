@@ -56,7 +56,7 @@ const ContactContainer = styled.div`
   margin: 0 5rem 2rem;
   padding: 2rem;
   background: ${({ theme }) => theme.background};
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
   max-width: 100%;
 
@@ -95,7 +95,7 @@ const ContentWrapper = styled.div`
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  max-width: 1000px; /* Maksymalna szerokość kontenera */
+  max-width: 62.5rem; /* Maksymalna szerokość kontenera */
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -116,8 +116,8 @@ const ImageContainer = styled.div`
 
   img {
     width: 100%;
-    max-width: 400px;
-    border-radius: 15px;
+    max-width: 25rem;
+    border-radius: 0.9375rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 
     @media (max-width: 768px) {
@@ -130,11 +130,11 @@ const ContactInfo = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 400px;
+  gap: 1.25rem;
+  max-width: 25rem;
 
   @media (max-width: 768px) {
-    gap: 15px;
+    gap: 0.9375rem;
   }
 `;
 
@@ -143,17 +143,17 @@ const ContactItem = styled(motion.div)`
   align-items: center;
   padding: 1rem;
   background: ${({ theme }) => theme.cardBackground};
-  border-radius: 10px;
+  border-radius: 0.625rem;
   box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
   cursor: pointer;
   transition: all 0.2s;
 
   svg {
-    margin-right: 15px;
+    margin-right: 0.9375rem;
     color: ${({ theme }) => theme.linkHover};
 
     @media (max-width: 768px) {
-      margin-right: 10px;
+      margin-right: 0.625rem;
     }
   }
 

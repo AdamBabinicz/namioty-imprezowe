@@ -21,7 +21,7 @@ const GalleryContainer = styled.section`
   background: ${(props) => props.theme.background};
   position: relative;
   z-index: 0;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
 
   @media (max-width: 768px) {
     margin: 0 1rem;
@@ -69,7 +69,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 400px; // Maksymalna wysokość obrazka
+  height: 25rem; // Maksymalna wysokość obrazka
   object-fit: cover; // Dopasowuje obraz do kontenera
   display: block; // Usuwa marginesy
   padding: 0 0.1rem;
@@ -80,7 +80,7 @@ const Image = styled.img`
   }
 
   @media (min-width: 768px) {
-    height: 600px; // Ustawia stałą wysokość na większych ekranach
+    height: 37.5rem; // Ustawia stałą wysokość na większych ekranach
     object-fit: contain;
   }
 `;

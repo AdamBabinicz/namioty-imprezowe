@@ -95,7 +95,7 @@ const Title = styled.h1`
 
 const Tooltip = styled.div`
   position: absolute;
-  top: -80px; /* Dalsze oddalenie tooltipa od napisu */
+  top: -5rem; /* Dalsze oddalenie tooltipa od napisu */
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.7);
@@ -111,7 +111,7 @@ const Tooltip = styled.div`
   &::after {
     content: "";
     position: absolute;
-    bottom: -20px; /* Dostosowany ogonek tooltipa */
+    bottom: -1.25rem; /* Dostosowany ogonek tooltipa */
     left: 50%;
     transform: translateX(-50%);
     border-width: 10px;

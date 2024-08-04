@@ -8,7 +8,7 @@ const Section = styled.section`
   justify-content: center;
   align-items: center;
   background-color: ${(props) => props.bg || "#f0f0f0"};
-  padding: 20px;
+  padding: 1.25rem;
   box-sizing: border-box;
 `;
 

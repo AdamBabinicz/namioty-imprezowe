@@ -23,7 +23,7 @@ const ModalContent = styled(motion.div)`
   border-radius: 10px;
   box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
   width: 90vw;
-  max-width: 600px;
+  max-width: 37.5rem;
   height: auto;
   /* max-height: 80vh; */
   max-height: fit-content;

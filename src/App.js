@@ -21,7 +21,7 @@ const LoadingContainer = styled.div`
   height: 100vh;
   width: 100vw;
   background: #f0f0f0;
-  font-size: 24px;
+  font-size: 1.5rem;
   color: #333;
   background: url(${image}) center center/contain no-repeat;
 
@@ -82,13 +82,13 @@ function App() {
               background: "#333",
               textAlign: "left",
               paddingBottom: "1rem",
-              fontSize: "16px",
+              fontSize: "1rem",
               fontFamily: "Gideon Roman",
             }}
             buttonStyle={{
               color: "#333",
               background: "#fff",
-              fontSize: "18px",
+              fontSize: "1.125rem",
               fontFamily: "Gideon Roman",
               marginRight: "1rem",
             }}

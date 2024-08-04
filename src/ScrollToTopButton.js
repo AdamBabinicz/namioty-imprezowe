@@ -39,12 +39,12 @@ const ScrollToTopButton = () => {
 
 const ScrollButton = styled.div`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 1.25rem;
+  right: 1.25rem;
   background: ${({ theme }) => theme.body};
   color: ${({ theme }) => theme.text};
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   justify-content: center;
   align-items: center;

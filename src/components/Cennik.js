@@ -14,7 +14,7 @@ const PricingContainer = styled.div`
   justify-content: center;
   position: relative;
   margin: 0 5rem;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
 
   @media (max-width: 768px) {
     margin: 0 1rem;
@@ -38,7 +38,7 @@ const PricingList = styled(motion.ul)`
   padding: 0;
   margin: 0;
   width: 100%;
-  max-width: 800px;
+  max-width: 50rem;
 `;
 
 const PricingItem = styled(motion.li)`
@@ -50,7 +50,7 @@ const PricingItem = styled(motion.li)`
   padding: 1rem;
   background: ${(props) => props.theme.cardBackground};
   box-shadow: 0 4px 8px ${(props) => props.theme.cardShadow};
-  border-radius: 8px;
+  border-radius: 0.5rem;
   transition: transform 0.3s, background 0.3s, color 0.3s; // Dodaj transition dla koloru
 
   &:hover {

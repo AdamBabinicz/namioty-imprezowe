@@ -10,6 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 html {
+font-size: 16px; /* Ustawienie bazowego rozmiaru czcionki */
   scroll-behavior: smooth;
   overflow-x: hidden;
 }

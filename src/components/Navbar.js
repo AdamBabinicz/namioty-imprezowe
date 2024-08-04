@@ -135,8 +135,8 @@ const NavbarWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 960px;
-  padding: 20px;
+  max-width: 60rem;
+  padding: 1.25rem;
 `;
 
 const Logo = styled.div`
@@ -146,9 +146,9 @@ const Logo = styled.div`
   color: ${({ theme }) => theme.text};
 
   img {
-    width: 50px;
+    width: 3.125rem;
     height: auto;
-    margin-right: 10px;
+    margin-right: 0.625rem;
   }
 `;
 
@@ -179,7 +179,7 @@ const NavLinks = styled(({ isOpen, ...props }) => <div {...props} />)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  gap: 1.25rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -226,7 +226,7 @@ const MobileTentIcon = styled.div`
   @media screen and (max-width: 960px) {
     display: block;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 1.25rem;
   }
 `;
 
@@ -234,7 +234,7 @@ const DarkModeToggle = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 1.25rem;
 
   svg {
     font-size: 1.2rem;
