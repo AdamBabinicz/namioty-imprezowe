@@ -123,7 +123,7 @@ const TooltipStyled = styled(Tooltip)`
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  max-width: 90vw; /* Ensure tooltip doesn't exceed viewport width */
+  max-width: 70vw; /* Ensure tooltip doesn't exceed viewport width */
   white-space: normal; /* Allow text to wrap */
 `;
 
