@@ -125,9 +125,7 @@ const TooltipStyled = styled(Tooltip)`
   font-size: 0.875rem;
   max-width: 70vw !important; /* Ensure tooltip doesn't exceed viewport width */
   white-space: normal; /* Allow text to wrap */
-
-  @media (max-width: 678px) {
-  }
+  z-index: 100;
 `;
 
 const Cennik = () => {
