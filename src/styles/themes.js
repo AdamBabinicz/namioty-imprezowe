@@ -8,6 +8,7 @@ export const lightTheme = {
   cardBackground: "#fff",
   cardShadow: "rgba(0, 0, 0, 0.1)",
   closeButtonColor: "#000", // Kolor ciemny w wersji light
+  iconColor: "#000", // Dodane
   tooltipBackground: "#333",
   tooltipText: "#fff",
 };
@@ -21,6 +22,7 @@ export const darkTheme = {
   cardBackground: "#898989",
   cardShadow: "rgba(0, 0, 0, 0.3)",
   closeButtonColor: "#fff", // Kolor jasny w wersji dark
+  iconColor: "#fff", // Dodane
   tooltipBackground: "#fff",
   tooltipText: "#333",
 };

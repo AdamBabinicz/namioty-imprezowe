@@ -123,9 +123,15 @@ const TooltipStyled = styled(Tooltip)`
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  max-width: 70vw !important; /* Ensure tooltip doesn't exceed viewport width */
+  max-width: 90vw; /* Ensure tooltip doesn't exceed viewport width */
   white-space: normal; /* Allow text to wrap */
-  z-index: 100;
+`;
+
+const TooltipIconContainer = styled.div`
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Cennik = () => {
@@ -138,17 +144,8 @@ const Cennik = () => {
           transition={{ delay: 0.3 }}
         >
           Cennik
-          <TooltipIcon
-            data-tooltip-id="pricingTooltip"
-            data-tooltip-content="Ostateczne ceny są uzależnione od konfiguracji i&nbsp;wielkości zamówienia"
-          />
+          <TooltipIcon />
         </MotionTitle>
-        <TooltipStyled
-          id="pricingTooltip"
-          place="top"
-          effect="solid"
-          clickable // Ensure tooltip can be clicked on mobile
-        />
       </TitleContainer>
       <PricingList
         initial={{ opacity: 0, y: 20 }}
@@ -222,6 +219,18 @@ const Cennik = () => {
           <ProductPrice>gratis</ProductPrice>
         </PricingItem>
       </PricingList>
+      <TooltipIconContainer>
+        <TooltipIcon
+          data-tooltip-id="pricingTooltip"
+          data-tooltip-content="Ostateczne ceny są uzależnione od konfiguracji i&nbsp;wielkości zamówienia."
+        />
+        <TooltipStyled
+          id="pricingTooltip"
+          place="top"
+          effect="solid"
+          clickable // Ensure tooltip can be clicked on mobile
+        />
+      </TooltipIconContainer>
     </PricingContainer>
   );
 };
