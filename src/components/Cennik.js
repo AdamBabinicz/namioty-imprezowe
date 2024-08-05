@@ -125,7 +125,7 @@ const Cennik = () => {
           transition={{ duration: 0.3, delay: 0.1 }}
         >
           <ProductDescription>Wynajem namiotu na 60 osób</ProductDescription>
-          <ProductPrice>900 PLN</ProductPrice>
+          <ProductPrice>od 800 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
@@ -133,7 +133,7 @@ const Cennik = () => {
           transition={{ duration: 0.3, delay: 0.2 }}
         >
           <ProductDescription>Wynajem namiotu na 30 osób</ProductDescription>
-          <ProductPrice>800 PLN</ProductPrice>
+          <ProductPrice>od 600 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
@@ -141,7 +141,7 @@ const Cennik = () => {
           transition={{ duration: 0.3, delay: 0.3 }}
         >
           <ProductDescription>Wynajem stołu dla 6 osób</ProductDescription>
-          <ProductPrice>25 PLN</ProductPrice>
+          <ProductPrice>od 15 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
@@ -149,7 +149,15 @@ const Cennik = () => {
           transition={{ duration: 0.3, delay: 0.4 }}
         >
           <ProductDescription>Wynajem krzesła</ProductDescription>
-          <ProductPrice>10 PLN</ProductPrice>
+          <ProductPrice>od 10 PLN</ProductPrice>
+        </PricingItem>
+        <PricingItem
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3, delay: 0.7 }}
+        >
+          <ProductDescription>Wynajem obrusów</ProductDescription>
+          <ProductPrice>od 20 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
@@ -165,14 +173,6 @@ const Cennik = () => {
           transition={{ duration: 0.3, delay: 0.6 }}
         >
           <ProductDescription>Wynajem oświetlenia nocnego</ProductDescription>
-          <ProductPrice>gratis</ProductPrice>
-        </PricingItem>
-        <PricingItem
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.7 }}
-        >
-          <ProductDescription>Wynajem obrusów</ProductDescription>
           <ProductPrice>gratis</ProductPrice>
         </PricingItem>
         <PricingItem
