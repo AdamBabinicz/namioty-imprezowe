@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { FaStarOfLife } from "react-icons/fa";
+import { Tooltip } from "react-tooltip";
 
 const PricingContainer = styled.div`
   padding: 2rem;
@@ -51,12 +53,12 @@ const PricingItem = styled(motion.li)`
   background: ${(props) => props.theme.cardBackground};
   box-shadow: 0 4px 8px ${(props) => props.theme.cardShadow};
   border-radius: 0.5rem;
-  transition: transform 0.3s, background 0.3s, color 0.3s; // Dodaj transition dla koloru
+  transition: transform 0.3s, background 0.3s, color 0.3s;
 
   &:hover {
     transform: translateY(-5px);
     background: ${(props) => props.theme.hoverBackground};
-    color: ${(props) => props.theme.tooltipText}; // Dodaj transition dla koloru
+    color: ${(props) => props.theme.tooltipText};
   }
 
   @media (max-width: 768px) {
@@ -69,19 +71,19 @@ const PricingItem = styled(motion.li)`
 const ProductDescription = styled.span`
   flex: 1;
   text-align: left;
-  overflow-wrap: break-word; // Umożliwia łamanie długich słów
-  transition: color 0.3s; // Dodaj transition dla koloru
+  overflow-wrap: break-word;
+  transition: color 0.3s;
 `;
 
 const ProductPrice = styled.span`
   font-weight: bold;
   color: ${(props) => props.theme.priceColor};
-  white-space: nowrap; // Zapobiega łamaniu tekstu w cenie
-  transition: color 0.3s; // Dodaj transition dla koloru
+  white-space: nowrap;
+  transition: color 0.3s;
 
   @media (max-width: 768px) {
     margin-top: 0.5rem;
-    align-self: flex-end; // Wyrównuje cenę do końca w widoku mobilnym
+    align-self: flex-end;
   }
 `;
 
@@ -102,6 +104,32 @@ const MotionTitle = styled(motion.h2)`
   }
 `;
 
+const TooltipIcon = styled(FaStarOfLife)`
+  margin-left: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: ${(props) => props.theme.iconColor};
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    color: ${(props) => props.theme.linkHover};
+  }
+`;
+
+const TooltipStyled = styled(Tooltip)`
+  background: ${(props) => props.theme.tooltipBackground} !important;
+  color: ${(props) => props.theme.tooltipText} !important;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  max-width: 70vw !important; /* Ensure tooltip doesn't exceed viewport width */
+  white-space: normal; /* Allow text to wrap */
+
+  @media (max-width: 678px) {
+  }
+`;
+
 const Cennik = () => {
   return (
     <PricingContainer id="cennik">
@@ -112,7 +140,17 @@ const Cennik = () => {
           transition={{ delay: 0.3 }}
         >
           Cennik
+          <TooltipIcon
+            data-tooltip-id="pricingTooltip"
+            data-tooltip-content="Ostateczne ceny są uzależnione od konfiguracji i&nbsp;wielkości zamówienia"
+          />
         </MotionTitle>
+        <TooltipStyled
+          id="pricingTooltip"
+          place="top"
+          effect="solid"
+          clickable // Ensure tooltip can be clicked on mobile
+        />
       </TitleContainer>
       <PricingList
         initial={{ opacity: 0, y: 20 }}
