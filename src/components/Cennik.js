@@ -93,6 +93,8 @@ const MotionTitle = styled(motion.h2)`
   margin-bottom: 2rem;
   margin-left: 5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
 
   @media (max-width: 768px) {
     font-size: 1.7rem;
@@ -125,6 +127,7 @@ const TooltipStyled = styled(Tooltip)`
   font-size: 0.875rem;
   max-width: 70vw; /* Ensure tooltip doesn't exceed viewport width */
   white-space: normal; /* Allow text to wrap */
+  z-index: 9999;
 `;
 
 const TooltipIconContainer = styled.div`
@@ -135,6 +138,22 @@ const TooltipIconContainer = styled.div`
 `;
 
 const Cennik = () => {
+  const handleScrollToTooltip = () => {
+    const tooltipIcon = document.querySelector(
+      '[data-tooltip-id="pricingTooltip"]'
+    );
+    if (tooltipIcon) {
+      const navbarHeight = 85; // Adjust this value according to your navbar height
+      window.scrollTo({
+        top:
+          tooltipIcon.getBoundingClientRect().top +
+          window.scrollY -
+          navbarHeight,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <PricingContainer id="cennik">
       <TitleContainer>
@@ -144,7 +163,7 @@ const Cennik = () => {
           transition={{ delay: 0.3 }}
         >
           Cennik
-          <TooltipIcon />
+          <TooltipIcon onClick={handleScrollToTooltip} />
         </MotionTitle>
       </TitleContainer>
       <PricingList
@@ -223,6 +242,7 @@ const Cennik = () => {
         <TooltipIcon
           data-tooltip-id="pricingTooltip"
           data-tooltip-content="Ostateczne ceny są uzależnione od konfiguracji i&nbsp;wielkości zamówienia."
+          // Removed ref as it is not needed here
         />
         <TooltipStyled
           id="pricingTooltip"
