@@ -168,8 +168,8 @@ const About = () => {
         Nasza firma <b>"Słodkolandia&nbsp;wita:"</b> specjalizuje się
         w&nbsp;wynajmie wysokiej jakości namiotów imprezowych w&nbsp;kolorze
         białym, stołów kateringowych, obrusów i&nbsp;krzeseł oraz oświetlenia do
-        namiotów. Dostarczamy wyżej wymieniony sprzęt i akcesoria na wszelkie
-        uroczyste okazje typu: Komunie Św., wesela, chrzciny, urodziny,
+        namiotów. Dostarczamy wyżej wymieniony sprzęt i&nbsp;akcesoria na
+        wszelkie uroczyste okazje typu: Komunie Św., wesela, chrzciny, urodziny,
         spotkania towarzyskie, imprezy firmowe, rocznice i&nbsp;inne imprezy
         wymagające zabezpieczenia przed deszczem, słońcem i&nbsp;innymi
         niesprzyjającymi warunkami atmosferycznymi. (...)
