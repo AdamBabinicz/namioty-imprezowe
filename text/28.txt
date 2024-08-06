@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import { FaStarOfLife, FaTent, FaTentArrowLeftRight } from "react-icons/fa6";
-import { FaLightbulb } from "react-icons/fa";
-import { TbTruckDelivery } from "react-icons/tb";
+import { FaStarOfLife } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import { GiGrass } from "react-icons/gi";
+import { FaTentArrowLeftRight, FaTent } from "react-icons/fa6";
+import { FaLightbulb } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
 import { SiCanvas } from "react-icons/si";
-import { MdTableRestaurant } from "react-icons/md";
-import { LiaChairSolid } from "react-icons/lia";
 
 const PricingContainer = styled.div`
   padding: 2rem;
@@ -143,18 +142,6 @@ const TooltipIconContainer = styled.div`
   align-items: center;
 `;
 
-const IconWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: 1rem;
-  font-size: 1.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 1.25rem;
-    margin-right: 0.5rem;
-  }
-`;
-
 const Cennik = () => {
   const handleScrollToTooltip = () => {
     const tooltipIcon = document.querySelector(
@@ -194,9 +181,6 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.1 }}
         >
-          <IconWrapper>
-            <FaTentArrowLeftRight />
-          </IconWrapper>
           <ProductDescription>Wynajem namiotu na 60 osób</ProductDescription>
           <ProductPrice>od 800 PLN</ProductPrice>
         </PricingItem>
@@ -205,9 +189,6 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.2 }}
         >
-          <IconWrapper>
-            <FaTent />
-          </IconWrapper>
           <ProductDescription>Wynajem namiotu na 30 osób</ProductDescription>
           <ProductPrice>od 600 PLN</ProductPrice>
         </PricingItem>
@@ -216,9 +197,6 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.3 }}
         >
-          <IconWrapper>
-            <MdTableRestaurant />
-          </IconWrapper>
           <ProductDescription>Wynajem stołu dla 6 osób</ProductDescription>
           <ProductPrice>od 15 PLN</ProductPrice>
         </PricingItem>
@@ -227,42 +205,30 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.4 }}
         >
-          <IconWrapper>
-            <LiaChairSolid />
-          </IconWrapper>
           <ProductDescription>Wynajem krzesła</ProductDescription>
           <ProductPrice>od 10 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.5 }}
+          transition={{ duration: 0.3, delay: 0.7 }}
         >
-          <IconWrapper>
-            <SiCanvas />
-          </IconWrapper>
-          <ProductDescription>Wynajem obrusa</ProductDescription>
+          <ProductDescription>Wynajem obrusów</ProductDescription>
           <ProductPrice>od 20 PLN</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.6 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
         >
-          <IconWrapper>
-            <GiGrass />
-          </IconWrapper>
           <ProductDescription>Wynajem trawy</ProductDescription>
           <ProductPrice>gratis</ProductPrice>
         </PricingItem>
         <PricingItem
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.3, delay: 0.7 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
         >
-          <IconWrapper>
-            <FaLightbulb />
-          </IconWrapper>
           <ProductDescription>Wynajem oświetlenia nocnego</ProductDescription>
           <ProductPrice>gratis</ProductPrice>
         </PricingItem>
@@ -271,9 +237,6 @@ const Cennik = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.3, delay: 0.8 }}
         >
-          <IconWrapper>
-            <TbTruckDelivery />
-          </IconWrapper>
           <ProductDescription>
             Transport, montaż i&nbsp;demontaż
           </ProductDescription>
@@ -298,3 +261,16 @@ const Cennik = () => {
 };
 
 export default Cennik;
+
+
+
+
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
+import { FaStarOfLife, FaTent, FaTentArrowLeftRight } from "react-icons/fa6";
+import { FaLightbulb } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
+import { Tooltip } from "react-tooltip";
+import { GiGrass } from "react-icons/gi";
+import { SiCanvas } from "react-icons/si";

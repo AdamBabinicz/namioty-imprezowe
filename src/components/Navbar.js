@@ -77,16 +77,16 @@ const Navbar = ({ toggleTheme }) => {
             O&nbsp;firmie
           </NavLink>
           <NavLink
-            href="#kontakt"
-            onClick={(e) => handleSmoothScroll(e, "kontakt")}
-          >
-            Kontakt
-          </NavLink>
-          <NavLink
             href="#oferta"
             onClick={(e) => handleSmoothScroll(e, "oferta")}
           >
             Oferta
+          </NavLink>
+          <NavLink
+            href="#kontakt"
+            onClick={(e) => handleSmoothScroll(e, "kontakt")}
+          >
+            Kontakt
           </NavLink>
           <DarkModeToggle onClick={toggleDarkMode}>
             {darkMode ? <FaSun /> : <FaMoon />}
