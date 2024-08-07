@@ -165,14 +165,16 @@ const About = () => {
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay: 0.6, type: "spring", stiffness: 50 }}
       >
-        Nasza firma <b>"Słodkolandia&nbsp;wita:"</b> specjalizuje się
-        w&nbsp;wynajmie wysokiej jakości namiotów imprezowych w&nbsp;kolorze
-        białym, stołów kateringowych, obrusów i&nbsp;krzeseł oraz oświetlenia do
-        namiotów. Dostarczamy wyżej wymieniony sprzęt i&nbsp;akcesoria na
-        wszelkie uroczyste okazje typu: Komunie Św., wesela, chrzciny, urodziny,
-        spotkania towarzyskie, imprezy firmowe, rocznice i&nbsp;inne imprezy
-        wymagające zabezpieczenia przed deszczem, słońcem i&nbsp;innymi
-        niesprzyjającymi warunkami atmosferycznymi. (...)
+        Nasza firma <strong>"Słodkolandia&nbsp;wita:"</strong> specjalizuje się
+        w&nbsp;wynajmie wysokiej jakości&nbsp;
+        <strong>namiotów imprezowych w&nbsp;kolorze białym,</strong>{" "}
+        <strong>stołów kateringowych, </strong>
+        <strong>obrusów i&nbsp;krzeseł</strong> oraz{" "}
+        <strong>oświetlenia do namiotów</strong>. Dostarczamy wyżej wymieniony
+        sprzęt i&nbsp;akcesoria na wszelkie uroczyste okazje typu: Komunie Św.,
+        wesela, chrzciny, urodziny, spotkania towarzyskie, imprezy firmowe,
+        rocznice i&nbsp;inne imprezy wymagające zabezpieczenia przed deszczem,
+        słońcem i&nbsp;innymi niesprzyjającymi warunkami atmosferycznymi. (...)
         {!expanded && (
           <IconContainer
             onClick={handleExpandClick}
@@ -192,19 +194,24 @@ const About = () => {
             Nasza firma stawia na najwyższą jakość obsługi i&nbsp;dostosowuje
             ofertę do indywidualnych potrzeb Klienta. Jesteśmy elastyczni
             i&nbsp;gotowi na wszelkie wyzwania, jakie mogą się pojawić podczas
-            organizacji wydarzeń. Nasze namioty i&nbsp;sprzęt są regularnie
-            serwisowane i&nbsp;sprawdzane, aby zapewnić ich pełną funkcjonalność
-            i&nbsp;bezpieczeństwo podczas użytkowania.
+            organizacji wydarzeń. Nasze <strong>namioty</strong> i&nbsp;sprzęt
+            są regularnie serwisowane i&nbsp;sprawdzane, aby zapewnić ich pełną
+            funkcjonalność i&nbsp;bezpieczeństwo podczas użytkowania.
           </StyledParagraph>
           <StyledParagraph>
             Wierzymy, że każdy detal ma znaczenie, dlatego dbamy o&nbsp;to, aby
-            nasze namioty były nie tylko funkcjonalne, ale także estetycznie
-            wykonane. Współpracujemy z&nbsp;najlepszymi dostawcami materiałów
-            i&nbsp;korzystamy z&nbsp;nowoczesnych technologii, aby zapewnić
-            trwałość i&nbsp;bezpieczeństwo naszych produktów. Wybierając nasze
-            namioty, wybierasz profesjonalizm, zaangażowanie i&nbsp;
-            niezawodność. Dziękujemy za&nbsp;zaufanie i&nbsp;cieszymy się,
-            że&nbsp;możemy być częścią Twoich wyjątkowych chwil.
+            nasze <strong>namioty</strong> były nie tylko funkcjonalne, ale
+            także
+            <strong> estetycznie wykonane</strong>. Współpracujemy
+            z&nbsp;najlepszymi dostawcami
+            <strong> namiotów</strong> i&nbsp;korzystamy z&nbsp;nowoczesnych
+            technologii, aby zapewnić trwałość i&nbsp;bezpieczeństwo naszych
+            urządzeń. Wybierając nasze <strong>namioty</strong>, wybierasz
+            <strong> profesjonalizm</strong>, <strong>zaangażowanie</strong>{" "}
+            i&nbsp;
+            <strong>niezawodność</strong>. Dziękujemy za&nbsp;zaufanie
+            i&nbsp;cieszymy się, że&nbsp;możemy być częścią Twoich wyjątkowych
+            chwil.
           </StyledParagraph>
           <StyledParagraph>
             Początki były skromne – zaczynaliśmy jako mała firma rodzinna, ale
@@ -213,44 +220,57 @@ const About = () => {
             właścicielka, zainspirowana potrzebami rynku i&nbsp;pragnieniem
             dostarczania wyjątkowych doświadczeń, nieustannie dąży do
             doskonałości. Podążając za potrzebami naszych Klientów, stale
-            poszerzamy naszą ofertę i&nbsp;wprowadzamy nowe, innowacyjne
-            rozwiązania. Dbałość o&nbsp;szczegóły i&nbsp;indywidualne podejście
-            do każdego zlecenia sprawiają, że&nbsp;nasze namioty są idealnym
-            wyborem na wszelkiego rodzaju imprezy – od małych, kameralnych
-            spotkań po duże, spektakularne wydarzenia.
+            poszerzamy naszą ofertę i&nbsp;wprowadzamy nowe,
+            <strong> innowacyjne rozwiązania</strong>. Dbałość o&nbsp;szczegóły
+            i&nbsp;indywidualne podejście do każdego zlecenia sprawiają,
+            że&nbsp;nasze <strong>namioty</strong> są idealnym wyborem na
+            wszelkiego rodzaju
+            <strong> imprezy</strong> – od małych, kameralnych spotkań po duże,
+            spektakularne wydarzenia.
           </StyledParagraph>
           <StyledParagraph>
             Nasza historia to opowieść o&nbsp;pasji, poświęceniu
             i&nbsp;nieustannym dążeniu do rozwoju. Dzięki temu możemy oferować
-            naszym Klientom nie tylko produkty najwyższej jakości, ale także
+            naszym Klientom nie tylko usługi najwyższej jakości, ale także
             profesjonalne wsparcie na każdym etapie współpracy. Jesteśmy dumni
             z&nbsp;naszych osiągnięć i&nbsp;z&nbsp;niecierpliwością czekamy na
-            kolejne wyzwania, które przyniesie przyszłość. Nasze namioty
-            charakteryzują się solidną konstrukcją i&nbsp;eleganckim wyglądem,
-            co czyni je idealnym wyborem na wszelkiego rodzaju wydarzenia – od
-            uroczystych przyjęć weselnych, przez imprezy firmowe, aż&nbsp;po
-            rodzinne spotkania na świeżym powietrzu. Każdy namiot jest starannie
-            przygotowany i&nbsp;sprawdzany, aby zapewnić maksymalny komfort
+            kolejne wyzwania, które przyniesie przyszłość. Nasze
+            <strong> namioty</strong> charakteryzują się solidną konstrukcją
+            i&nbsp;eleganckim wyglądem, co czyni je idealnym wyborem na
+            wszelkiego rodzaju wydarzenia – od&nbsp;
+            <strong>
+              uroczystych przyjęć weselnych, przez imprezy firmowe, aż&nbsp;po
+              rodzinne spotkania na świeżym powietrzu
+            </strong>
+            . Każdy <strong>namiot</strong> jest starannie przygotowany
+            i&nbsp;sprawdzany, aby zapewnić maksymalny komfort
             i&nbsp;bezpieczeństwo uczestników.
           </StyledParagraph>
           <StyledParagraph>
-            Oprócz namiotów oferujemy również pełne wyposażenie eventowe, takie
-            jak stoły kateringowe i&nbsp;wygodne krzesła, które dopełniają
-            całości aranżacji. Dbamy o&nbsp;to, aby każdy detal był na
-            najwyższym poziomie, dlatego nasze stoły i&nbsp;krzesła są nie tylko
-            funkcjonalne, ale także estetycznie wykonane. Oświetlenie to
-            kluczowy element każdej imprezy, dlatego w&nbsp;naszej ofercie
-            znajdują się nowoczesne systemy oświetleniowe, które tworzą
+            Oprócz <strong>namiotów</strong> oferujemy również pełne wyposażenie
+            eventowe, takie jak{" "}
+            <strong>stoły kateringowe i&nbsp;wygodne krzesła</strong>, które
+            dopełniają całości aranżacji. Dbamy o&nbsp;to, aby każdy detal był
+            na najwyższym poziomie, dlatego nasze{" "}
+            <strong>stoły i&nbsp;krzesła</strong> są nie tylko funkcjonalne, ale
+            także
+            <strong> estetycznie wykonane</strong>. Oświetlenie to kluczowy
+            element każdej imprezy, dlatego w&nbsp;naszej ofercie znajdują się{" "}
+            <strong>nowoczesne systemy oświetleniowe</strong>, które tworzą
             niepowtarzalną atmosferę i&nbsp;podkreślają wyjątkowy charakter
-            wydarzenia. Nasz zespół profesjonalistów zajmie się montażem
-            i&nbsp;demontażem całego sprzętu, a&nbsp;także zapewni transport,
-            abyś Ty mógł cieszyć się swoim dniem bez zbędnych zmartwień.
+            wydarzenia. Nasz zespół profesjonalistów zajmie się
+            <strong>
+              &nbsp;montażem i&nbsp;demontażem całego sprzętu, a&nbsp;także
+              zapewnia transport
+            </strong>
+            , abyś Ty mógł cieszyć się swoim dniem bez zbędnych zmartwień.
           </StyledParagraph>
           <StyledParagraph>
             Dodatkowo, jako wyraz naszego zaangażowania i&nbsp;chęci zadowolenia
-            Klientów, oferujemy <b>trawę</b> oraz <b>oświetlenie</b> jako
-            gratis, co dodatkowo podnosi komfort korzystania z&nbsp;naszych
-            namiotów. Wybierając naszą firmę, otrzymujesz kompleksową obsługę
+            Klientów, oferujemy{" "}
+            <strong>trawę oraz oświetlenie jako gratis</strong>, co dodatkowo
+            podnosi komfort korzystania z&nbsp;naszych <strong>namiotów</strong>
+            . Wybierając naszą firmę, otrzymujesz kompleksową obsługę
             na&nbsp;najwyższym poziomie, która sprawi, że&nbsp;Twoje wydarzenie
             będzie niezapomniane.
           </StyledParagraph>
