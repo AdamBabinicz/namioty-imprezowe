@@ -342,7 +342,7 @@ const About = () => {
           onClick={() =>
             handleButtonClick(
               <div>
-                <h2>Nasza misja</h2>
+                <h3>Nasza misja</h3>
                 <StyledParagraph>
                   Nasza misja to dostarczanie najlepszych namiotów imprezowych,
                   aby Twoje wydarzenie było niezapomniane. Dokładamy wszelkich
@@ -362,7 +362,7 @@ const About = () => {
           onClick={() =>
             handleButtonClick(
               <div>
-                <h2>Nasza historia</h2>
+                <h3>Nasza historia</h3>
                 <StyledParagraph>
                   Nasza firma została założona w 2014 roku i&nbsp;od tego czasu
                   dostarczamy namioty oraz pozostałe wyposażenie najwyższej
@@ -382,7 +382,7 @@ const About = () => {
           onClick={() =>
             handleButtonClick(
               <div>
-                <h2>Nasza oferta</h2>
+                <h3>Nasza oferta</h3>
                 <StyledParagraph>
                   Oferujemy szeroki wybór namiotów na różne okazje,
                   w&nbsp;różnych rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób.
