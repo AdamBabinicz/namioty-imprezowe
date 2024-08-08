@@ -6,11 +6,10 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
 
 html {
-font-size: 16px; /* Ustawienie bazowego rozmiaru czcionki */
+  font-size: 16px; /* Ustawienie bazowego rozmiaru czcionki */
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
@@ -21,7 +20,6 @@ body {
   font-family: 'Roboto', sans-serif;
   transition: all 0.50s linear;
   overflow-x: hidden;
-  
 }
 
 a {
@@ -35,19 +33,12 @@ a:hover {
     theme.linkHover}; /* Ustawia kolor linków podczas najechania myszką */
 }
 
+svg {
+  outline: none;
+}
+
 p {
   line-height: 1.6; /* Ustawia wysokość linii dla tekstu w paragrafach */
-}
-
-
-.dark-mode {
-  background: ${({ theme }) => theme.body};
-  color: ${({ theme }) => theme.text};
-}
-
-.light-mode {
-  background: ${({ theme }) => theme.body};
-  color: ${({ theme }) => theme.text};
 }
 `;
 
