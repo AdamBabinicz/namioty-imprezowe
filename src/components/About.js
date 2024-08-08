@@ -38,7 +38,7 @@ const StyledHeading = styled(motion.h2)`
 `;
 
 const StyledParagraph = styled(motion.p)`
-  max-width: 37.5rem; /* Limit the width for better readability */
+  max-width: 37.5rem;
   margin: 0 auto; /* Center the paragraph */
   line-height: 1.6; /* Set a line height for better readability */
   padding: 0 1rem; /* Add some horizontal padding */
@@ -48,6 +48,7 @@ const StyledParagraph = styled(motion.p)`
   text-wrap: balance;
 
   @media (min-width: 768px) {
+    max-width: 75%;
     text-align: start;
   }
 
@@ -64,6 +65,11 @@ const AdditionalContent = styled(motion.div)`
   background: ${({ theme }) => theme.background};
   border-radius: 0.3125rem;
   box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+
+  @media (min-width: 768px) {
+    max-width: 75%;
+    text-align: start;
+  }
 `;
 
 const IconContainer = styled.span`
