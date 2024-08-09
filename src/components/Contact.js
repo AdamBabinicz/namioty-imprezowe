@@ -150,7 +150,7 @@ const ContactItem = styled(motion.div)`
 
   svg {
     margin-right: 0.9375rem;
-    color: ${({ theme }) => theme.linkHover};
+    color: ${({ theme }) => theme.iconColor}; // Ustawienie koloru ikony
 
     @media (max-width: 768px) {
       margin-right: 0.625rem;
@@ -168,6 +168,16 @@ const ContactItem = styled(motion.div)`
 
   &:hover {
     background: ${({ theme }) => theme.hoverBackground};
+
+    span {
+      color: ${({ theme }) =>
+        theme.hoverText}; // Zmiana koloru tekstu po najechaniu
+    }
+
+    svg {
+      color: ${({ theme }) =>
+        theme.hoverIconColor}; // Zmiana koloru ikony po najechaniu
+    }
   }
 `;
 

@@ -26,6 +26,7 @@ a {
   text-decoration: none; /* Usuwa podkreślenie z linków */
   color: ${({ theme }) => theme.linkColor}; /* Ustawia kolor linków */
   transition: color 0.3s ease; /* Dodaje płynne przejście koloru z opóźnieniem */
+  outline: none;
 }
 
 a:hover {
