@@ -1,4 +1,3 @@
-// src/styles/GlobalStyle.js
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
@@ -36,7 +35,13 @@ a:hover {
 }
 
 svg {
-  outline: none;
+  fill: currentColor; /* Ustawienie koloru SVG zgodnie z kolorem tekstu */
+  stroke: currentColor; /* Zapewnia zgodność dla SVG ze ścieżkami */
+  vertical-align: middle; /* Wyśrodkowanie ikony SVG względem tekstu */
+  transition: fill 0.3s ease, stroke 0.3s ease; /* Dodaje płynne przejście koloru */
+  display: inline-block; /* Zapewnia prawidłowe wyświetlanie w blokach inline */
+  overflow: visible; /* Zapobiega problemom z widocznością SVG */
+  backface-visibility: hidden; /* Zapobiega zanikaniu SVG na niektórych przeglądarkach */
 }
 
 p {
