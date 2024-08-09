@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import img from "../assets/4.avif";
 
@@ -33,7 +33,7 @@ const Contact = () => {
             >
               <FaPhone />
               <a href="tel:+48531890827">
-                <span>Telefon: 531 890 827</span>
+                <span>Telefon: +48 531 890 827</span>
               </a>
             </ContactItem>
             <ContactItem
@@ -44,6 +44,13 @@ const Contact = () => {
               <a href="mailto:mariusz1989poczta@wp.pl">
                 <span>E-mail: mariusz1989poczta@wp.pl</span>
               </a>
+            </ContactItem>
+            <ContactItem
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              whileTap={{ scale: 0.9, rotate: -2 }}
+            >
+              <FaMapMarkerAlt />
+              <span>Adres: 26-610 Radom, ul. Żeromskiego 95/97</span>
             </ContactItem>
           </ContactInfo>
         </ContentWrapper>
