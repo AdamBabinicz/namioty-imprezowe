@@ -3,14 +3,11 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import lowResImage from "../assets/8.avif"; // Niska jakość
 import highResImage from "../assets/1.avif"; // Wysoka jakość
+import mobileImage from "../assets/2.avif"; // Obraz na smartfony
 
 // Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
   height: 100vh;
-  /* background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: fixed;  */
   background: center center / contain no-repeat fixed;
   display: flex;
   flex-direction: column;
@@ -38,9 +35,6 @@ const HeaderContent = styled(motion.div)`
   position: relative;
   overflow: visible; /* Umożliwienie widoczności tooltipa */
   z-index: 1; /* Upewnij się, że kontent jest na wierzchu */
-
-  @media (max-width: 768px) {
-  }
 
   &::before {
     content: "";
@@ -79,9 +73,11 @@ const Title = styled.h1`
   font-size: 3rem;
   margin: 0;
   font-family: "Arial", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   color: #fff;
   position: relative;
   cursor: pointer;
+  transition: all 0.4s ease-in-out;
 
   @media (max-width: 768px) {
     font-size: 1.7rem;
@@ -89,7 +85,7 @@ const Title = styled.h1`
   }
 
   &:hover {
-    color: #ff0; /* Zmiana koloru na żółty po najechaniu */
+    color: ${({ theme }) => theme.linkHover};
   }
 `;
 
@@ -111,7 +107,7 @@ const Tooltip = styled.div`
   &::after {
     content: "";
     position: absolute;
-    bottom: -1.25rem; /* Dostosowany ogonek tooltipa */
+    bottom: -1.21rem; /* Dostosowany ogonek tooltipa */
     left: 50%;
     transform: translateX(-50%);
     border-width: 10px;
@@ -195,9 +191,23 @@ export const Header = ({ theme }) => {
   const [bgImage, setBgImage] = useState(lowResImage);
 
   useEffect(() => {
-    const img = new Image();
-    img.src = highResImage;
-    img.onload = () => setBgImage(highResImage);
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setBgImage(mobileImage);
+      } else {
+        const img = new Image();
+        img.src = highResImage;
+        img.onload = () => setBgImage(highResImage);
+      }
+    };
+
+    handleResize(); // Ustaw początkowy stan
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (

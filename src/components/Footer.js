@@ -32,6 +32,12 @@ const SocialIcons = styled.div`
   display: flex;
   align-items: center;
 
+  @media (max-width: 768px) {
+    width: 60%;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
   a {
     font-size: 1.5rem;
     color: ${({ theme }) => theme.text};

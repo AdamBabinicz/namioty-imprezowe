@@ -1,0 +1,299 @@
+// themes.js
+export const lightTheme = {
+  body: "#fff",
+  text: "#333",
+  background: "#f0f0f0",
+  hoverBackground: "#737272",
+  linkHover: "#007bff",
+  cardBackground: "#fff",
+  cardShadow: "rgba(0, 0, 0, 0.1)",
+  closeButtonColor: "#000", // Kolor ciemny w wersji light
+  iconColor: "#000", // Dodane
+  tooltipBackground: "#333",
+  tooltipText: "#fff",
+};
+
+export const darkTheme = {
+  body: "#333",
+  text: "#f0f0f0",
+  background: "#444",
+  hoverBackground: "#898989",
+  linkHover: "#007bff",
+  cardBackground: "#898989",
+  cardShadow: "rgba(0, 0, 0, 0.3)",
+  closeButtonColor: "#fff", // Kolor jasny w wersji dark
+  iconColor: "#fff", // Dodane
+  tooltipBackground: "#fff",
+  tooltipText: "#333",
+};
+
+
+
+import React from "react";
+import styled from "styled-components";
+import { FaPhone, FaEnvelope } from "react-icons/fa";
+import { motion } from "framer-motion";
+import img from "../assets/4.avif";
+
+const Contact = () => {
+  return (
+    <ContactContainer id="kontakt">
+      <Title
+        initial={{ y: -200, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 50 }}
+      >
+        Kontakt
+      </Title>
+      <CenteredContent>
+        <ContentWrapper>
+          <ImageContainer>
+            <motion.img
+              src={img}
+              loading="lazy"
+              alt="Contact"
+              initial={{ scale: 0.5, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+            />
+          </ImageContainer>
+          <ContactInfo>
+            <ContactItem
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              whileTap={{ scale: 0.9, rotate: -2 }}
+            >
+              <FaPhone />
+              <a href="tel:+48531890827">
+                <span>Telefon: +48 531 890 827</span>
+              </a>
+            </ContactItem>
+            <ContactItem
+              whileHover={{ scale: 1.1, rotate: 2 }}
+              whileTap={{ scale: 0.9, rotate: -2 }}
+            >
+              <FaEnvelope />
+              <a href="mailto:mariusz1989poczta@wp.pl">
+                <span>E-mail: mariusz1989poczta@wp.pl</span>
+              </a>
+            </ContactItem>
+          </ContactInfo>
+        </ContentWrapper>
+      </CenteredContent>
+    </ContactContainer>
+  );
+};
+
+const ContactContainer = styled.div`
+  margin: 0 5rem 2rem;
+  padding: 2rem;
+  background: ${({ theme }) => theme.background};
+  border-radius: 0.9375rem;
+  box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem;
+  }
+`;
+
+const Title = styled(motion.h2)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.text};
+  margin-bottom: 2rem;
+  margin-left: 5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+`;
+
+const CenteredContent = styled.div`
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie w poziomie */
+  align-items: center; /* Wyśrodkowanie w pionie */
+  height: 100%; /* Wysokość 100% kontenera rodzica */
+  width: 100%;
+`;
+
+const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 62.5rem; /* Maksymalna szerokość kontenera */
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center; /* Wyśrodkowanie treści na mniejszych ekranach */
+  }
+`;
+
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Wyśrodkowanie zdjęcia */
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 0;
+  }
+
+  img {
+    width: 100%;
+    max-width: 25rem;
+    border-radius: 0.9375rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
+  }
+`;
+
+const ContactInfo = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 25rem;
+
+  @media (max-width: 768px) {
+    gap: 0.9375rem;
+  }
+`;
+
+const ContactItem = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background: ${({ theme }) => theme.cardBackground};
+  border-radius: 0.625rem;
+  box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
+  cursor: pointer;
+  transition: all 0.2s;
+
+  svg {
+    margin-right: 0.9375rem;
+    color: ${({ theme }) => theme.iconColor}; // Ustawienie koloru ikony
+
+    @media (max-width: 768px) {
+      margin-right: 0.625rem;
+    }
+  }
+
+  span {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.text};
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.hoverBackground};
+
+    span {
+      color: ${({ theme }) =>
+        theme.hoverText}; // Zmiana koloru tekstu po najechaniu
+    }
+
+    svg {
+      color: ${({ theme }) =>
+        theme.hoverIconColor}; // Zmiana koloru ikony po najechaniu
+    }
+  }
+`;
+
+export default Contact;
+
+
+
+// src/styles/GlobalStyle.js
+import { createGlobalStyle } from "styled-components";
+
+export const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px; /* Ustawienie bazowego rozmiaru czcionki */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background: ${({ theme }) => theme.body};
+  color: ${({ theme }) => theme.text};
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.50s linear;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none; /* Usuwa podkreślenie z linków */
+  color: ${({ theme }) => theme.linkColor}; /* Ustawia kolor linków */
+  transition: color 0.3s ease; /* Dodaje płynne przejście koloru z opóźnieniem */
+  outline: none;
+  background: none;
+}
+
+a:hover {
+  color: ${({ theme }) =>
+    theme.linkHover}; /* Ustawia kolor linków podczas najechania myszką */
+}
+
+svg {
+  outline: none;
+}
+
+p {
+  line-height: 1.6; /* Ustawia wysokość linii dla tekstu w paragrafach */
+}
+`;
+
+export default GlobalStyle;
+
+
+
+/*
+  Cache-Control: max-age=86400
+  Vary: Accept-Encoding
+
+/static/css/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
+
+/static/js/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
+
+/static/media/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
+
+/images/*
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
+
+/favicon.ico
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
+
+/https://www.googletagmanager.com/gtag/js*
+  Cache-Control: no-cache
+  Vary: Accept-Encoding
+
+/https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding

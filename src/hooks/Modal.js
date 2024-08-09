@@ -19,7 +19,7 @@ const ModalOverlay = styled(motion.div)`
 
 const ModalContent = styled(motion.div)`
   background: ${({ theme }) => lighten(0.2, theme.body)};
-  padding: 0.3rem;
+  padding: 0.15rem;
   border-radius: 10px;
   box-shadow: 0 10px 20px ${({ theme }) => theme.cardShadow};
   width: 90vw;
@@ -36,7 +36,6 @@ const ModalContent = styled(motion.div)`
   }
 
   .modal-image {
-    padding: 0.3rem;
     width: 100%;
     height: auto;
     object-fit: contain;
