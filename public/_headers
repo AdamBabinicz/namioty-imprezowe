@@ -21,3 +21,11 @@
 /favicon.ico
   Cache-Control: max-age=31536000
   Vary: Accept-Encoding
+
+/https://www.googletagmanager.com/gtag/js*
+  Cache-Control: no-cache
+  Vary: Accept-Encoding
+
+/https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
