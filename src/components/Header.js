@@ -167,11 +167,11 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1rem;
+    font-size: 1.3rem;
 
     @media (max-width: 768px) {
       padding: 10px 20px; /* Dostosowanie paddingu dla mniejszych ekranów */
-      font-size: 0.9rem; /* Dostosowanie rozmiaru tekstu dla mniejszych ekranów */
+      font-size: 1.1rem; /* Dostosowanie rozmiaru tekstu dla mniejszych ekranów */
     }
 
     &:hover {
