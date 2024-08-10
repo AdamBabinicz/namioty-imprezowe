@@ -61,24 +61,10 @@ const SliderWrapper = styled.div`
   }
 `;
 
-// const ImageWrapper = styled.div`
-//   position: relative;
-//   overflow: hidden;
-//   width: 100%;
-// `;
-
 const ImageWrapper = styled.div`
   position: relative;
-  overflow: hidden; // Ukrywa wszelkie niechciane paski
-  width: 100%; // Szerokość obrazka na 100%
-
-  // Domyślne proporcje dla urządzeń mobilnych
-  aspect-ratio: 4 / 3; // Proporcje 4:3 dla mniejszych ekranów
-
-  @media (min-width: 768px) {
-    // Proporcje dla większych ekranów (desktop)
-    aspect-ratio: 16 / 9; // Proporcje 16:9 dla większych ekranów
-  }
+  overflow: hidden;
+  width: 100%;
 `;
 
 const Image = styled.img`

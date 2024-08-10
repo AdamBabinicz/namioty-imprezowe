@@ -4,6 +4,7 @@ import Gallery from "./Gallery";
 import Cennik from "./Cennik";
 import { motion } from "framer-motion";
 
+// Styled components
 const TabsContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -14,9 +15,9 @@ const TabsContainer = styled.div`
 `;
 
 const Tab = styled.button`
-  background: ${({ active, theme }) =>
-    active ? theme.text : theme.background};
-  color: ${({ active, theme }) => (active ? theme.background : theme.text)};
+  background: ${({ $active, theme }) =>
+    $active ? theme.text : theme.background};
+  color: ${({ $active, theme }) => ($active ? theme.background : theme.text)};
   border: none;
   padding: 1rem 2rem;
   cursor: pointer;
@@ -36,7 +37,7 @@ const TabButton = ({ isActive, onClick, children }) => (
   <Tab
     aria-pressed={isActive}
     onClick={onClick}
-    active={isActive.toString()} // konwertujemy isActive do stringa
+    $active={isActive} // użyj transient prop `$active`
   >
     {children}
   </Tab>
