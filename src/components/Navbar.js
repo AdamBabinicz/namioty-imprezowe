@@ -149,6 +149,7 @@ const Logo = styled.div`
     width: 3.125rem;
     height: auto;
     margin-right: 0.625rem;
+    aspect-ratio: 2/1;
   }
 `;
 
