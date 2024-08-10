@@ -1,19 +1,29 @@
-/* CSS */
-Cache-Control: max-age=2592000
-Vary: Accept-Encoding
+# Ustawienie nagłówków dla całej witryny
+/*
+  Cache-Control: max-age=86400
+  Vary: Accept-Encoding
 
-/* JS */
-Cache-Control: max-age=2592000
-Vary: Accept-Encoding
+# Nagłówki dla zasobów CSS
+/static/css/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
 
-/* Media - rozważ zmniejszenie max-age jeśli zmieniają się częściej */
-Cache-Control: max-age=604800
-Vary: Accept-Encoding
+# Nagłówki dla zasobów JS
+/static/js/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
 
-/* Obrazy */
-Cache-Control: max-age=31536000
-Vary: Accept-Encoding
+# Nagłówki dla zasobów mediów
+/static/media/*
+  Cache-Control: max-age=2592000
+  Vary: Accept-Encoding
 
-/* Favicon */
-Cache-Control: max-age=31536000
-Vary: Accept-Encoding
+# Nagłówki dla obrazków
+/images/*
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
+
+# Nagłówki dla favicon
+/favicon.ico
+  Cache-Control: max-age=31536000
+  Vary: Accept-Encoding
