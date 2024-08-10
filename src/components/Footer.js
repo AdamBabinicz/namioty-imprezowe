@@ -34,7 +34,7 @@ const SocialIcons = styled.div`
   align-items: center;
 
   @media (max-width: 768px) {
-    width: 60%;
+    /* width: 60%; */
     justify-content: space-between;
     margin-bottom: 1.5rem;
   }
