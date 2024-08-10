@@ -148,7 +148,7 @@ const Promo = styled(motion.div)`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 6rem;
   z-index: 1;
 
   a {
@@ -165,11 +165,11 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 
     @media (max-width: 768px) {
       padding: 10px 20px;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
     }
 
     &:hover {
