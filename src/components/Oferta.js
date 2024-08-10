@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Gallery from "./Gallery";
 import Cennik from "./Cennik";
+import { motion } from "framer-motion";
 
 const TabsContainer = styled.div`
   display: flex;
@@ -45,11 +46,37 @@ const ContentContainer = styled.div`
   padding: 2rem 0;
 `;
 
+const StyledHeading = styled(motion.h2)`
+  font-size: 2rem;
+  color: ${({ theme }) => theme.text};
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  margin-left: 12.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 768px) {
+    font-size: 1.7rem;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+`;
+
 const Oferta = ({ theme }) => {
   const [activeTab, setActiveTab] = useState("Wizualna");
 
   return (
-    <div id="oferta">
+    <>
+      <StyledHeading
+        id="oferta"
+        initial={{ x: -200, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ delay: 0.3, type: "spring", stiffness: 50 }}
+      >
+        Oferta
+      </StyledHeading>
+
       <TabsContainer>
         <TabButton
           isActive={activeTab === "Wizualna"}
@@ -68,7 +95,7 @@ const Oferta = ({ theme }) => {
         {activeTab === "Wizualna" && <Gallery theme={theme} />}
         {activeTab === "Cenowa" && <Cennik theme={theme} />}
       </ContentContainer>
-    </div>
+    </>
   );
 };
 

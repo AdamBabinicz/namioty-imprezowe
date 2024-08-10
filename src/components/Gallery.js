@@ -29,15 +29,15 @@ const GalleryContainer = styled.section`
   }
 `;
 
-const MotionTitle = styled(motion.h2)`
-  font-size: 2rem;
+const MotionTitle = styled(motion.h3)`
+  font-size: 1.5rem;
   color: ${(props) => props.theme.text};
   margin-bottom: 2rem;
   margin-left: 5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
   @media (max-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     margin-bottom: 1.5rem;
     margin-left: 0;
     text-align: center;
@@ -246,7 +246,7 @@ const Gallery = ({ theme }) => {
           animate={{ x: 0 }}
           transition={{ delay: 0.3 }}
         >
-          Nasza oferta
+          Wizualizacja u&nbsp;Klienta
         </MotionTitle>
         <SliderWrapper>
           <Slider {...settings}>

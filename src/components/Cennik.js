@@ -93,8 +93,8 @@ const ProductPrice = styled.span`
   }
 `;
 
-const MotionTitle = styled(motion.h2)`
-  font-size: 2rem;
+const MotionTitle = styled(motion.h3)`
+  font-size: 1.5rem;
   color: ${(props) => props.theme.text};
   margin-bottom: 2rem;
   margin-left: 5rem;
@@ -103,7 +103,7 @@ const MotionTitle = styled(motion.h2)`
   align-items: center;
 
   @media (max-width: 768px) {
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     margin-bottom: 0;
     margin-left: 0;
     text-align: center;
