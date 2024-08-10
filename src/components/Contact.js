@@ -126,6 +126,7 @@ const ImageContainer = styled.div`
     max-width: 25rem;
     border-radius: 0.9375rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    aspect-ratio: 350 / 233;
 
     @media (max-width: 768px) {
       max-width: 100%;
