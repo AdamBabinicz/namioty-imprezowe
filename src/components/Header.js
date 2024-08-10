@@ -7,7 +7,7 @@ import mobileImage from "../assets/2.avif";
 
 const HeaderContainer = styled.header`
   height: 100vh;
-  background: center center / contain no-repeat fixed;
+  background: center center / cover no-repeat fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +19,6 @@ const HeaderContainer = styled.header`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    background-size: cover;
     margin: 0 1rem 1.5rem;
     padding: 3.5rem 1rem 0;
   }
