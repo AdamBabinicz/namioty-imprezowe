@@ -7,6 +7,7 @@ import {
   FaFacebook,
   FaTwitter,
   FaPinterest,
+  FaLinkedin, // Import LinkedIn icon
   FaExternalLinkAlt,
 } from "react-icons/fa";
 
@@ -152,6 +153,22 @@ export const Footer = () => {
             <FaPinterest />
           </motion.div>
         </a>
+        {/* Nowy link do LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/dmuchance1"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-tooltip-id="linkedinTooltip"
+          data-tooltip-content="LinkedIn"
+          aria-label="Visit our LinkedIn profile"
+        >
+          <motion.div
+            whileHover={{ scale: 1.2 }}
+            transition={{ duration: 0.3 }}
+          >
+            <FaLinkedin />
+          </motion.div>
+        </a>
       </SocialIcons>
       <ExternalLinks>
         <a
@@ -223,6 +240,14 @@ export const Footer = () => {
       />
       <ReactTooltip
         id="pinterestTooltip"
+        place="top"
+        effect="solid"
+        backgroundColor={({ theme }) => theme.tooltipBackground}
+        textColor={({ theme }) => theme.tooltipText}
+        border="1px solid rgba(0, 0, 0, 0.3)"
+      />
+      <ReactTooltip
+        id="linkedinTooltip"
         place="top"
         effect="solid"
         backgroundColor={({ theme }) => theme.tooltipBackground}

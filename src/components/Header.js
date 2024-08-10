@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
-import lowResImage from "../assets/8.avif"; // Niska jakość
-import highResImage from "../assets/1.avif"; // Wysoka jakość
-import mobileImage from "../assets/2.avif"; // Obraz na smartfony
+import lowResImage from "../assets/8.avif";
+import highResImage from "../assets/1.avif";
+import mobileImage from "../assets/2.avif";
 
-// Stylizacja nagłówka z efektem parallax
 const HeaderContainer = styled.header`
   height: 100vh;
   background: center center / contain no-repeat fixed;
@@ -17,7 +16,7 @@ const HeaderContainer = styled.header`
   padding: 0 5rem;
   margin: 1rem 5rem 2rem;
   border-radius: 15px;
-  overflow: hidden; /* Aby elementy nie wychodziły poza obszar nagłówka */
+  overflow: hidden;
 
   @media (max-width: 768px) {
     background-size: cover;
@@ -33,8 +32,8 @@ const HeaderContent = styled(motion.div)`
   text-align: center;
   color: #fff;
   position: relative;
-  overflow: visible; /* Umożliwienie widoczności tooltipa */
-  z-index: 1; /* Upewnij się, że kontent jest na wierzchu */
+  overflow: visible;
+  z-index: 1;
 
   &::before {
     content: "";
@@ -91,7 +90,7 @@ const Title = styled.h1`
 
 const Tooltip = styled.div`
   position: absolute;
-  top: -5rem; /* Dalsze oddalenie tooltipa od napisu */
+  top: -5rem;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0, 0, 0, 0.7);
@@ -102,12 +101,12 @@ const Tooltip = styled.div`
   opacity: 0;
   transition: opacity 0.3s ease;
   white-space: nowrap;
-  z-index: 1000; /* Upewnij się, że tooltip jest na wierzchu */
+  z-index: 1000;
 
   &::after {
     content: "";
     position: absolute;
-    bottom: -1.21rem; /* Dostosowany ogonek tooltipa */
+    bottom: -1.21rem;
     left: 50%;
     transform: translateX(-50%);
     border-width: 10px;
@@ -140,7 +139,7 @@ const Promo = styled(motion.div)`
   line-height: 3rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin-top: 4rem;
-  width: fit-content; /* Dostosowanie szerokości do rodzica */
+  width: fit-content;
 
   @media (max-width: 768px) {
     line-height: 2.3rem;
@@ -151,11 +150,11 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 2rem;
-  z-index: 1; /* Upewnij się, że przycisk jest na wierzchu */
+  z-index: 1;
 
   a {
     display: inline-block;
-    margin: 0 10px; /* Dodanie marginesu do linków */
+    margin: 0 10px;
   }
 
   button {
@@ -170,8 +169,8 @@ const ButtonContainer = styled.div`
     font-size: 1.3rem;
 
     @media (max-width: 768px) {
-      padding: 10px 20px; /* Dostosowanie paddingu dla mniejszych ekranów */
-      font-size: 1.1rem; /* Dostosowanie rozmiaru tekstu dla mniejszych ekranów */
+      padding: 10px 20px;
+      font-size: 1.1rem;
     }
 
     &:hover {
@@ -201,7 +200,7 @@ export const Header = ({ theme }) => {
       }
     };
 
-    handleResize(); // Ustaw początkowy stan
+    handleResize();
 
     window.addEventListener("resize", handleResize);
 
