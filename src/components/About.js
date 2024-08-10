@@ -45,7 +45,7 @@ const StyledParagraph = styled(motion.p)`
   text-align: left; /* Justify the text for a clean look */
   margin-bottom: 1.5rem;
   hyphens: auto;
-  text-wrap: balance;
+  /* text-wrap: balance; */
 
   @media (min-width: 768px) {
     max-width: 75%;
@@ -102,6 +102,7 @@ const ImageContainer = styled.div`
     box-shadow: 0 5px 15px ${({ theme }) => theme.cardShadow};
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 105 / 59;
 
     &:hover {
       transform: scale(1.05);
