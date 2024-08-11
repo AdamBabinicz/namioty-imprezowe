@@ -173,7 +173,7 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
 
     @media (max-width: 768px) {
       padding: 10px 20px;
