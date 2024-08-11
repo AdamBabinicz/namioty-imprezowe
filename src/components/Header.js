@@ -151,6 +151,10 @@ const ButtonContainer = styled.div`
   margin-top: 6rem;
   z-index: 1;
 
+  @media (max-width: 768px) {
+    margin-top: 3rem;
+  }
+
   a {
     display: inline-block;
     margin: 0 10px;
