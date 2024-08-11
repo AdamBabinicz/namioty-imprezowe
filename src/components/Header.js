@@ -34,6 +34,10 @@ const HeaderContent = styled(motion.div)`
   overflow: visible;
   z-index: 1;
 
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+
   &::before {
     content: "";
     position: absolute;
