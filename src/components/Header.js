@@ -175,7 +175,7 @@ const ButtonContainer = styled.div`
     background: ${({ theme }) => theme.text};
     color: ${({ theme }) => theme.body};
     border: none;
-    padding: 15px 25px;
+    padding: 15px 40px;
     margin: 0 10px;
     border-radius: 5px;
     cursor: pointer;
