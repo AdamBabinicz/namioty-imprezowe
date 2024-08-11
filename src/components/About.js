@@ -345,13 +345,14 @@ const About = () => {
               <div>
                 <h3>Nasza misja</h3>
                 <StyledParagraph>
-                  Nasza misja to dostarczanie najlepszych namiotów imprezowych,
-                  aby Twoje wydarzenie było niezapomniane. Dokładamy wszelkich
-                  starań, aby zapewnić najwyższą jakość i&nbsp;komfort naszym
-                  Klientom, oferując szeroki wybór namiotów dostosowanych do
+                  Nasza misja to dostarczanie najlepszych
+                  <strong> namiotów imprezowych</strong>, aby Twoje wydarzenie
+                  było niezapomniane. Dokładamy wszelkich starań, aby zapewnić
+                  najwyższą jakość i&nbsp;komfort naszym Klientom, oferując
+                  szeroki wybór <strong>namiotów</strong> dostosowanych do
                   każdej okazji. Niezależnie od tego, czy organizujesz kameralne
                   przyjęcie, firmowy event, czy wielką uroczystość, nasze
-                  namioty są idealnym rozwiązaniem.
+                  <strong> namioty</strong> są idealnym rozwiązaniem.
                 </StyledParagraph>
               </div>
             )
@@ -366,12 +367,12 @@ const About = () => {
                 <h3>Nasza historia</h3>
                 <StyledParagraph>
                   Nasza firma została założona w 2014 roku i&nbsp;od tego czasu
-                  dostarczamy namioty oraz pozostałe wyposażenie najwyższej
-                  jakości. Firma jest prowadzona przez kobietę, która
-                  z&nbsp;pasją i&nbsp;zaangażowaniem dba o&nbsp;każdy aspekt
-                  działalności. Nasze przedsiębiorstwo opiera się na
-                  wieloletniej tradycji, która łączy rodzinne wartości
-                  z&nbsp;nowoczesnym podejściem do biznesu.
+                  dostarczamy <strong>namioty</strong> oraz pozostałe
+                  wyposażenie najwyższej jakości. Firma jest prowadzona przez
+                  kobietę, która z&nbsp;pasją i&nbsp;zaangażowaniem dba
+                  o&nbsp;każdy aspekt działalności. Nasze przedsiębiorstwo
+                  opiera się na wieloletniej tradycji, która łączy rodzinne
+                  wartości z&nbsp;nowoczesnym podejściem do biznesu.
                 </StyledParagraph>
               </div>
             )
@@ -385,14 +386,17 @@ const About = () => {
               <div>
                 <h3>Nasza oferta</h3>
                 <StyledParagraph>
-                  Oferujemy szeroki wybór namiotów na różne okazje,
-                  w&nbsp;różnych rozmiarach i&nbsp;stylach na 60 i&nbsp;30 osób.
-                  Ponadto wynajmujemy stoły kateringowe na 6 osób, krzesła
-                  i&nbsp;oświetlenie do namiotów (montaż, demontaż, transport
-                  i&nbsp;trawa w&nbsp;gratisie!). Nasza oferta jest elastyczna
-                  i&nbsp;dopasowana do indywidualnych potrzeb każdego Klienta,
-                  co sprawia, że&nbsp;jesteśmy w&nbsp;stanie zrealizować nawet
-                  najbardziej wymagające zlecenia.
+                  Oferujemy szeroki wybór <strong>namiotów</strong> na różne
+                  okazje, w&nbsp;różnych rozmiarach i&nbsp;stylach na 60
+                  i&nbsp;30 osób. Ponadto wynajmujemy
+                  <strong> stoły kateringowe na 6 osób</strong>,
+                  <strong> obrusy</strong>, <strong>krzesła </strong>
+                  i&nbsp;<strong>oświetlenie do namiotów</strong> (montaż,
+                  demontaż, transport i&nbsp;trawa w&nbsp;gratisie!). Nasza
+                  oferta jest elastyczna i&nbsp;dopasowana do indywidualnych
+                  potrzeb każdego Klienta, co sprawia, że&nbsp;jesteśmy
+                  w&nbsp;stanie zrealizować nawet najbardziej wymagające
+                  zlecenia.
                 </StyledParagraph>
               </div>
             )
