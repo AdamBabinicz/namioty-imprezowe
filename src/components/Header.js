@@ -157,11 +157,18 @@ const ButtonContainer = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 3rem;
+    width: 100%; /* Pełna szerokość kontenera */
+    padding: 0; /* Dodatkowy padding, jeśli chcesz zostawić marginesy po bokach */
   }
 
   a {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 20px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin: 0;
+    }
   }
 
   button {
@@ -178,6 +185,8 @@ const ButtonContainer = styled.div`
     @media (max-width: 768px) {
       padding: 10px 20px;
       font-size: 1.3rem;
+      width: 100%;
+      margin: 0;
     }
 
     &:hover {
