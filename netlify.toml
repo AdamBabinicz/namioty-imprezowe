@@ -1,38 +1,7 @@
-# Przekierowanie z www na bez www dla wynajem-namiotow.netlify.app
+[build]
+  repository = "https://github.com/AdamBabinicz/namioty-imprezowe"
 [[redirects]]
-  from = "https://www.wynajem-namiotow.netlify.app/*"
-  to = "https://wynajem-namiotow.netlify.app/:splat"
-  status = 301
-  force = true
-
-# Przekierowanie na HTTPS
-[[redirects]]
-  from = "http://wynajem-namiotow.netlify.app/*"
-  to = "https://wynajem-namiotow.netlify.app/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.wynajem-namiotow.netlify.app/*"
-  to = "https://wynajem-namiotow.netlify.app/:splat"
-  status = 301
-  force = true
-
-# Przekierowanie z index.php, index.html, i index.htm na stronę główną
-[[redirects]]
-  from = "/index.php"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index.html"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/index.htm"
-  to = "/"
-  status = 301
-  force = true
+from = "https://www.wynajem-namiotow.netlify.app/*"
+to = "https://wynajem-namiotow.netlify.app/:splat"
+status = 301
+force = true
