@@ -1,13 +1,13 @@
 # netlify.toml
 
-# Przekierowanie z www na bez www
+# Przekierowanie z www na bez www dla domeny slodkolandia.cba.pl
 [[redirects]]
   from = "https://www.slodkolandia.cba.pl/*"
   to = "https://slodkolandia.cba.pl/:splat"
   status = 301
   force = true
 
-# Przekierowanie na HTTPS
+# Przekierowanie na HTTPS dla domeny wynajem-namiotow.netlify.app
 [[redirects]]
   from = "http://wynajem-namiotow.netlify.app/*"
   to = "https://wynajem-namiotow.netlify.app/:splat"
@@ -36,5 +36,12 @@
 [[redirects]]
   from = "/index.htm"
   to = "/"
+  status = 301
+  force = true
+
+# Przekierowanie z wersji bez www na wersję z www dla domeny wynajem-namiotow.netlify.app
+[[redirects]]
+  from = "https://wynajem-namiotow.netlify.app/*"
+  to = "https://www.wynajem-namiotow.netlify.app/:splat"
   status = 301
   force = true
