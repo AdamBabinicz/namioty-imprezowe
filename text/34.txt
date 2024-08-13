@@ -1,0 +1,9 @@
+[build]
+  repository = "https://github.com/AdamBabinicz/namioty-imprezowe"
+[[redirects]]
+from = "https://www.wynajem-namiotow.netlify.app/*"
+to = "https://wynajem-namiotow.netlify.app/:splat"
+status = 301
+force = true
+ 
+
