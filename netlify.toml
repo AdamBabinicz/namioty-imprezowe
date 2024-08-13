@@ -1,9 +1,40 @@
-[build]
-  repository = "https://github.com/AdamBabinicz/namioty-imprezowe"
-[[redirects]]
-from = "https://www.wynajem-namiotow.netlify.app/*"
-to = "https://wynajem-namiotow.netlify.app/:splat"
-status = 301
-force = true
- 
+# netlify.toml
 
+# Przekierowanie z www na bez www
+[[redirects]]
+  from = "https://www.slodkolandia.cba.pl/*"
+  to = "https://slodkolandia.cba.pl/:splat"
+  status = 301
+  force = true
+
+# Przekierowanie na HTTPS
+[[redirects]]
+  from = "http://wynajem-namiotow.netlify.app/*"
+  to = "https://wynajem-namiotow.netlify.app/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.wynajem-namiotow.netlify.app/*"
+  to = "https://wynajem-namiotow.netlify.app/:splat"
+  status = 301
+  force = true
+
+# Przekierowanie z index.php, index.html i index.htm na stronę główną
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/index.htm"
+  to = "/"
+  status = 301
+  force = true
