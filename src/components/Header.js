@@ -157,8 +157,8 @@ const ButtonContainer = styled.div`
 
   @media (max-width: 768px) {
     margin-top: 3rem;
-    width: 100%; /* Pełna szerokość kontenera */
-    padding: 0; /* Dodatkowy padding, jeśli chcesz zostawić marginesy po bokach */
+    width: 100%;
+    padding: 0;
   }
 
   a {
@@ -172,8 +172,8 @@ const ButtonContainer = styled.div`
   }
 
   button {
-    background: ${({ theme }) => theme.text};
-    color: ${({ theme }) => theme.body};
+    background: #333; /* Stałe ciemne tło */
+    color: #f0f0f0; /* Stały jasny tekst */
     border: none;
     padding: 15px 40px;
     margin: 0 10px;
