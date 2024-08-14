@@ -6,7 +6,7 @@ import Modal from "../hooks/Modal";
 import img from "../assets/5.avif";
 import img1 from "../assets/14.avif";
 import img2 from "../assets/15.avif";
-import { Tooltip } from "react-tooltip"; // Import Tooltip z react-tooltip
+import { Tooltip } from "react-tooltip";
 
 const AboutSection = styled.section`
   padding: 2rem;
@@ -39,13 +39,12 @@ const StyledHeading = styled(motion.h2)`
 
 const StyledParagraph = styled(motion.p)`
   max-width: 37.5rem;
-  margin: 0 auto; /* Center the paragraph */
-  line-height: 1.6; /* Set a line height for better readability */
-  padding: 0 1rem; /* Add some horizontal padding */
-  text-align: left; /* Justify the text for a clean look */
+  margin: 0 auto;
+  line-height: 1.6;
+  padding: 0 1rem;
+  text-align: left;
   margin-bottom: 1.5rem;
   hyphens: auto;
-  /* text-wrap: balance; */
 
   @media (min-width: 768px) {
     max-width: 75%;
@@ -53,7 +52,7 @@ const StyledParagraph = styled(motion.p)`
   }
 
   &:first-of-type {
-    margin-top: 0; /* Ensure no top margin for the first paragraph */
+    margin-top: 0;
   }
 `;
 
@@ -95,7 +94,6 @@ const ImageContainer = styled.div`
 
   img {
     width: 30%;
-    /* max-width: 200px; */
     margin: 0.625rem;
     object-fit: cover;
     border-radius: 0.625rem;
@@ -110,9 +108,9 @@ const ImageContainer = styled.div`
     }
 
     @media (max-width: 768px) {
-      width: 90%; /* Ustaw szerokość na 90% w wersji mobilnej */
-      max-width: none; /* Usuń maksymalną szerokość */
-      margin: 5px 0; /* Ustaw mniejszy margines */
+      width: 90%;
+      max-width: none;
+      margin: 5px 0;
     }
   }
 `;
@@ -135,6 +133,7 @@ const ButtonContainer = styled.div`
     &:hover {
       background: ${({ theme }) => theme.hoverBackground};
       transform: scale(1.05);
+      color: ${({ theme }) => theme.hoverText};
     }
   }
 `;
@@ -176,8 +175,8 @@ const About = () => {
         w&nbsp;wynajmie wysokiej jakości&nbsp;
         <strong>namiotów imprezowych w&nbsp;kolorze białym,</strong>{" "}
         <strong>stołów kateringowych, </strong>
-        <strong>obrusów i&nbsp;krzeseł</strong> oraz{" "}
-        <strong>oświetlenia do namiotów</strong>. Dostarczamy wyżej wymieniony
+        <strong>obrusów i&nbsp;krzeseł</strong> oraz
+        <strong> oświetlenia do namiotów</strong>. Dostarczamy wyżej wymieniony
         sprzęt i&nbsp;akcesoria na wszelkie uroczyste okazje typu: Komunie Św.,
         wesela, chrzciny, urodziny, spotkania towarzyskie, imprezy firmowe,
         rocznice i&nbsp;inne imprezy wymagające zabezpieczenia przed deszczem,
@@ -185,7 +184,7 @@ const About = () => {
         {!expanded && (
           <IconContainer
             onClick={handleExpandClick}
-            data-tooltip-id="expand-tooltip" // Tooltip ID dla ikony rozwiń
+            data-tooltip-id="expand-tooltip"
           >
             <IoMdArrowDropdown />
           </IconContainer>
@@ -255,15 +254,15 @@ const About = () => {
           </StyledParagraph>
           <StyledParagraph>
             Oprócz <strong>namiotów</strong> oferujemy również pełne wyposażenie
-            eventowe, takie jak{" "}
-            <strong>stoły kateringowe i&nbsp;wygodne krzesła</strong>, które
+            eventowe, takie jak
+            <strong> stoły kateringowe i&nbsp;wygodne krzesła</strong>, które
             dopełniają całości aranżacji. Dbamy o&nbsp;to, aby każdy detal był
-            na najwyższym poziomie, dlatego nasze{" "}
-            <strong>stoły i&nbsp;krzesła</strong> są nie tylko funkcjonalne, ale
-            także
+            na najwyższym poziomie, dlatego nasze
+            <strong> stoły i&nbsp;krzesła</strong> są nie tylko funkcjonalne,
+            ale także
             <strong> estetycznie wykonane</strong>. Oświetlenie to kluczowy
-            element każdej imprezy, dlatego w&nbsp;naszej ofercie znajdują się{" "}
-            <strong>nowoczesne systemy oświetleniowe</strong>, które tworzą
+            element każdej imprezy, dlatego w&nbsp;naszej ofercie znajdują się
+            <strong> nowoczesne systemy oświetleniowe</strong>, które tworzą
             niepowtarzalną atmosferę i&nbsp;podkreślają wyjątkowy charakter
             wydarzenia. Nasz zespół profesjonalistów zajmie się
             <strong>
@@ -274,8 +273,8 @@ const About = () => {
           </StyledParagraph>
           <StyledParagraph>
             Dodatkowo, jako wyraz naszego zaangażowania i&nbsp;chęci zadowolenia
-            Klientów, oferujemy{" "}
-            <strong>trawę oraz oświetlenie jako gratis</strong>, co dodatkowo
+            Klientów, oferujemy
+            <strong> trawę oraz oświetlenie jako gratis</strong>, co dodatkowo
             podnosi komfort korzystania z&nbsp;naszych <strong>namiotów</strong>
             . Wybierając naszą firmę, otrzymujesz kompleksową obsługę
             na&nbsp;najwyższym poziomie, która sprawi, że&nbsp;Twoje wydarzenie
@@ -283,7 +282,7 @@ const About = () => {
           </StyledParagraph>
           <IconContainer
             onClick={handleExpandClick}
-            data-tooltip-id="collapse-tooltip" // Tooltip ID dla ikony zwijania
+            data-tooltip-id="collapse-tooltip"
           >
             <IoMdArrowDropup />
           </IconContainer>
@@ -292,11 +291,9 @@ const About = () => {
       <Tooltip id="expand-tooltip" place="top" effect="solid">
         Rozwiń
       </Tooltip>{" "}
-      {/* Tooltip dla ikony rozwiń */}
       <Tooltip id="collapse-tooltip" place="top" effect="solid">
         Zwiń
       </Tooltip>{" "}
-      {/* Tooltip dla ikony zwijania */}
       <ImageContainer>
         <motion.img
           src={img}

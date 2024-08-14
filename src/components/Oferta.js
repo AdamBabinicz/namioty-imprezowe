@@ -29,6 +29,8 @@ const Tab = styled.button`
 
   &:hover {
     background: ${({ theme }) => theme.hoverBackground};
+    color: ${({ theme }) =>
+      theme.hoverText}; // Ustawienie koloru tekstu na jasny przy hoverze
     transform: scale(1.05);
   }
 `;
