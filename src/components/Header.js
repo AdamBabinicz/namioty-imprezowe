@@ -176,11 +176,12 @@ const ButtonContainer = styled.div`
     color: #f0f0f0; /* Stały jasny tekst */
     border: none;
     padding: 15px 40px;
-    margin: 0 10px;
+    margin: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
     font-size: 1.6rem;
+    min-height: 48px;
 
     @media (max-width: 768px) {
       padding: 10px 20px;
