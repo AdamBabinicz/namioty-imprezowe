@@ -183,8 +183,9 @@ const ButtonContainer = styled.div`
     font-size: 1.6rem;
     min-height: 48px;
 
-    button:focus {
-      outline: 2px solid #ffcc00;
+    &:focus-visible {
+      outline: 3px solid #ffcc00;
+      outline-offset: 3px;
     }
 
     @media (max-width: 768px) {
