@@ -173,7 +173,7 @@ const ButtonContainer = styled.div`
 
   button {
     background: #333; /* Stałe ciemne tło */
-    color: #f0f0f0; /* Stały jasny tekst */
+    color: rgb(255, 255, 255); /* Stały jasny tekst */
     border: none;
     padding: 15px 40px;
     margin: 10px;
@@ -182,6 +182,10 @@ const ButtonContainer = styled.div`
     transition: background 0.3s ease, transform 0.3s ease;
     font-size: 1.6rem;
     min-height: 48px;
+
+    button:focus {
+      outline: 2px solid #ffcc00;
+    }
 
     @media (max-width: 768px) {
       padding: 10px 20px;
