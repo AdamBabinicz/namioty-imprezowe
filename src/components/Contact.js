@@ -32,7 +32,10 @@ const Contact = () => {
               whileTap={{ scale: 0.9, rotate: -2 }}
             >
               <FaPhone />
-              <a href="tel:+48531890827">
+              <a
+                href="tel:+48531890827"
+                aria-label="Zadzwoń na numer +48 531 890 827"
+              >
                 <span>Telefon: +48 531 890 827</span>
               </a>
             </ContactItem>
