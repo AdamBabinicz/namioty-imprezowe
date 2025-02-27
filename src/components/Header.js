@@ -182,6 +182,7 @@ const ButtonContainer = styled.div`
     transition: background 0.3s ease, transform 0.3s ease;
     font-size: 1.7rem;
     min-height: 48px;
+    line-height: 48px;
 
     &:focus-visible {
       outline: 3px solid #ffcc00;
