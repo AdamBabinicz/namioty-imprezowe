@@ -262,11 +262,11 @@ export const Header = ({ theme }) => {
       >
         Wynajem namiotów imprezowych -<br /> Komfort i styl na Twojej imprezie!
       </Promo>
-      <ButtonContainer>
+      {/* <ButtonContainer>
         <a href="tel:+48531890827">
           <button aria-label="Numer telefonu do firmy">Zadzwoń!</button>
         </a>
-      </ButtonContainer>
+      </ButtonContainer> */}
     </HeaderContainer>
   );
 };
