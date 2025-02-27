@@ -152,7 +152,7 @@ const Promo = styled(motion.div)`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 6rem;
+  margin-top: 6.5rem;
   z-index: 1;
 
   @media (max-width: 768px) {
@@ -180,7 +180,7 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     min-height: 48px;
 
     &:focus-visible {
@@ -232,41 +232,44 @@ export const Header = ({ theme }) => {
   }, []);
 
   return (
-    <HeaderContainer style={{ backgroundImage: `url(${bgImage})` }}>
-      <HeaderContent
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <TooltipWrapper>
-          <Title>
-            {sentence.split("").map((letter, index) => (
-              <AnimatedLetter
-                key={index}
-                variants={letterVariants}
-                initial="initial"
-                animate="animate"
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </AnimatedLetter>
-            ))}
-          </Title>
-          <Tooltip>Najlepsze namioty na każdą okazję!</Tooltip>
-        </TooltipWrapper>
-      </HeaderContent>
-      <Promo
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
-        Wynajem namiotów imprezowych -<br /> Komfort i styl na Twojej imprezie!
-      </Promo>
-      {/* <ButtonContainer>
-        <a href="tel:+48531890827">
-          <button aria-label="Numer telefonu do firmy">Zadzwoń!</button>
-        </a>
-      </ButtonContainer> */}
-    </HeaderContainer>
+    <>
+      <HeaderContainer style={{ backgroundImage: `url(${bgImage})` }}>
+        <HeaderContent
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <TooltipWrapper>
+            <Title>
+              {sentence.split("").map((letter, index) => (
+                <AnimatedLetter
+                  key={index}
+                  variants={letterVariants}
+                  initial="initial"
+                  animate="animate"
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </AnimatedLetter>
+              ))}
+            </Title>
+            <Tooltip>Najlepsze namioty na każdą okazję!</Tooltip>
+          </TooltipWrapper>
+        </HeaderContent>
+        <Promo
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+        >
+          Wynajem namiotów imprezowych -<br /> Komfort i styl na Twojej
+          imprezie!
+        </Promo>
+        <ButtonContainer>
+          <a href="tel:+48531890827">
+            <button aria-label="Numer telefonu do firmy">Zadzwoń!</button>
+          </a>
+        </ButtonContainer>
+      </HeaderContainer>
+    </>
   );
 };
