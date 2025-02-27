@@ -179,9 +179,11 @@ const ButtonContainer = styled.div`
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
+    pointer-events: auto;
     transition: background 0.3s ease, transform 0.3s ease;
     font-size: 1.7rem;
     min-height: 48px;
+    min-width: 48px;
     line-height: 2.5rem;
 
     &:focus-visible {
