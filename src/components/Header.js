@@ -172,17 +172,17 @@ const ButtonContainer = styled.div`
   }
 
   button {
-    background: #333; /* Stałe ciemne tło */
+    background: #222; /* Stałe ciemne tło */
     color: rgb(255, 255, 255); /* Stały jasny tekst */
     border: none;
-    padding: 15px 40px;
+    padding: 15px 50px;
     margin: 10px;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease, transform 0.3s ease;
     font-size: 1.7rem;
     min-height: 48px;
-    line-height: 48px;
+    line-height: 2.5rem;
 
     &:focus-visible {
       outline: 3px solid #ffcc00;
