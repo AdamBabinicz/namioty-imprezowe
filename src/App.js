@@ -12,7 +12,6 @@ import Gallery from "./components/Gallery";
 const Navbar = lazy(() => import("./components/Navbar"));
 const About = lazy(() => import("./components/About"));
 const Contact = lazy(() => import("./components/Contact"));
-const CookieConsent = lazy(() => import("react-cookie-consent"));
 
 const LoadingContainer = styled.div`
   display: flex;
@@ -75,33 +74,6 @@ function App() {
           <Oferta theme={theme} /> {/* Dodaj nowy komponent tutaj */}
           <Contact />
           <Footer />
-          <CookieConsent
-            debug={true}
-            location="bottom"
-            style={{
-              background: "#333",
-              textAlign: "left",
-              paddingBottom: "1rem",
-              fontSize: "1rem",
-              fontFamily: "Gideon Roman",
-            }}
-            buttonStyle={{
-              color: "#333",
-              background: "#fff",
-              fontSize: "1.125rem",
-              fontFamily: "Gideon Roman",
-              marginRight: "1rem",
-            }}
-            buttonText="OK, rozumiem"
-            expires={365}
-          >
-            "W ramach naszej witryny stosujemy pliki cookies w celu świadczenia
-            Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do
-            indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień
-            dotyczących cookies oznacza, że będą one zamieszczane w Państwa
-            urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
-            ustawień dotyczących cookies."
-          </CookieConsent>
         </Suspense>
         <ScrollToTopButton />
       </AppContainer>
